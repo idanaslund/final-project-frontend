@@ -4,6 +4,8 @@ This app has been generated using `create-react-app`, then cleaned up a little s
 
 Add components in the `src` folder and use them in `src/app.js` to get started.
 
+Testing!
+
 ## Usage
 
 1. On GitHub, click the 'use this template' button to create a new repo on your account
