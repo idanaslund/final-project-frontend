@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
+import styled from 'styled-components'
 
 import { API_URL } from 'utils/urls'
 
@@ -8,17 +9,20 @@ import user from 'reducers/user'
 
 const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
+  const [restaurants, setRestaurants] = useState ([])
+  const [restaurant, setRestaurant] = useState ({})
+
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const logout = () => {
-    batch(() => {
-      dispatch(user.actions.setUsername)
-      dispatch(user.actions.setEmail)
-      dispatch(user.actions.setAccessToken)
-    })
-  }
+  // const logout = () => {
+  //   batch(() => {
+  //     dispatch(user.actions.setUsername)
+  //     dispatch(user.actions.setEmail)
+  //     dispatch(user.actions.setAccessToken)
+  //   })
+  // }
 
   useEffect(() => {
     if (!accessToken) {
@@ -38,22 +42,66 @@ const FilteringPage = () => {
 
       fetch(API_URL('restaurants'), options)
         .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
+        .then((json) => {
+          if (json.success) {
             batch(() => {
+              setRestaurants(json.data)
               // dispatch(user.actions.setRestaurants(data.restaurants))
               dispatch(user.actions.setErrors(null))
             })
           } else {
-            dispatch(user.actions.setErrors(data.response))
+            dispatch(user.actions.setErrors(json.response))
           }
         }) 
     }
   }, [accessToken, dispatch])
 
   return (
-    <h1>Restaurants</h1>
+    <StyledRestaurantList>
+      <div className='restaurantListPage'>
+        {restaurants.map(restaurant => (
+          <Link key={restaurant.id} to={`/restaurants/${restaurant.id}`} >
+            <div className='restaurantCard'>
+              <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
+              <div>
+                <h2>{restaurant.name}</h2>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </StyledRestaurantList>
   )
 }
 
 export default FilteringPage
+
+const StyledRestaurantList = styled.main`
+  .restaurantListPage {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .restaurantImage {
+    width: 100%;
+    max-height: 140px;
+
+  }
+
+  .restaurantListPage a {
+    width: 25%;
+    color: black;
+    text-decoration: none;
+  }
+
+  .restaurantCard {
+    margin: 5px;
+    border: solid 1px black;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+`

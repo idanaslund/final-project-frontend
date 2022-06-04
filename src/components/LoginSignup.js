@@ -22,7 +22,7 @@ const LoginSignup = () => {
         if (accessToken) {
             navigate('/restaurants')
         } 
-    }, [accessToken])
+    }, [accessToken, navigate])
 
     const onFormSubmit = (e) => {
         e.preventDefault()

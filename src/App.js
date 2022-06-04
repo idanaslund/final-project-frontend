@@ -5,6 +5,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 import LandingPage from './components/LandingPage'
 import FilteringPage from 'components/FilteringPage'
+import { RestaurantDetails } from 'components/RestaurantDetails'
 
 import user from 'reducers/user'
 
@@ -23,6 +24,7 @@ export const App = () => {
          <Routes>
           <Route exact path="/" element={<LandingPage />}></Route>
           <Route path="/restaurants" element={<FilteringPage />} />
+          <Route path="/restaurants/:id" element={<RestaurantDetails />} />
         </Routes> 
         </main>
       </Provider>
