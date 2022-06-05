@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
-import LandingPage from './components/LandingPage'
-import FilteringPage from 'components/FilteringPage'
-import { RestaurantDetails } from 'components/RestaurantDetails'
+import LandingPage from './pages/LandingPage'
+import FilteringPage from 'pages/FilteringPage'
+import { RestaurantDetails } from 'pages/RestaurantDetails'
 
 import user from 'reducers/user'
 

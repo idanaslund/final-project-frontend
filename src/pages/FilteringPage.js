@@ -10,19 +10,11 @@ import user from 'reducers/user'
 const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
   const [restaurants, setRestaurants] = useState ([])
-  const [restaurant, setRestaurant] = useState ({})
+  // const [restaurant, setRestaurant] = useState ({})
 
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
-  // const logout = () => {
-  //   batch(() => {
-  //     dispatch(user.actions.setUsername)
-  //     dispatch(user.actions.setEmail)
-  //     dispatch(user.actions.setAccessToken)
-  //   })
-  // }
 
   useEffect(() => {
     if (!accessToken) {
@@ -70,6 +62,9 @@ const FilteringPage = () => {
           </Link>
         ))}
       </div>
+      <button
+        type="button" onClick={() => dispatch(user.actions.logOut())}
+      >Log out</button>
     </StyledRestaurantList>
   )
 }
