@@ -62,9 +62,11 @@ const FilteringPage = () => {
           </Link>
         ))}
       </div>
+
       <button
-        type="button" onClick={() => dispatch(user.actions.logOut())}
-      >Log out</button>
+      type="button" onClick={() => navigate('/logout')}>
+      Log out
+      </button>
     </StyledRestaurantList>
   )
 }
