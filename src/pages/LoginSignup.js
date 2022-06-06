@@ -65,7 +65,7 @@ const LoginSignup = () => {
         <div>
             {mode === 'login' && (
                 <div>
-                    <h1>LOG IN</h1>
+                    <h2>LOG IN</h2>
                     <label htmlFor='signup'>Register here:</label>
                     <input 
                         type='radio'
@@ -77,7 +77,7 @@ const LoginSignup = () => {
             )}
             {mode === 'signup' && (
                 <div>
-                    <h1>REGISTRATION</h1>
+                    <h2>REGISTRATION</h2>
                     <label htmlFor='login'>Log in here:</label>
                     <input 
                         type='radio'

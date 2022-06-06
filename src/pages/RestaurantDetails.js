@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import { API_URL } from 'utils/urls'
 
 import user from 'reducers/user'
