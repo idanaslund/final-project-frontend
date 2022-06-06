@@ -6,15 +6,17 @@ import { RES_ID } from 'utils/urls'
 
 import user from 'reducers/user'
 
+
+
 export const RestaurantDetails = () => {
 
   const accessToken = useSelector((store) => store.user.accessToken)
   // const restaurant = useSelector((store) => store.user.restaurant)
 
-  const { id } = useParams()
+  const { name } = useParams()
   const [restaurant, setRestaurant] = useState(null)
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() 
 
   const onBackButtonClick = () => {
     navigate(-1)
@@ -62,7 +64,7 @@ export const RestaurantDetails = () => {
         },
       }
 
-    fetch(RES_ID (id), options)
+    fetch(RES_ID (name), options)
       .then(res => res.json())
       .then((json) => {
         console.log(json)
@@ -76,7 +78,7 @@ export const RestaurantDetails = () => {
           dispatch(user.actions.setErrors(json.response))
         }
       })
-    }, [dispatch, id])
+    }, [dispatch, name])
 
   if (restaurant === null) {
       return <p></p>
@@ -89,7 +91,7 @@ export const RestaurantDetails = () => {
           <div>
             <h1>HI</h1>
             <button onClick={onBackButtonClick}>Go back</button>
-            <div key={restaurant._id}>
+            <div key={restaurant.name}>
               <img src={restaurant.image_URL} alt={restaurant.name} />
               <div>
                 <h2>{restaurant.name}</h2>
