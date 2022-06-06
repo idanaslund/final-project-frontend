@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useParams } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import styled from 'styled-components'
 
@@ -37,7 +37,7 @@ const FilteringPage = () => {
         .then((json) => {
           if (json.success) {
             batch(() => {
-              setRestaurants(json.data)
+              setRestaurants(json.response)
               // dispatch(user.actions.setRestaurants(data.restaurants))
               dispatch(user.actions.setErrors(null))
             })
@@ -52,7 +52,7 @@ const FilteringPage = () => {
     <StyledRestaurantList>
       <div className='restaurantListPage'>
         {restaurants.map(restaurant => (
-          <Link key={restaurant.id} to={`/restaurants/${restaurant.id}`} >
+          <Link key={restaurant._id} to={`/restaurants/id/${restaurant._id}`} >
             <div className='restaurantCard'>
               <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
               <div>
