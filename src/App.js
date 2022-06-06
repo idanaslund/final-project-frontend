@@ -13,6 +13,7 @@ import Header from 'components/Header'
 import { RestaurantDetails } from 'pages/RestaurantDetails'
 
 import user from 'reducers/user'
+import ProfilePage from 'pages/ProfilePage'
 
 
 
@@ -35,6 +36,7 @@ export const App = () => {
             <Route path="/restaurants/name/:name" element={<RestaurantDetails />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<ProfilePage />} />
             <Route path="/logout" element={<LogOut />} />
           </Routes> 
           <Footer />
