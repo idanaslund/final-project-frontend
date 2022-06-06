@@ -60,6 +60,9 @@ const user = createSlice({
     setRestaurant: (store, action) => {
       store.restaurant = action.payload
     }
+    // setResId: (store, action)=> {
+    //   store.resId = action.payload
+    // }
   }
 })
 

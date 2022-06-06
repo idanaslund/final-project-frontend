@@ -10,11 +10,11 @@ import user from 'reducers/user'
 const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
   const [restaurants, setRestaurants] = useState ([])
-  // const [restaurant, setRestaurant] = useState ({})
-
+  // const [resId, setResId] = useState ([])
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
 
   useEffect(() => {
     if (!accessToken) {
@@ -36,15 +36,17 @@ const FilteringPage = () => {
         .then((res) => res.json())
         .then((json) => {
           if (json.success) {
+            console.log(json)
             batch(() => {
               setRestaurants(json.response)
+              // setResId(json.response)
               // dispatch(user.actions.setRestaurants(data.restaurants))
               dispatch(user.actions.setErrors(null))
             })
           } else {
             dispatch(user.actions.setErrors(json.response))
           }
-        }) 
+        })   
     }
   }, [accessToken, dispatch])
 
@@ -52,14 +54,14 @@ const FilteringPage = () => {
     <StyledRestaurantList>
       <div className='restaurantListPage'>
         {restaurants.map(restaurant => (
-          <Link key={restaurant._id} to={`/restaurants/id/${restaurant._id}`} >
-            <div className='restaurantCard'>
-              <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
-              <div>
-                <h2>{restaurant.name}</h2>
-              </div>
-            </div>
-          </Link>
+          <Link key={restaurant.name} to={`/restaurants/name/${restaurant.name}`}>
+              <div className='restaurantCard'>
+               <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
+               <div>
+                  <h2>{restaurant.name}</h2>
+               </div>
+               </div>
+            </Link>
         ))}
       </div>
 
