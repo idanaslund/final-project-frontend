@@ -1,4 +1,5 @@
 export const BASE_URL = 'https://restaurants-backend-database.herokuapp.com'
+export const RES_ID = (id) => `https://restaurants-backend-database.herokuapp.com/restaurants/id/${id}`
 
 export const SIGNUP = 'signup'
 

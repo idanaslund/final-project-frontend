@@ -32,7 +32,7 @@ export const App = () => {
           <Routes>
             <Route exact path="/" element={<LandingPage />}></Route>
             <Route path="/restaurants" element={<FilteringPage />} />
-            <Route path="/restaurants/:id" element={<RestaurantDetails />} />
+            <Route path="/restaurants/id/:id" element={<RestaurantDetails />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/about" element={<About />} />
             <Route path="/logout" element={<LogOut />} />
