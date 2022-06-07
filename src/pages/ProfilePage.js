@@ -1,8 +1,13 @@
 // The user can save restaurants in their page
 // The user can give reviews on restaurants when visited
+// User can change settings, imported from UserSettings.js
+
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+
+import user from 'reducers/user'
+import UserSettings from 'components/UserSettings'
 
 
 import { EDIT_USER } from '../utils/urls'
@@ -17,8 +22,6 @@ const ProfilePage = () => {
         navigate(-1)
       }
 
-      const user = useSelector(store => store.account)
-
       const [email, setEmail] = useState(user.email)
       const [fullName, setFullName ] = useState(user.fullName)
       const [profileImage, setProfileImage] = useState(user.profileImage)
@@ -26,12 +29,12 @@ const ProfilePage = () => {
 
       const dispatch = useDispatch()
 
-    //   const onFormSubmit = (event) => {
-    //       event.preventDefault()
-    //   }
+      const onFormSubmit = (event) => {
+          event.preventDefault()
+      }
 
       const options = {
-        method: 'GET',
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': user.accessToken
@@ -57,19 +60,34 @@ const ProfilePage = () => {
       })
       .finally(() => {
           setEmail(user.email)
-          setFullName(user.setFullName)
-          setProfileImage(user.setProfileImage)
-          setPassword(user.setPassword)
+          setFullName(user.fullName)
+          setProfileImage(user.profileImage)
+          setPassword(user.password)
       })
-
 
     return (
 
         <>
         <h1>This is your profile page</h1>
 
-        <p>`Welcome, ${user.fullName}`</p>
+        <p>{`Welcome, ${user.fullName}`}</p>
 
+        <p>Email: {`${user.email}`}</p>
+        <p>Profile image: {`${user.profileImage}`}</p>
+
+      <UserSettings
+      fullName={fullName}
+      setFullName={setFullName}
+      email={email}
+      setEmail={setEmail}
+      profileImage={profileImage}
+      setProfileImage={setProfileImage}
+      password={password}
+      setPassword={setPassword}
+      onFormSubmit={onFormSubmit}
+      />
+
+      <button type="submit">Add</button>
 
 
         <button
@@ -80,7 +98,6 @@ const ProfilePage = () => {
 
 
     )
-}
-
+  }
 
 export default ProfilePage 
