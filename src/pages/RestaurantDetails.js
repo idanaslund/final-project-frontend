@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch, batch } from 'react-redux'
+import { useDispatch, batch } from 'react-redux'                      ///useSelector
 // import styled from 'styled-components'
 import { RES_ID } from 'utils/urls'
 
