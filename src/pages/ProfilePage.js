@@ -2,8 +2,8 @@
 // The user can give reviews on restaurants when visited
 // User can change settings, imported from UserSettings.js
 
-import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import user from 'reducers/user'

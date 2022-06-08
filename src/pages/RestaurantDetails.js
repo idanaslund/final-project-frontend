@@ -10,7 +10,7 @@ import user from 'reducers/user'
 
 export const RestaurantDetails = () => {
 
-  const accessToken = useSelector((store) => store.user.accessToken)
+  // const accessToken = useSelector((store) => store.user.accessToken)
   // const restaurant = useSelector((store) => store.user.restaurant)
 
   const { name } = useParams()

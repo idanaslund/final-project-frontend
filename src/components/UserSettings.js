@@ -28,14 +28,14 @@ const UserSettings = ({ fullName, setFullName, email, setEmail, profileImage, se
         onChange={(event) => setEmail(event.target.value)} 
         />
 
-        <label 
+        {/* <label 
         htmlFor="profile-image">Profile image</label>
         <input
         id="profile-image"
         type="image"
         value={profileImage}
         onChange={(event) => setProfileImage(event.target.value)} 
-        />
+        /> */}
 
     <label 
         htmlFor="password">Password</label>
