@@ -3,7 +3,7 @@
 // User can change settings, imported from UserSettings.js
 
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import user from 'reducers/user'
@@ -15,6 +15,10 @@ import { EDIT_USER } from '../utils/urls'
 
 
 const ProfilePage = () => {
+  const accessToken = useSelector((store) => store.user.accessToken)
+
+
+    const loggedinUser = useSelector(store => store.user)
 
     const navigate = useNavigate()
 
@@ -22,10 +26,10 @@ const ProfilePage = () => {
         navigate(-1)
       }
 
-      const [email, setEmail] = useState(user.email)
-      const [fullName, setFullName ] = useState(user.fullName)
-      const [profileImage, setProfileImage] = useState(user.profileImage)
-      const [password, setPassword] = useState(user.password)
+      const [email, setEmail] = useState(loggedinUser.email)
+      const [fullName, setFullName ] = useState(loggedinUser.fullName)
+      const [profileImage, setProfileImage] = useState(loggedinUser.profileImage)
+      const [password, setPassword] = useState(loggedinUser.password)
 
       const dispatch = useDispatch()
 
@@ -37,18 +41,18 @@ const ProfilePage = () => {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': user.accessToken
+          'Authorization': accessToken
         },
         body: JSON.stringify({ email: email, fullName: fullName, profileImage: profileImage, password: password })
       }
   
-      fetch(EDIT_USER(user.id), options)
+      fetch(EDIT_USER('id'), options) //behöver förmodligen ändra id här
       .then(res => res.json())
       .then(data => {
           if (data.success) {
               dispatch(user.actions.setProfileInfo(data.updateUser))
 
-            localStorage.setItem('user', JSON.stringify({
+            localStorage.setItem('loggedinUser', JSON.stringify({
                 email: data.email,
                 fullName: data.fullName,
                 profileImage: profileImage,
@@ -59,21 +63,23 @@ const ProfilePage = () => {
           }
       })
       .finally(() => {
-          setEmail(user.email)
-          setFullName(user.fullName)
-          setProfileImage(user.profileImage)
-          setPassword(user.password)
+          setEmail(loggedinUser.email)
+          setFullName(loggedinUser.fullName)
+          setProfileImage(loggedinUser.profileImage)
+          setPassword(loggedinUser.password)
       })
+
+  
 
     return (
 
         <>
         <h1>This is your profile page</h1>
 
-        <p>{`Welcome, ${user.fullName}`}</p>
+        <p>{`Welcome, ${loggedinUser.fullName}`}</p>
 
-        <p>Email: {`${user.email}`}</p>
-        <p>Profile image: {`${user.profileImage}`}</p>
+        <p>Email: {`${loggedinUser.email}`}</p>
+        <p>Profile image: {`${loggedinUser.profileImage}`}</p>
 
       <UserSettings
       fullName={fullName}
