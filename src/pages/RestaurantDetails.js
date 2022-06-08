@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch, batch } from 'react-redux'
+import { useDispatch, batch } from 'react-redux'                      ///useSelector
 // import styled from 'styled-components'
 import { RES_ID } from 'utils/urls'
 
@@ -10,7 +10,7 @@ import user from 'reducers/user'
 
 export const RestaurantDetails = () => {
 
-  const accessToken = useSelector((store) => store.user.accessToken)
+  // const accessToken = useSelector((store) => store.user.accessToken)
   // const restaurant = useSelector((store) => store.user.restaurant)
 
   const { name } = useParams()
