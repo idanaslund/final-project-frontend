@@ -85,14 +85,14 @@ export const ReviewComponent = () => {
 
   return (
     <div>
-      <ReviewForm 
+      {/* <ReviewForm 
         newReview={newReview}
         setNewReview={setNewReview}
         onNewReviewChange={handleNewReviewChange}
         onFormSubmit={onFormSubmit}
         counter={counter}
       />
-      {/* <ReviewList 
+      <ReviewList 
         loading={loading}
         reviewList={reviewList}
         handleLikesIncrease={handleLikesIncrease}

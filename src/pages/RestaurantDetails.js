@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate, useLocation } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, batch } from 'react-redux'                      ///useSelector
 // import styled from 'styled-components'
-import { RES_ID } from 'utils/urls'
+// import { RES_ID } from 'utils/urls'
 
 import user from 'reducers/user'
 
-import { ReviewComponent } from 'components/ReviewComponent'
+// import { ReviewComponent } from 'components/ReviewComponent'
 
 export const RestaurantDetails = () => {
 
@@ -74,9 +74,8 @@ export const RestaurantDetails = () => {
     fetch(`http://localhost:8080/restaurants/${id}`, options)
       .then(res => res.json())
       .then((json) => {
-        // console.log('id', restaurantId)
-        console.log('json', json)
-        console.log('restaurant.id', restaurant.id)
+        console.log('json', json.response)
+        // console.log('json', restaurant)
         if (json.success) {
           batch(() => {
             setRestaurant(json.response)
@@ -102,9 +101,7 @@ export const RestaurantDetails = () => {
             <h1>HI</h1>
             <button onClick={onBackButtonClick}>Go back</button>
             <div key={restaurant.id}>
-              {console.log('restaurant', restaurant)}
               <img src={restaurant.image_URL} alt={restaurant.name} />
-              <ReviewComponent />
               <div>
                 <h2>{restaurant.name}</h2>
                 <p>{restaurant.description}</p>
@@ -112,6 +109,7 @@ export const RestaurantDetails = () => {
             </div>
           </div>
         )}
+        {/* <ReviewComponent /> */}
       </article>
     </main>
   )
