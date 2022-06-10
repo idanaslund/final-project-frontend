@@ -6,7 +6,7 @@ import { RES_ID } from 'utils/urls'
 
 import user from 'reducers/user'
 
-
+import { ReviewComponent } from 'components/ReviewComponent'
 
 export const RestaurantDetails = () => {
 
@@ -104,6 +104,7 @@ export const RestaurantDetails = () => {
             <div key={restaurant.id}>
               {console.log('restaurant', restaurant)}
               <img src={restaurant.image_URL} alt={restaurant.name} />
+              <ReviewComponent />
               <div>
                 <h2>{restaurant.name}</h2>
                 <p>{restaurant.description}</p>
