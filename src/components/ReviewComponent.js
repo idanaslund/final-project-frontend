@@ -16,11 +16,11 @@ export const ReviewComponent = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (accessToken) {
-      fetchReviews()
-    }
-  }, [accessToken])
+  // useEffect(() => {
+  //   if (accessToken) {
+  //     fetchReviews()
+  //   }
+  // }, [accessToken])
 
   useEffect(() => {
     if (!accessToken) {
@@ -28,14 +28,14 @@ export const ReviewComponent = () => {
     }
   }, [accessToken, navigate])
 
-  const fetchReviews = () => {
-    setLoading(true)
-    fetch(API_URL(REVIEWS))
-      .then(res => res.json())
-      .then(data => setReviewList(data))
-      .catch(error => console.error(error))
-      .finally(() => setLoading(false))
-  }
+  // const fetchReviews = () => {
+  //   setLoading(true)
+  //   fetch(API_URL(REVIEWS))
+  //     .then(res => res.json())
+  //     .then(data => setReviewList(data))
+  //     .catch(error => console.error(error))
+  //     .finally(() => setLoading(false))
+  // }
 
   const handleNewReviewChange = (event) => {
     setNewReview(event.target.value)
@@ -48,7 +48,8 @@ export const ReviewComponent = () => {
     const options = {
       method: 'POST',
       header: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization : accessToken
       },
       body: JSON.stringify({
         'review': newReview
@@ -59,40 +60,40 @@ export const ReviewComponent = () => {
       fetch(API_URL(REVIEWS), options)
         .then(res => res.json())
         .then(() => {
-          fetchReviews()
+          // fetchReviews()
           setNewReview('')
           setCounter(0)
         })
     }
   }
 
-  const handleLikesIncrease = (singleReviewId) => {
+  // const handleLikesIncrease = (singleReviewId) => {
     
-    const options = {
-      method: 'POST'
-    }
+  //   const options = {
+  //     method: 'POST'
+  //   }
 
-    if (accessToken) {
+  //   if (accessToken) {
 
-      fetch(API_LIKES_URL(singleReviewId), options)
-      .then((res) => res.json())
-      .then(data => {
-        fetchReviews(data)
-      })
+  //     fetch(API_LIKES_URL(singleReviewId), options)
+  //     .then((res) => res.json())
+  //     .then(data => {
+  //       fetchReviews(data)
+  //     })
 
-    }
-  }
+  //   }
+  // }
 
   return (
     <div>
-      {/* <ReviewForm 
+      <ReviewForm 
         newReview={newReview}
         setNewReview={setNewReview}
         onNewReviewChange={handleNewReviewChange}
         onFormSubmit={onFormSubmit}
         counter={counter}
       />
-      <ReviewList 
+      {/* <ReviewList 
         loading={loading}
         reviewList={reviewList}
         handleLikesIncrease={handleLikesIncrease}

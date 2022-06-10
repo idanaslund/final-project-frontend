@@ -6,7 +6,7 @@ import { useDispatch, batch } from 'react-redux'                      ///useSele
 
 import user from 'reducers/user'
 
-// import { ReviewComponent } from 'components/ReviewComponent'
+import { ReviewComponent } from 'components/ReviewComponent'
 
 export const RestaurantDetails = () => {
 
@@ -109,7 +109,7 @@ export const RestaurantDetails = () => {
             </div>
           </div>
         )}
-        {/* <ReviewComponent /> */}
+        <ReviewComponent />
       </article>
     </main>
   )
