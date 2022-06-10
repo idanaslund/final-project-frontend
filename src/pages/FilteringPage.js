@@ -37,6 +37,7 @@ const FilteringPage = () => {
         .then((json) => {
           if (json.success) {
             console.log(json)
+       
             batch(() => {
               setRestaurants(json.response)
               // setResId(json.response)
@@ -50,11 +51,12 @@ const FilteringPage = () => {
     }
   }, [accessToken, dispatch])
 
+
   return (
     <StyledRestaurantList>
       <div className='restaurantListPage'>
         {restaurants.map(restaurant => (
-          <Link key={restaurant.name} to={`/restaurants/name/${restaurant.name}`}>
+          <Link key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
               <div className='restaurantCard'>
                <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
                <div>

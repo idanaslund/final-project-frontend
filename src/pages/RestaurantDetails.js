@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch, batch } from 'react-redux'                      ///useSelector
 // import styled from 'styled-components'
 import { RES_ID } from 'utils/urls'
@@ -13,14 +13,21 @@ export const RestaurantDetails = () => {
   // const accessToken = useSelector((store) => store.user.accessToken)
   // const restaurant = useSelector((store) => store.user.restaurant)
 
-  const { name } = useParams()
-  const [restaurant, setRestaurant] = useState(null)
+  const { id } = useParams()
+  const [restaurant, setRestaurant] = useState({})
   const navigate = useNavigate()
   const dispatch = useDispatch() 
 
   const onBackButtonClick = () => {
     navigate(-1)
   }
+
+  // const location = useLocation()
+  // const { restaurantId } = location.state
+
+  // useEffect(() => {
+  //   console.log(restaurantId)
+  // }, [])
 
   // useEffect(() => {
   //   if (!accessToken) {
@@ -64,13 +71,16 @@ export const RestaurantDetails = () => {
         },
       }
 
-    fetch(RES_ID (name), options)
+    fetch(`http://localhost:8080/restaurants/${id}`, options)
       .then(res => res.json())
       .then((json) => {
-        console.log(json)
+        // console.log('id', restaurantId)
+        console.log('json', json)
+        console.log('restaurant.id', restaurant.id)
         if (json.success) {
           batch(() => {
             setRestaurant(json.response)
+            console.log('json.response', json.response)
             dispatch(user.actions.setErrors(null))
             
           })
@@ -78,7 +88,7 @@ export const RestaurantDetails = () => {
           dispatch(user.actions.setErrors(json.response))
         }
       })
-    }, [dispatch, name])
+    }, [dispatch, id])
 
   if (restaurant === null) {
       return <p></p>
@@ -91,7 +101,8 @@ export const RestaurantDetails = () => {
           <div>
             <h1>HI</h1>
             <button onClick={onBackButtonClick}>Go back</button>
-            <div key={restaurant.name}>
+            <div key={restaurant.id}>
+              {console.log('restaurant', restaurant)}
               <img src={restaurant.image_URL} alt={restaurant.name} />
               <div>
                 <h2>{restaurant.name}</h2>

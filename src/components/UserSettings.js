@@ -37,17 +37,17 @@ const UserSettings = ({ fullName, setFullName, email, setEmail, profileImage, se
         onChange={(event) => setProfileImage(event.target.value)} 
         /> */}
 
-    <label 
-        htmlFor="password">Password</label>
-        <input
-        id="password"
-        type="password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)} 
-        />
-    </form>
+        <label 
+            htmlFor="password">Password</label>
+            <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)} 
+            />
+        </form>
 
-        </>
+    </>
     )
 
 }
