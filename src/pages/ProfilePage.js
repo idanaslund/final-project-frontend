@@ -6,16 +6,16 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import user from 'reducers/user'
+// import user from 'reducers/user'
 import UserSettings from 'components/UserSettings'
 
 
-import { EDIT_USER } from '../utils/urls'
+// import { EDIT_USER } from '../utils/urls'
 
 
 
 const ProfilePage = () => {
-  const accessToken = useSelector((store) => store.user.accessToken)
+  // const accessToken = useSelector((store) => store.user.accessToken)
 
 
     const loggedinUser = useSelector(store => store.user)
@@ -31,43 +31,43 @@ const ProfilePage = () => {
       const [profileImage, setProfileImage] = useState(loggedinUser.profileImage)
       const [password, setPassword] = useState(loggedinUser.password)
 
-      const dispatch = useDispatch()
+      // const dispatch = useDispatch()
 
       const onFormSubmit = (event) => {
           event.preventDefault()
       }
 
-      const options = {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': accessToken
-        },
-        body: JSON.stringify({ email: email, fullName: fullName, profileImage: profileImage, password: password })
-      }
+      // const options = {
+      //   method: 'PATCH',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     'Authorization': accessToken
+      //   },
+      //   body: JSON.stringify({ email: email, fullName: fullName, profileImage: profileImage, password: password })
+      // }
   
-      fetch(EDIT_USER('id'), options) //behöver förmodligen ändra id här
-      .then(res => res.json())
-      .then(data => {
-          if (data.success) {
-              dispatch(user.actions.setProfileInfo(data.updateUser))
+      // fetch(EDIT_USER('id'), options) //behöver förmodligen ändra id här
+      // .then(res => res.json())
+      // .then(data => {
+      //     if (data.success) {
+      //         dispatch(user.actions.setProfileInfo(data.updateUser))
 
-            localStorage.setItem('loggedinUser', JSON.stringify({
-                email: data.email,
-                fullName: data.fullName,
-                profileImage: profileImage,
-                password: password
-            }))
-          } else {
-              dispatch(user.actions.setErrors(data))
-          }
-      })
-      .finally(() => {
-          setEmail(loggedinUser.email)
-          setFullName(loggedinUser.fullName)
-          setProfileImage(loggedinUser.profileImage)
-          setPassword(loggedinUser.password)
-      })
+      //       localStorage.setItem('loggedinUser', JSON.stringify({
+      //           email: data.email,
+      //           fullName: data.fullName,
+      //           profileImage: profileImage,
+      //           password: password
+      //       }))
+      //     } else {
+      //         dispatch(user.actions.setErrors(data))
+      //     }
+      // })
+      // .finally(() => {
+      //     setEmail(loggedinUser.email)
+      //     setFullName(loggedinUser.fullName)
+      //     setProfileImage(loggedinUser.profileImage)
+      //     setPassword(loggedinUser.password)
+      // })
 
   
 
