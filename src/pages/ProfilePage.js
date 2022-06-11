@@ -61,9 +61,9 @@ const ProfilePage = () => {
       <p>Profile image:</p>
 
       <form onSubmit={onFormSubmit}>
-        <label htmlFor="fullname">Full name</label>
+        <label htmlFor="username">Username</label>
         <input
-          id="fullname"
+          id="username"
           type="text"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
