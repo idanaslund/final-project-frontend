@@ -11,6 +11,7 @@ const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
   const [restaurants, setRestaurants] = useState ([])
   // const [resId, setResId] = useState ([])
+  const [filter, setFilter] = useState({"type_of_food":{}})
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -52,18 +53,35 @@ const FilteringPage = () => {
   }, [accessToken, dispatch])
 
 
-  // const selected = () => {
-  //   const category = questions.options[questions.selectedIndex].parentNode.label
+  const updateFilter = (e) => {
 
-  //    const value = questions.options[questions.selectedIndex].value
+    console.log(e)
+    console.log(filter)
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+//   const selected = () => {
+//     const category = questions.options[questions.selectedIndex].parentNode.label
+
+//      const value = questions.options[questions.selectedIndex].value
     
   
-  //   currentOption = {
-  //     category: category,
-  //     value: value
-  //   }
-  //   console.log ('Question selected', currentOption)
-  // }
+//     currentOption = {
+//       category: category,
+//       value: value
+//     }
+//     console.log ('Question selected', currentOption)
+//   }
 
 
 //   const checkCategory = () => {
@@ -94,7 +112,7 @@ const FilteringPage = () => {
 // const filterCategories = (keep) => {
 
 //   const { category, value } = currentOption
-//
+
 //   if (category === 'meals') {
 //     if (keep) {
 //       alert(
@@ -172,7 +190,7 @@ const FilteringPage = () => {
 
   return (
     <StyledRestaurantList>
-      <form>
+      {/* <form>
       <label>Type of food</label>
       <select name="Foods">
         <option value ="Nordic">Nordic</option>
@@ -187,9 +205,9 @@ const FilteringPage = () => {
         <option value ="Latin American">Latin American</option>
         <option value ="Middle Eastern">Middle Eastern</option>
       </select>
-      </form>
+      </form> */}
 
-      <form>
+      {/* <form>
       <label>Bugdet</label>
       <select name="Budget">
         <option value ="Low">Low</option>
@@ -252,8 +270,66 @@ const FilteringPage = () => {
         <label>No
         <input type="radio" value="false"/>
         </label>
+      </form> */}
+
+
+      <form>Type of food
+        <label>Nordic
+        <input type="checkbox" value="Nordic" checked={this.filter.type_of_food.Nordic} onChange={updateFilter}/>
+        </label>
+        <label>Swedish
+        <input type="checkbox" value="Swedish" checked={this.filter.type_of_food.Swedish} onChange={updateFilter}/>
+        </label>
+        <label>Italian
+        <input type="checkbox" value="Italian" checked={this.filter.type_of_food.Italian} onChange={updateFilter}/>
+        </label>
+        <label>Asian
+        <input type="checkbox" value="Asian" checked={this.filter.type_of_food.Asian} onChange={updateFilter}/>
+        </label>
+        <label>Spanish
+        <input type="checkbox" value="Spanish" checked={this.filter.type_of_food.Spanish} onChange={updateFilter}/>
+        </label>
+        <label>American
+        <input type="checkbox" value="American" checked={this.filter.type_of_food.American} onChange={updateFilter}/>
+        </label>
+        <label>European
+        <input type="checkbox" value="European" checked={this.filter.type_of_food.European} onChange={updateFilter}/>
+        </label>
+        <label>Mediterranian
+        <input type="checkbox" value="Mediterranian" checked={this.filter.type_of_food.Mediterranian} onChange={updateFilter}/>
+        </label>
+        <label>Japanese
+        <input type="checkbox" value="Japanese" checked={this.filter.type_of_food.Japanese} onChange={updateFilter}/>
+        </label>
+        <label>Latin American
+        <input type="checkbox" value="Latin American" checked={this.filter.type_of_food.Latin_American} onChange={updateFilter}/>
+        </label>
+        <label>Middle Eastern
+        <input type="checkbox" value="Middle Eastern" checked={this.filter.type_of_food.Middle_Eastern} onChange={updateFilter}/>
+        </label>
+        
       </form>
 
+      {/* <form>Budget
+        <label>Low
+        <input type="checkbox" value="Low"/>
+        </label>
+        <label>Medium
+        <input type="checkbox" value="Medium"/>
+        </label>
+        <label>High
+        <input type="checkbox" value="High"/>
+        </label>
+        <label>Low
+        <input type="checkbox" value="Low"/>
+        </label>
+        <label>Medium
+        <input type="checkbox" value="Medium"/>
+        </label>
+        <label>High
+        <input type="checkbox" value="High"/>
+        </label>
+      </form>
 
       <form>Budget
         <label>Low
@@ -274,9 +350,6 @@ const FilteringPage = () => {
         <label>High
         <input type="checkbox" value="High"/>
         </label>
-      </form>
-
-      <form>Budget
         <label>Low
         <input type="checkbox" value="Low"/>
         </label>
@@ -295,46 +368,7 @@ const FilteringPage = () => {
         <label>High
         <input type="checkbox" value="High"/>
         </label>
-      </form>
-
-      <form>Budget
-        <label>Low
-        <input type="checkbox" value="Low"/>
-        </label>
-        <label>Medium
-        <input type="checkbox" value="Medium"/>
-        </label>
-        <label>High
-        <input type="checkbox" value="High"/>
-        </label>
-        <label>Low
-        <input type="checkbox" value="Low"/>
-        </label>
-        <label>Medium
-        <input type="checkbox" value="Medium"/>
-        </label>
-        <label>High
-        <input type="checkbox" value="High"/>
-        </label>
-        <label>Low
-        <input type="checkbox" value="Low"/>
-        </label>
-        <label>Medium
-        <input type="checkbox" value="Medium"/>
-        </label>
-        <label>High
-        <input type="checkbox" value="High"/>
-        </label>
-        <label>Low
-        <input type="checkbox" value="Low"/>
-        </label>
-        <label>Medium
-        <input type="checkbox" value="Medium"/>
-        </label>
-        <label>High
-        <input type="checkbox" value="High"/>
-        </label>
-      </form>
+      </form> */}
      
 
   
