@@ -3,7 +3,7 @@
 // User can change settings, imported from UserSettings.js
 
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 // import user from 'reducers/user'
