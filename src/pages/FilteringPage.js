@@ -52,6 +52,124 @@ const FilteringPage = () => {
   }, [accessToken, dispatch])
 
 
+  // const selected = () => {
+  //   const category = questions.options[questions.selectedIndex].parentNode.label
+
+  //    const value = questions.options[questions.selectedIndex].value
+    
+  
+  //   currentOption = {
+  //     category: category,
+  //     value: value
+  //   }
+  //   console.log ('Question selected', currentOption)
+  // }
+
+
+//   const checkCategory = () => {
+//   if (category === 'meals' || category === 'budget') {
+//     if( json.response.meals.includes(value) || json.response.budget.includes(value)) {
+//       filterCategories(true)
+//   } else {
+//     filterCategories(false)
+//    }
+//   } else if (category === 'type_of_food' || category === 'portion_size') {
+//     if( json.response.type_of_food.includes(value) || json.response.portion_size.includes(value)) {
+//       filterCategories(true)
+//   } else {
+//     filterCategories(false)
+//    }
+//   } else if (category === 'target_audience' || category === 'restaurant_focus') {
+//     if( json.response.target_audience.includes(value) || json.response.restaurant_focus.includes(value)) {
+//       filterCategories(true)
+//   } else {
+//     filterCategories(false)
+//    }
+//   }
+// }
+
+
+
+
+// const filterCategories = (keep) => {
+
+//   const { category, value } = currentOption
+//
+//   if (category === 'meals') {
+//     if (keep) {
+//       alert(
+//         `Yes, ${value} is correct! Keep all the people with that accessory.`
+//       )
+//       charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
+//     } else {
+//       alert(
+//         `No, ${value} was wrong! Remove all people with that accessory.`
+//       )
+//       charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
+//     }
+//   } else if (category === 'budget') {
+//     if (keep) {
+//       alert(
+//         `Yes, ${value} is correct! Keep the ${value}.`
+//       )
+//       charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
+//     } else {
+//       alert(
+//         `No, ${value} was wrong! Remove the ${value}.`
+//       )
+//       charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
+//     }
+//   }else if (category === 'type_of_food') {
+//       if (keep) {
+//         alert(
+//           `Yes, ${value} is correct! Keep all the people with that accessory.`
+//         )
+//         charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
+//       } else {
+//         alert(
+//           `No, ${value} was wrong! Remove all people with that accessory.`
+//         )
+//         charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
+//       }
+//     } else if (category === 'portion_size') {
+//       if (keep) {
+//         alert(
+//           `Yes, ${value} is correct! Keep the ${value}.`
+//         )
+//         charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
+//       } else {
+//         alert(
+//           `No, ${value} was wrong! Remove the ${value}.`
+//         )
+//         charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
+//       }
+//     } else if (category === 'target_audience') {
+//       if (keep) {
+//         alert(
+//           `Yes, ${value} is correct! Keep the ${value}.`
+//         )
+//         charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
+//       } else {
+//         alert(
+//           `No, ${value} was wrong! Remove the ${value}.`
+//         )
+//         charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
+//       }
+//     } else if (category === 'restaurant_focus') {
+//       if (keep) {
+//         alert(
+//           `Yes, ${value} is correct! Keep the ${value}.`
+//         )
+//         charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
+//       } else {
+//         alert(
+//           `No, ${value} was wrong! Remove the ${value}.`
+//         )
+//         charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
+//       }
+//   }
+
+
   return (
     <StyledRestaurantList>
       <form>
@@ -218,6 +336,10 @@ const FilteringPage = () => {
         </label>
       </form>
      
+
+  
+
+
       <div className='restaurantListPage'>
         {restaurants.map(restaurant => (
           <Link key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
