@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Component } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import styled from 'styled-components'
@@ -11,7 +11,13 @@ const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
   const [restaurants, setRestaurants] = useState ([])
   // const [resId, setResId] = useState ([])
-  const [filter, setFilter] = useState({"type_of_food":{}})
+  // const [filter, setFilter] = useState({"type_of_food":{}})
+
+export default class App extends Component {
+  state = {
+    "type_of_food": 
+  }
+}
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
