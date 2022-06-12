@@ -51,8 +51,8 @@ const user = createSlice({
     logIn: (store, action) => {
       store.loggedIn = action.payload
     },
-    logOut: () => {
-      return initialState
+    logOut: (store, action) => {
+      store.accessToken = null
     },
     setRestaurants: (store, action) => {
       store.restaurants = action.payload

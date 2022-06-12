@@ -18,3 +18,7 @@ export const SIGNUP = 'signup'
 export const EDIT_USER = (id) => `http://localhost:8080/profile/${id}`
 
 export const API_URL = (slug) => `${BASE_URL}/${slug}`
+
+export const API_LIKES_URL = (singleReview) => `http://localhost:8080/reviews/${singleReview}/like`
+
+export const REVIEWS = (slug) => `http://localhost:8080/reviews`

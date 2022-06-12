@@ -9,6 +9,8 @@ const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter }) => 
         <label htmlFor='newReview'>
           How was your experience at this restaurant?
         </label>
+        <br /> 
+        <br />
         <textarea 
           className={
             counter < 6 || counter > 140 ? 'diabled-textarea' : 'textarea'
@@ -25,10 +27,11 @@ const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter }) => 
           {140 - counter} / 140 characters left
         </p>
         <div>
+    
           <button
           type='submit'
           disabled={newReview.length < 6 || newReview.length > 140}
-          >
+          >Submit review
           </button>
         </div>
       </div>
