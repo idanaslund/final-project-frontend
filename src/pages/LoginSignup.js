@@ -26,40 +26,44 @@ const LoginSignup = () => {
 
     const onFormSubmit = (e) => {
         e.preventDefault()
-
+    
         const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({username: username, email: email, password: password})
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password})
         }
-        console.log(API_URL(mode))
+    
         fetch(API_URL(mode), options)
           .then((res) => res.json())
           .then((data) => {
-              console.log(data)
-              if (data.success) {
-                batch(() => {
-                    dispatch(user.actions.setID(data.response.id))
-                    dispatch(user.actions.setUsername(data.response.username))
-                    dispatch(user.actions.setEmail(data.response.email))
-                    dispatch(user.actions.setAccessToken(data.response.accessToken))
-                    dispatch(user.actions.setErrors(null))
-                })
-              } else {
-                  console.log(data)
-                batch(() => {
-                    dispatch(user.actions.setID(null))
-                    dispatch(user.actions.setUsername(null))
-                    dispatch(user.actions.setEmail(null))
-                    dispatch(user.actions.setAccessToken(null))
-                    dispatch(user.actions.setErrors(data.response))
-                })
-                setError('Something went wrong, try again.')
-              }
+            console.log(data)
+            if (data.success) {
+              batch(() => {
+                dispatch(user.actions.setId(data.response.userId))
+                dispatch(user.actions.setUsername(data.response.username))
+                dispatch(user.actions.setEmail(data.response.email))
+                dispatch(user.actions.setAccessToken(data.response.accessToken))
+                dispatch(user.actions.setErrors(null))
+    
+                localStorage.setItem('user', JSON.stringify({
+                  accessToken: data.response.accessToken,
+                  userId: data.response.userId,
+                  username: data.response.username,
+                  email: data.response.email
+                }))
+              })
+            } else {
+              batch(() => {
+                dispatch(user.actions.setId(null))
+                dispatch(user.actions.setUsername(null))
+                dispatch(user.actions.setEmail(null))
+                dispatch(user.actions.setAccessToken(null))
+                dispatch(user.actions.setErrors(data.response))
+              })
+              setError('Something went wrong, try again.')
+            }
           })
-    }
+      }
 
     return (
         <div>

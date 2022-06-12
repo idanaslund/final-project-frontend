@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = localStorage.getItem('user') ? {
-  id: JSON.parse(localStorage.getItem('user')).id,
+  id: JSON.parse(localStorage.getItem('user')).userId,
   username: JSON.parse(localStorage.getItem('user')).username,
   email: JSON.parse(localStorage.getItem('user')).email,
-  fullName: JSON.parse(localStorage.getItem('user')).fullName,
   profileImage: JSON.parse(localStorage.getItem('user')).profileImage,
   accessToken: JSON.parse(localStorage.getItem('user')).accessToken,
   errors: null,
@@ -15,7 +14,6 @@ const initialState = localStorage.getItem('user') ? {
   id: null, 
   username: null, 
   email: null,
-  fullName: null, 
   profileImage: null, 
   accessToken: null, 
   errors: null, 
@@ -26,7 +24,7 @@ const user = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setID: (store, action) => {
+    setId: (store, action) => {
       store.id = action.payload
     },
     setUsername: (store, action) => {
@@ -38,9 +36,8 @@ const user = createSlice({
     setAccessToken: (store, action) => {
       store.accessToken = action.payload
     },
-    setProfileInfo: (store, action) => {
-      store.fullName = action.payload.fullName
-      store.profileImage = action.payload.profileImage
+    setProfileImage: (store, action) => {
+      store.profileImage = action.payload
     },
     setErrors: (store, action) => {
       store.errors = action.payload
@@ -51,8 +48,8 @@ const user = createSlice({
     logIn: (store, action) => {
       store.loggedIn = action.payload
     },
-    logOut: () => {
-      return initialState
+    logOut: (store, action) => {
+      store.accessToken = null
     },
     setRestaurants: (store, action) => {
       store.restaurants = action.payload
