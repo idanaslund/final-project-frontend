@@ -54,7 +54,6 @@ const ProfilePage = () => {
           // setPhone(data.response.phone)
           // setBio(data.response.bio)
 
-         
 
         } else {
           dispatch(user.actions.setErrors(data))
