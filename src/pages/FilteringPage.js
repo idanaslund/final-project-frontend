@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from 'react'
+import React, { useEffect, useState } from 'react'       ///  Component
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import styled from 'styled-components'
@@ -10,15 +10,11 @@ import user from 'reducers/user'
 const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
   const [restaurants, setRestaurants] = useState ([])
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]) 
   // const [resId, setResId] = useState ([])
-  // const [filter, setFilter] = useState({"type_of_food":{}})
+  const [typeOfFoodFilter, setTypeOfFoodFilter] = useState([]) // Lägg till alla filter som är arrays
 
-export default class App extends Component {
-  state = {
-    "type_of_food": 
-  }
-}
-
+  
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -58,141 +54,32 @@ export default class App extends Component {
     }
   }, [accessToken, dispatch])
 
+  useEffect(() => { // Lägg till if-satser 
+    const filteredRestaurants = restaurants.filter(restaurant => 
+      restaurant.type_of_food.filter(type => typeOfFoodFilter.includes(type)).length > 0)
+    setFilteredRestaurants(filteredRestaurants) // Flytta längst ned  
+    console.log(filteredRestaurants)
+  }, [typeOfFoodFilter])           ///Lägg in alla useStates
 
   const updateFilter = (e) => {
-
+    const { value, checked } = e.target
+    console.log(`${value} is ${checked}`)
+    console.log(typeOfFoodFilter)
+    
+    if(checked) {
+      setTypeOfFoodFilter(arr => [...arr, value])
+      console.log(typeOfFoodFilter)
+    } else {
+      setTypeOfFoodFilter(arr => arr.filter((type) => type !== value))
+      console.log(typeOfFoodFilter)
+    }
+    
     console.log(e)
-    console.log(filter)
   }
 
 
 
-
-
-
-
-
-
-
-
-
-//   const selected = () => {
-//     const category = questions.options[questions.selectedIndex].parentNode.label
-
-//      const value = questions.options[questions.selectedIndex].value
-    
   
-//     currentOption = {
-//       category: category,
-//       value: value
-//     }
-//     console.log ('Question selected', currentOption)
-//   }
-
-
-//   const checkCategory = () => {
-//   if (category === 'meals' || category === 'budget') {
-//     if( json.response.meals.includes(value) || json.response.budget.includes(value)) {
-//       filterCategories(true)
-//   } else {
-//     filterCategories(false)
-//    }
-//   } else if (category === 'type_of_food' || category === 'portion_size') {
-//     if( json.response.type_of_food.includes(value) || json.response.portion_size.includes(value)) {
-//       filterCategories(true)
-//   } else {
-//     filterCategories(false)
-//    }
-//   } else if (category === 'target_audience' || category === 'restaurant_focus') {
-//     if( json.response.target_audience.includes(value) || json.response.restaurant_focus.includes(value)) {
-//       filterCategories(true)
-//   } else {
-//     filterCategories(false)
-//    }
-//   }
-// }
-
-
-
-
-// const filterCategories = (keep) => {
-
-//   const { category, value } = currentOption
-
-//   if (category === 'meals') {
-//     if (keep) {
-//       alert(
-//         `Yes, ${value} is correct! Keep all the people with that accessory.`
-//       )
-//       charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
-//     } else {
-//       alert(
-//         `No, ${value} was wrong! Remove all people with that accessory.`
-//       )
-//       charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
-//     }
-//   } else if (category === 'budget') {
-//     if (keep) {
-//       alert(
-//         `Yes, ${value} is correct! Keep the ${value}.`
-//       )
-//       charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
-//     } else {
-//       alert(
-//         `No, ${value} was wrong! Remove the ${value}.`
-//       )
-//       charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
-//     }
-//   }else if (category === 'type_of_food') {
-//       if (keep) {
-//         alert(
-//           `Yes, ${value} is correct! Keep all the people with that accessory.`
-//         )
-//         charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
-//       } else {
-//         alert(
-//           `No, ${value} was wrong! Remove all people with that accessory.`
-//         )
-//         charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
-//       }
-//     } else if (category === 'portion_size') {
-//       if (keep) {
-//         alert(
-//           `Yes, ${value} is correct! Keep the ${value}.`
-//         )
-//         charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
-//       } else {
-//         alert(
-//           `No, ${value} was wrong! Remove the ${value}.`
-//         )
-//         charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
-//       }
-//     } else if (category === 'target_audience') {
-//       if (keep) {
-//         alert(
-//           `Yes, ${value} is correct! Keep the ${value}.`
-//         )
-//         charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
-//       } else {
-//         alert(
-//           `No, ${value} was wrong! Remove the ${value}.`
-//         )
-//         charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
-//       }
-//     } else if (category === 'restaurant_focus') {
-//       if (keep) {
-//         alert(
-//           `Yes, ${value} is correct! Keep the ${value}.`
-//         )
-//         charactersInPlay = charactersInPlay.filter((person) => person[category].includes(value))
-//       } else {
-//         alert(
-//           `No, ${value} was wrong! Remove the ${value}.`
-//         )
-//         charactersInPlay = charactersInPlay.filter((person) => !person[category].includes(value))
-//       }
-//   }
-
 
   return (
     <StyledRestaurantList>
@@ -279,39 +166,67 @@ export default class App extends Component {
       </form> */}
 
 
+
+      {/* Testade från https://www.freecodecamp.org/news/how-to-work-with-multiple-checkboxes-in-react/
+      
+      <ul className="toppings-list">
+        {restaurants.map(({ name, type_of_food }, index) => {
+          return (
+            <li key={index}>
+              <div className="toppings-list-item">
+                <div className="left-section">
+                  <input
+                    type="checkbox"
+                    id={`custom-checkbox-${index}`}
+                    name={name}
+                    value={name}
+                    checked={filter[index]}
+                    onChange={() => handleOnChange(index)}
+                  />
+                  <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                </div>
+                <div className="right-section">{getFormattedPrice(price)}</div>
+              </div>
+            </li>
+          )
+        })}
+        </ul> */}
+
+
+
       <form>Type of food
         <label>Nordic
-        <input type="checkbox" value="Nordic" checked={this.filter.type_of_food.Nordic} onChange={updateFilter}/>
+        <input type="checkbox" value="Nordic" checked={typeOfFoodFilter.includes('Nordic')} onChange={updateFilter}/>
         </label>
         <label>Swedish
-        <input type="checkbox" value="Swedish" checked={this.filter.type_of_food.Swedish} onChange={updateFilter}/>
+        <input type="checkbox" value="Swedish" checked={typeOfFoodFilter.includes('Swedish')} onChange={updateFilter}/>
         </label>
         <label>Italian
-        <input type="checkbox" value="Italian" checked={this.filter.type_of_food.Italian} onChange={updateFilter}/>
+        <input type="checkbox" value="Italian" checked={typeOfFoodFilter.includes('Italian')} onChange={updateFilter}/>
         </label>
         <label>Asian
-        <input type="checkbox" value="Asian" checked={this.filter.type_of_food.Asian} onChange={updateFilter}/>
+        <input type="checkbox" value="Asian" checked={typeOfFoodFilter.includes('Asian')} onChange={updateFilter}/>
         </label>
         <label>Spanish
-        <input type="checkbox" value="Spanish" checked={this.filter.type_of_food.Spanish} onChange={updateFilter}/>
+        <input type="checkbox" value="Spanish" checked={typeOfFoodFilter.includes('Spanish')} onChange={updateFilter}/>
         </label>
         <label>American
-        <input type="checkbox" value="American" checked={this.filter.type_of_food.American} onChange={updateFilter}/>
+        <input type="checkbox" value="American" checked={typeOfFoodFilter.includes('American')} onChange={updateFilter}/>
         </label>
         <label>European
-        <input type="checkbox" value="European" checked={this.filter.type_of_food.European} onChange={updateFilter}/>
+        <input type="checkbox" value="European" checked={typeOfFoodFilter.includes('European')} onChange={updateFilter}/>
         </label>
         <label>Mediterranian
-        <input type="checkbox" value="Mediterranian" checked={this.filter.type_of_food.Mediterranian} onChange={updateFilter}/>
+        <input type="checkbox" value="Mediterranian" checked={typeOfFoodFilter.includes('Mediterranian')} onChange={updateFilter}/>
         </label>
         <label>Japanese
-        <input type="checkbox" value="Japanese" checked={this.filter.type_of_food.Japanese} onChange={updateFilter}/>
+        <input type="checkbox" value="Japanese" checked={typeOfFoodFilter.includes('Japanese')} onChange={updateFilter}/>
         </label>
         <label>Latin American
-        <input type="checkbox" value="Latin American" checked={this.filter.type_of_food.Latin_American} onChange={updateFilter}/>
+        <input type="checkbox" value="Latin American" checked={typeOfFoodFilter.includes('Latin American')} onChange={updateFilter}/>
         </label>
         <label>Middle Eastern
-        <input type="checkbox" value="Middle Eastern" checked={this.filter.type_of_food.Middle_Eastern} onChange={updateFilter}/>
+        <input type="checkbox" value="Middle Eastern" checked={typeOfFoodFilter.includes('Middle Eastern')} onChange={updateFilter}/>
         </label>
         
       </form>
@@ -380,7 +295,9 @@ export default class App extends Component {
   
 
 
-      <div className='restaurantListPage'>
+      
+      {typeOfFoodFilter.length == 0 ? (                        ///// Här ska det vara filteredRestaurants.length == 0
+        <div className='restaurantListPage'>
         {restaurants.map(restaurant => (
           <Link key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
               <div className='restaurantCard'>
@@ -390,8 +307,26 @@ export default class App extends Component {
                </div>
                </div>
             </Link>
+
         ))}
-      </div>
+        </div>
+        ): (
+          <div className='restaurantListPage'>
+          {filteredRestaurants.map(restaurant => (
+            <Link key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
+                <div className='restaurantCard'>
+                 <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
+                 <div>
+                    <h2>{restaurant.name}</h2>
+                 </div>
+                 </div>
+              </Link>
+          ))}
+          </div>
+          
+        )}
+
+      
 
       <button
       type="button" onClick={() => navigate('/logout')}>
