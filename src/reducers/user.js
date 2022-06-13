@@ -6,6 +6,9 @@ const initialState = localStorage.getItem('user') ? {
   email: JSON.parse(localStorage.getItem('user')).email,
   profileImage: JSON.parse(localStorage.getItem('user')).profileImage,
   accessToken: JSON.parse(localStorage.getItem('user')).accessToken,
+  fullName: JSON.parse(localStorage.getItem('user')).fullName,
+  phone: JSON.parse(localStorage.getItem('user')).phone,
+  bio: JSON.parse(localStorage.getItem('user')).bio,
   errors: null,
   signup: false
 }
@@ -16,6 +19,9 @@ const initialState = localStorage.getItem('user') ? {
   email: null,
   profileImage: null, 
   accessToken: null, 
+  fullName: null,
+  phone: null,
+  bio: null,
   errors: null, 
   signup: false
 }
@@ -38,6 +44,15 @@ const user = createSlice({
     },
     setProfileImage: (store, action) => {
       store.profileImage = action.payload
+    },
+    setFullName: (store, action) => {
+      store.fullName = action.payload
+    },
+    setPhone: (store, action) => {
+      store.phone = action.payload
+    },
+    setBio: (store, action) => {
+      store.bio = action.payload
     },
     setErrors: (store, action) => {
       store.errors = action.payload

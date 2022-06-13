@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import user from 'reducers/user'
 import { EDIT_USER } from '../utils/urls'
 
 const ProfilePage = () => {
-  const [email, setEmail] = useState(useSelector((store) => store.user.email))
-  const [username, setUsername] = useState(useSelector((store) => store.user.username))
-  const [userId, setUserId] = useState(useSelector((store) => store.user.id))
-  const [profileImage, setProfileImage] = useState("")
-  const [password, setPassword] = useState("")
+  // const [userId, setUserId] = useState(useSelector((store) => store.user.id))
+  const [fullName, setFullName] = useState(useSelector((store) => store.user.fullName))
+  const [phone, setPhone] = useState(useSelector((store) => store.user.phone))
+  const [bio, setBio] = useState(useSelector((store) => store.user.bio))
+  const [error, setError] = useState('')
 
-  const accessToken = JSON.parse(localStorage.getItem("user"))?.accessToken;
-
+  const accessToken = JSON.parse(localStorage.getItem('user'))?.accessToken
+  const userId = JSON.parse(localStorage.getItem('user'))?.userId
+ 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const onBackButtonClick = () => navigate(-1)
-
-  const dispatch = useDispatch()
 
   const onFormSubmit = (event) => {
     event.preventDefault()
@@ -29,63 +29,74 @@ const ProfilePage = () => {
         'Content-Type': 'application/json',
         'Authorization': accessToken
       },
-      body: JSON.stringify({ email, username, profileImage, password })
+      body: JSON.stringify({ fullName, phone, bio  })            
     }
 
-    fetch(EDIT_USER(userId), options) //behöver förmodligen ändra id här
+    fetch(EDIT_USER(userId), options) 
       .then(res => res.json())
       .then(data => {
-        if (data.success) {
+        if (data.success) {        
+            console.log(data)
+            batch(() => {
+              dispatch(user.actions.setFullName(data.response.fullName))
+              dispatch(user.actions.setPhone(data.response.phone))
+              dispatch(user.actions.setBio(data.response.bio))
+              dispatch(user.actions.setErrors(null))
 
           localStorage.setItem('user', JSON.stringify({
-            email: data.updateUser.email,
-            username: data.updateUser.username,
-            accessToken: data.updateUser.accessToken,
-            userId: data.updateUser._id
+            fullName: data.response.fullName,
+            phone: data.response.phone,
+            bio: data.response.bio
           }))
+          alert('Your information has been updated!')
+        })
+          // setFullName(data.response.fullName)
+          // setPhone(data.response.phone)
+          // setBio(data.response.bio)
 
-          setUserId(data.updateUser._id)
-          setEmail(data.updateUser.email)
-          setUsername(data.updateUser.username)
+         
+
         } else {
           dispatch(user.actions.setErrors(data))
         }
+        setError('Something went wrong, try again.')
       })
   }
 
   return (
     <>
       <h1>This is your profile page</h1>
-      <p>Welcome {username}</p>
-      <p>Email: {email}</p>
-      <p>Profile image:</p>
+
+      <p>Welcome {fullName}</p>
+      <p>Phone number: {phone}</p>
+      <p>Bio: {bio}</p>
 
       <form onSubmit={onFormSubmit}>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="fullName">Your full name</label>
         <input
-          id="username"
+          id="fullName"
           type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
+          value={fullName}
+          onChange={(event) => setFullName(event.target.value)}
         />
 
         <label
-          htmlFor="email">Email</label>
+          htmlFor="phone">Phone number</label>
         <input
-          id="email"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          id="phone"
+          type="phone"
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
         />
         <label
-          htmlFor="password">Password</label>
+          htmlFor="bio">Bio</label>
         <input
-          id="password"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          id="bio"
+          type="bio"
+          value={bio}
+          onChange={(event) => setBio(event.target.value)}
         />
-        <button type="submit">Add</button>
+        <button type="submit">Submit new info</button>
       </form>
       <button type="button" onClick={onBackButtonClick}>Go back</button>
     </>
