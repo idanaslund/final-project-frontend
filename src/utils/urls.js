@@ -9,7 +9,7 @@ export const EDIT_USER = (id) => `http://localhost:8080/profile/${id}`
 
 export const API_URL = (slug) => `${BASE_URL}/${slug}`
 
-export const REVIEWS = 'http://localhost:8080/reviews/'
+export const REVIEWS = 'reviews/'
 
 
 export const API_LIKES_URL = (singleReviewId) => `http://localhost:8080/reviews/${singleReviewId}/like`
