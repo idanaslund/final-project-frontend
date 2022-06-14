@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import { API_URL, REVIEWS } from 'utils/urls'
@@ -7,12 +7,16 @@ import { API_URL, REVIEWS } from 'utils/urls'
 import ReviewForm from 'components/ReviewForm'
 import ReviewList from 'components/ReviewList'
 
+import user from 'reducers/user'
+
 export const ReviewComponent = ({ reviews, updateLikes }) => {
   const [newReview, setNewReview] = useState('')
   const [counter, setCounter] = useState(0)
 
   const accessToken = useSelector((store) => store.user.accessToken)
+  const user = useSelector((store) => store.user.userId)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (!accessToken) {
@@ -36,20 +40,21 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
         Authorization : accessToken
       },
       body: JSON.stringify({
-        'review': newReview
+        review: newReview.review,
+        userId: user.userId
       })
     }
 
     if (accessToken) {
-      fetch(API_URL(REVIEWS), options)
+      fetch('http://localhost:8080/reviews', options)
         .then(res => res.json())
         .then(() => {
-          // fetchReviews()
           setNewReview(newReview.review)
           setCounter(0)
         })
     }
   }
+  
 
   return (
     <div>
