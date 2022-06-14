@@ -55,13 +55,19 @@ const FilteringPage = () => {
   }, [accessToken, dispatch])
 
   useEffect(() => { // Lägg till if-satser 
+
+    // if typeOfFoodfilter.le > 0:
     const filteredRestaurants = restaurants.filter(restaurant => 
       restaurant.type_of_food.filter(type => typeOfFoodFilter.includes(type)).length > 0)
+
+    //If somethingFilter.length > 0
+    
+    
     setFilteredRestaurants(filteredRestaurants) // Flytta längst ned  
     console.log(filteredRestaurants)
-  }, [typeOfFoodFilter])           ///Lägg in alla useStates
+  }, [typeOfFoodFilter])           ///Lägg in alla useStates (Här ligger alla våra filter som är beroende av filtreringen)
 
-  const updateFilter = (e) => {
+  const updateTypeOfFoodFilter = (e) => {
     const { value, checked } = e.target
     console.log(`${value} is ${checked}`)
     console.log(typeOfFoodFilter)
@@ -196,37 +202,37 @@ const FilteringPage = () => {
 
       <form>Type of food
         <label>Nordic
-        <input type="checkbox" value="Nordic" checked={typeOfFoodFilter.includes('Nordic')} onChange={updateFilter}/>
+        <input type="checkbox" value="Nordic" checked={typeOfFoodFilter.includes('Nordic')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Swedish
-        <input type="checkbox" value="Swedish" checked={typeOfFoodFilter.includes('Swedish')} onChange={updateFilter}/>
+        <input type="checkbox" value="Swedish" checked={typeOfFoodFilter.includes('Swedish')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Italian
-        <input type="checkbox" value="Italian" checked={typeOfFoodFilter.includes('Italian')} onChange={updateFilter}/>
+        <input type="checkbox" value="Italian" checked={typeOfFoodFilter.includes('Italian')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Asian
-        <input type="checkbox" value="Asian" checked={typeOfFoodFilter.includes('Asian')} onChange={updateFilter}/>
+        <input type="checkbox" value="Asian" checked={typeOfFoodFilter.includes('Asian')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Spanish
-        <input type="checkbox" value="Spanish" checked={typeOfFoodFilter.includes('Spanish')} onChange={updateFilter}/>
+        <input type="checkbox" value="Spanish" checked={typeOfFoodFilter.includes('Spanish')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>American
-        <input type="checkbox" value="American" checked={typeOfFoodFilter.includes('American')} onChange={updateFilter}/>
+        <input type="checkbox" value="American" checked={typeOfFoodFilter.includes('American')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>European
-        <input type="checkbox" value="European" checked={typeOfFoodFilter.includes('European')} onChange={updateFilter}/>
+        <input type="checkbox" value="European" checked={typeOfFoodFilter.includes('European')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Mediterranian
-        <input type="checkbox" value="Mediterranian" checked={typeOfFoodFilter.includes('Mediterranian')} onChange={updateFilter}/>
+        <input type="checkbox" value="Mediterranian" checked={typeOfFoodFilter.includes('Mediterranian')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Japanese
-        <input type="checkbox" value="Japanese" checked={typeOfFoodFilter.includes('Japanese')} onChange={updateFilter}/>
+        <input type="checkbox" value="Japanese" checked={typeOfFoodFilter.includes('Japanese')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Latin American
-        <input type="checkbox" value="Latin American" checked={typeOfFoodFilter.includes('Latin American')} onChange={updateFilter}/>
+        <input type="checkbox" value="Latin American" checked={typeOfFoodFilter.includes('Latin American')} onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Middle Eastern
-        <input type="checkbox" value="Middle Eastern" checked={typeOfFoodFilter.includes('Middle Eastern')} onChange={updateFilter}/>
+        <input type="checkbox" value="Middle Eastern" checked={typeOfFoodFilter.includes('Middle Eastern')} onChange={updateTypeOfFoodFilter}/>
         </label>
         
       </form>
@@ -296,7 +302,7 @@ const FilteringPage = () => {
 
 
       
-      {typeOfFoodFilter.length == 0 ? (                        ///// Här ska det vara filteredRestaurants.length == 0
+      {filteredRestaurants.length == 0 ? (                        ///// Här ska det vara filteredRestaurants.length == 0
         <div className='restaurantListPage'>
         {restaurants.map(restaurant => (
           <Link key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
@@ -310,7 +316,7 @@ const FilteringPage = () => {
 
         ))}
         </div>
-        ): (
+        ) : (
           <div className='restaurantListPage'>
           {filteredRestaurants.map(restaurant => (
             <Link key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
