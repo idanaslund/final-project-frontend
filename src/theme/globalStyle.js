@@ -5,17 +5,21 @@
 
 import { createGlobalStyle } from 'styled-components'
 
-export default GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
+const GlobalStyle = createGlobalStyle`
+  body {
+  margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-family: 'Raleway', sans-serif;
+  background: #d8e4da;
   }
-
 `
 
 // Continue adding global design here
+
+
+export default GlobalStyle

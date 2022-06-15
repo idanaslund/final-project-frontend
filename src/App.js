@@ -11,6 +11,7 @@ import LogOut from 'pages/Logout'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import { RestaurantDetails } from 'pages/RestaurantDetails'
+import GlobalStyle from './theme/globalStyle';
 
 import user from 'reducers/user'
 import ProfilePage from 'pages/ProfilePage'
@@ -26,7 +27,9 @@ const store = configureStore({ reducer: reducer })
 
 export const App = () => {
   return (
+  
     <BrowserRouter>
+    <GlobalStyle />
       <Provider store={store}>
         <main>
           <Header />
