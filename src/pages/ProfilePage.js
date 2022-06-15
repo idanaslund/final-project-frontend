@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { Paragraph, BackButton } from '../theme/reusable'
 
 import user from 'reducers/user'
 import { EDIT_USER } from '../utils/urls'
@@ -97,7 +98,7 @@ const ProfilePage = () => {
         />
         <button type="submit">Submit new info</button>
       </form>
-      <button type="button" onClick={onBackButtonClick}>Go back</button>
+      <BackButton type="button" onClick={onBackButtonClick}>Go back</BackButton>
     </>
   )
 }

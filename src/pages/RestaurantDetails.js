@@ -7,6 +7,7 @@ import { useDispatch, batch, useSelector } from 'react-redux'                   
 import user from 'reducers/user'
 
 import { ReviewComponent } from 'components/ReviewComponent'
+import { Paragraph, BackButton } from '../theme/reusable'
 
 export const RestaurantDetails = () => {
 
@@ -70,12 +71,12 @@ export const RestaurantDetails = () => {
         {restaurant && (
           <div>
             <h1>HI</h1>
-            <button onClick={onBackButtonClick}>Go back</button>
+            <BackButton onClick={onBackButtonClick}>Go back</BackButton>
             <div key={restaurant.id}>
               <img src={restaurant.image_URL} alt={restaurant.name} />
               <div>
                 <h2>{restaurant.name}</h2>
-                <p>{restaurant.description}</p>
+                <Paragraph>{restaurant.description}</Paragraph>
               </div>
             </div>
           </div>
