@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { useDispatch, batch, useSelector } from 'react-redux'                    
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
+import { useDispatch, batch, useSelector } from 'react-redux'                      ///useSelector
 // import styled from 'styled-components'
 // import { RES_ID } from 'utils/urls'
 
@@ -16,12 +16,11 @@ export const RestaurantDetails = () => {
   const { id } = useParams()
   const [restaurant, setRestaurant] = useState({})
   const navigate = useNavigate()
-  const dispatch = useDispatch() 
+  const dispatch = useDispatch()
 
   const onBackButtonClick = () => {
     navigate(-1)
   }
-
 
   // useEffect(() => {
   //   console.log(restaurantId)
@@ -39,6 +38,7 @@ export const RestaurantDetails = () => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json', Authorization: accessToken
+
         },
       }
 
@@ -52,7 +52,7 @@ export const RestaurantDetails = () => {
             setRestaurant(json.response)
             console.log('json.response', json.response)
             dispatch(user.actions.setErrors(null))
-            
+
           })
         } else {
           dispatch(user.actions.setErrors(json.response))

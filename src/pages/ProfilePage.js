@@ -1,109 +1,105 @@
-// The user can save restaurants in their page
-// The user can give reviews on restaurants when visited
-// User can change settings, imported from UserSettings.js
-
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-// import user from 'reducers/user'
-import UserSettings from 'components/UserSettings'
-
-
-// import { EDIT_USER } from '../utils/urls'
-
-
+import user from 'reducers/user'
+import { EDIT_USER } from '../utils/urls'
 
 const ProfilePage = () => {
-  // const accessToken = useSelector((store) => store.user.accessToken)
+  // const [userId, setUserId] = useState(useSelector((store) => store.user.id))
+  const [fullName, setFullName] = useState(useSelector((store) => store.user.fullName))
+  const [phone, setPhone] = useState(useSelector((store) => store.user.phone))
+  const [bio, setBio] = useState(useSelector((store) => store.user.bio))
+  const [error, setError] = useState('')
+
+  const accessToken = JSON.parse(localStorage.getItem('user'))?.accessToken
+  const userId = JSON.parse(localStorage.getItem('user'))?.userId
+ 
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const onBackButtonClick = () => navigate(-1)
+
+  const onFormSubmit = (event) => {
+    event.preventDefault()
+
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': accessToken
+      },
+      body: JSON.stringify({ fullName, phone, bio  })            
+    }
+
+    fetch(EDIT_USER(userId), options) 
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {        
+            console.log(data)
+            batch(() => {
+              dispatch(user.actions.setFullName(data.response.fullName))
+              dispatch(user.actions.setPhone(data.response.phone))
+              dispatch(user.actions.setBio(data.response.bio))
+              dispatch(user.actions.setErrors(null))
+
+          localStorage.setItem('user', JSON.stringify({
+            fullName: data.response.fullName,
+            phone: data.response.phone,
+            bio: data.response.bio
+          }))
+          alert('Your information has been updated!')
+        })
+          // setFullName(data.response.fullName)
+          // setPhone(data.response.phone)
+          // setBio(data.response.bio)
 
 
-    const loggedinUser = useSelector(store => store.user)
-
-    const navigate = useNavigate()
-
-    const onBackButtonClick = () => {
-        navigate(-1)
-      }
-
-      const [email, setEmail] = useState(loggedinUser.email)
-      const [fullName, setFullName ] = useState(loggedinUser.fullName)
-      const [profileImage, setProfileImage] = useState(loggedinUser.profileImage)
-      const [password, setPassword] = useState(loggedinUser.password)
-
-      // const dispatch = useDispatch()
-
-      const onFormSubmit = (event) => {
-          event.preventDefault()
-      }
-
-      // const options = {
-      //   method: 'PATCH',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //     'Authorization': accessToken
-      //   },
-      //   body: JSON.stringify({ email: email, fullName: fullName, profileImage: profileImage, password: password })
-      // }
-  
-      // fetch(EDIT_USER('id'), options) //behöver förmodligen ändra id här
-      // .then(res => res.json())
-      // .then(data => {
-      //     if (data.success) {
-      //         dispatch(user.actions.setProfileInfo(data.updateUser))
-
-      //       localStorage.setItem('loggedinUser', JSON.stringify({
-      //           email: data.email,
-      //           fullName: data.fullName,
-      //           profileImage: profileImage,
-      //           password: password
-      //       }))
-      //     } else {
-      //         dispatch(user.actions.setErrors(data))
-      //     }
-      // })
-      // .finally(() => {
-      //     setEmail(loggedinUser.email)
-      //     setFullName(loggedinUser.fullName)
-      //     setProfileImage(loggedinUser.profileImage)
-      //     setPassword(loggedinUser.password)
-      // })
-
-  
-
-    return (
-
-        <>
-        <h1>This is your profile page</h1>
-
-        <p>{`Welcome, ${loggedinUser.fullName}`}</p>
-
-        <p>Email: {`${loggedinUser.email}`}</p>
-        <p>Profile image: {`${loggedinUser.profileImage}`}</p>
-
-      <UserSettings
-      fullName={fullName}
-      setFullName={setFullName}
-      email={email}
-      setEmail={setEmail}
-      profileImage={profileImage}
-      setProfileImage={setProfileImage}
-      password={password}
-      setPassword={setPassword}
-      onFormSubmit={onFormSubmit}
-      />
-
-      <button type="submit">Add</button>
-
-
-        <button
-        type="button" onClick={onBackButtonClick}
-        >Go back</button>
-
-        </>
-
-
-    )
+        } else {
+          dispatch(user.actions.setErrors(data))
+        }
+        setError('Something went wrong, try again.')
+      })
   }
+
+  return (
+    <>
+      <h1>This is your profile page</h1>
+
+      <p>Welcome {fullName}</p>
+      <p>Phone number: {phone}</p>
+      <p>Bio: {bio}</p>
+
+      <form onSubmit={onFormSubmit}>
+        <label htmlFor="fullName">Your full name</label>
+        <input
+          id="fullName"
+          type="text"
+          value={fullName}
+          onChange={(event) => setFullName(event.target.value)}
+        />
+
+        <label
+          htmlFor="phone">Phone number</label>
+        <input
+          id="phone"
+          type="phone"
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
+        />
+        <label
+          htmlFor="bio">Bio</label>
+        <input
+          id="bio"
+          type="bio"
+          value={bio}
+          onChange={(event) => setBio(event.target.value)}
+        />
+        <button type="submit">Submit new info</button>
+      </form>
+      <button type="button" onClick={onBackButtonClick}>Go back</button>
+    </>
+  )
+}
 
 export default ProfilePage 
