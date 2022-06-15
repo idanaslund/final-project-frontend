@@ -22,8 +22,9 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
     if (!accessToken) {
       navigate('/')
     }
+    console.log(user)
   }, [accessToken, navigate])
-
+  
 
   const handleNewReviewChange = (event) => {
     setNewReview(event.target.value)
@@ -33,16 +34,15 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
   const onFormSubmit = (event) => {
     event.preventDefault()
 
-    console.log(accessToken)
     const options = {
       method: 'POST',
-      header: {
+      headers: {
         'Content-Type': 'application/json',
-        'Authorization' : accessToken
+        'Authorization': accessToken
       },
       body: JSON.stringify({
         review: newReview.review,
-        // userId: user._id
+        _id: user._id
       })
     }
    
