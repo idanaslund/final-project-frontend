@@ -41,15 +41,17 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
       },
       body: JSON.stringify({
         review: newReview.review,
-        userId: user.userId
+        // userId: user._id
       })
     }
+   
 
     if (accessToken) {
       fetch('http://localhost:8080/reviews', options)
         .then(res => res.json())
         .then(() => {
-          setNewReview(newReview.review)
+          setNewReview('')
+          console.log('newReview', newReview)
           setCounter(0)
         })
     }
