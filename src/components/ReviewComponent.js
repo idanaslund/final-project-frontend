@@ -33,11 +33,12 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
   const onFormSubmit = (event) => {
     event.preventDefault()
 
+    console.log(accessToken)
     const options = {
       method: 'POST',
       header: {
         'Content-Type': 'application/json',
-        Authorization : accessToken
+        'Authorization' : accessToken
       },
       body: JSON.stringify({
         review: newReview.review,
