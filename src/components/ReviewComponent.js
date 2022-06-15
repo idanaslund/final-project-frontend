@@ -14,7 +14,7 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
   const [counter, setCounter] = useState(0)
 
   const accessToken = useSelector((store) => store.user.accessToken)
-  // const user = useSelector((store) => store.user.userId)
+  // const userId = JSON.parse(localStorage.getItem('user'))?.userId
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -41,7 +41,7 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
         'Authorization': accessToken
       },
       body: JSON.stringify({
-        review: newReview.review,
+        review: newReview,
         _id: user._id
       })
     }
@@ -68,9 +68,9 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
         onFormSubmit={onFormSubmit}
         counter={counter}
       />
-      {/* <ReviewList
+      <ReviewList
         reviews={reviews}
-        updateLikes={updateLikes} /> */}
+        updateLikes={updateLikes} />
 
     </div>
   )

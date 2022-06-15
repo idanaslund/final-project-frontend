@@ -14,7 +14,11 @@ const ReviewList = () => {
   // Fetching GET reviews if accesstoken
   useEffect(() => {
     if (accessToken) {
-      fetch("http://localhost:8080/reviews/")
+      fetch("http://localhost:8080/reviews/", {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json',
+        Authorization: accessToken}
+      }) 
       .then(res => res.json())
       .then(reviews => setReviews(reviews))
       .catch(error => console.error(error))
