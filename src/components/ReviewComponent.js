@@ -14,7 +14,7 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
   const [counter, setCounter] = useState(0)
 
   const accessToken = useSelector((store) => store.user.accessToken)
-  const user = useSelector((store) => store.user.userId)
+  // const user = useSelector((store) => store.user.userId)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
