@@ -13,7 +13,13 @@ const FilteringPage = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]) 
   // const [resId, setResId] = useState ([])
   const [typeOfFoodFilter, setTypeOfFoodFilter] = useState([]) // Lägg till alla filter som är arrays
-  // const [mealsFilter, setMealsFilter] = useState([])           Nytt filter, se mer på rad 86
+  const [mealsFilter, setMealsFilter] = useState([])          // Nytt filter, se mer på rad 86
+  const [budgetFilter, setBudgetFilter] = useState([])
+  const [portionSizeFilter, setPortionSizeFilter] = useState([])
+  const [targetAudienceFilter, setTargetAudienceFilter] = useState([])
+  const [restaurantFocusFilter, setRestaurantFocusFilter] = useState([])
+  const [dogFriendlyFilter, setDogFriendlyFilter] = useState('no_pref')
+  const [outdoorAreaFilter, setOutdoorAreaFilter] = useState('no_pref')
 
   
   const navigate = useNavigate()
@@ -56,181 +62,275 @@ const FilteringPage = () => {
   }, [accessToken, dispatch])
 
   useEffect(() => { // Lägg till if-satser 
-
-    // if (typeOfFoodFilter.length > 0) 
-      const filteredRestaurants = restaurants.filter(restaurant => 
+    let filteredRestaurants = restaurants
+    // Type of Food
+    if (typeOfFoodFilter.length > 0) {
+      filteredRestaurants = filteredRestaurants.filter(restaurant => 
         restaurant.type_of_food.filter(type => typeOfFoodFilter.includes(type)).length > 0)
-    
-    //If somethingFilter.length > 0
 
-    setFilteredRestaurants(filteredRestaurants) // Flytta längst ned  
-    console.log(filteredRestaurants)
-  }, [typeOfFoodFilter])           ///Lägg in alla useStates (Här ligger alla våra filter som är beroende av filtreringen)
+        console.log(filteredRestaurants)
+    } 
+    // Meals
+    if (mealsFilter.length > 0) {
+      filteredRestaurants = filteredRestaurants.filter(restaurant => 
+        restaurant.meals.filter(type => mealsFilter.includes(type)).length > 0)
+        
+        console.log(filteredRestaurants)
+    }
+    // Budget
+    if (budgetFilter.length > 0) {
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
+        restaurant.budget.filter(type => budgetFilter.includes(type)).length > 0)
+        
+        console.log(filteredRestaurants)
+    }
+    // Portion size
+    if (portionSizeFilter.length > 0) {
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
+        restaurant.portion_size.filter(type => portionSizeFilter.includes(type)).length > 0)
+        
+        console.log(filteredRestaurants)
+    }
+    // Target audience
+    if (targetAudienceFilter.length > 0) {
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
+        restaurant.target_audience.filter(type => targetAudienceFilter.includes(type)).length > 0)
+        
+        console.log(filteredRestaurants)
+    }
+    // Restaurant focus
+    if (restaurantFocusFilter.length > 0) {
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
+        restaurant.restaurant_focus.filter(type => restaurantFocusFilter.includes(type)).length > 0)
+        
+        console.log(filteredRestaurants)
+    }
+    // Dog friendly
+    if (dogFriendlyFilter !== 'no_pref') {
+        filteredRestaurants = filteredRestaurants.filter(restaurant =>
+          restaurant.dogfriendly === (dogFriendlyFilter === 'yes' ? true : false))
 
+        console.log(filteredRestaurants)
+    }
+    // Outdoor area
+    if (outdoorAreaFilter !== 'no_pref') {
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
+        restaurant.outdoor_area === (outdoorAreaFilter === 'yes' ? true : false))
+        
+        console.log(filteredRestaurants)
+    }
+    setFilteredRestaurants(filteredRestaurants)
+  }, [restaurants, typeOfFoodFilter, mealsFilter, budgetFilter, portionSizeFilter, targetAudienceFilter, restaurantFocusFilter, dogFriendlyFilter, outdoorAreaFilter])           ///Lägg in alla useStates (Här ligger alla våra filter som är beroende av filtreringen)
+
+  // Type of Food
   const updateTypeOfFoodFilter = (e) => {
     const { value, checked } = e.target
-    console.log(`${value} is ${checked}`)
-    console.log(typeOfFoodFilter)
-    
+    // console.log(`${value} is ${checked}`)
+    // console.log(typeOfFoodFilter)
     if(checked) {
       setTypeOfFoodFilter(arr => [...arr, value])
-      console.log(typeOfFoodFilter)
     } else {
       setTypeOfFoodFilter(arr => arr.filter((type) => type !== value))
-      console.log(typeOfFoodFilter)
     }
-    
-    console.log(e)
+  }
+  // Meals
+  const updateMealsFilter = (e) => {
+    const { value, checked } = e.target
+    if(checked) {
+      setMealsFilter(arr => [...arr, value])
+    } else {
+      setMealsFilter(arr => arr.filter((type) => type !== value))
+    }
+  }
+  // Budget
+  const updateBudgetFilter = (e) => {
+    const { value, checked } = e.target
+    if(checked) {
+      setBudgetFilter(arr => [...arr, value])
+    } else {
+      setBudgetFilter(arr => arr.filter((type) => type !== value))
+    }
+  }
+  // Portion size
+  const updatePortionSizeFilter = (e) => {
+    const { value, checked } = e.target
+
+    if(checked) {
+      setPortionSizeFilter(arr => [...arr, value])
+    } else {
+      setPortionSizeFilter(arr => arr.filter((type) => type !== value))
+    }
+  }
+  // Target audience
+  const updateTargetAudienceFilter = (e) => {
+    const { value, checked } = e.target
+
+    if(checked) {
+      setTargetAudienceFilter(arr => [...arr, value])
+    } else {
+      setTargetAudienceFilter(arr => arr.filter((type) => type !== value))
+    }
+  }
+  // Restaurant focus
+  const updateRestaurantFocusFilter = (e) => {
+    const { value, checked } = e.target
+
+    if(checked) {
+      setRestaurantFocusFilter(arr => [...arr, value])
+    } else {
+      setRestaurantFocusFilter(arr => arr.filter((type) => type !== value))
+    }
+  }
+  // Dog friendly - fungerar ej
+  const updateDogFriendlyFilter = (e) => {
+    const { value } = e.target
+    setDogFriendlyFilter(value)
+  }
+  // Outdoor area - fungerar ej
+  const updateOutdoorAreaFilter = (e) => {
+    const { value } = e.target
+    setOutdoorAreaFilter(value)
   }
 
-  /// Nytt filter nedan, vet dock ej riktigt hur jag får till det i vår useEffect ovan... Var/hur placeras if-satserna?
-
-  // const updateMealsFilter = (e) => {
-  //   const { value, checked } = e.target
-  //   console.log(`${value} is ${checked}`)
-  //   console.log(mealsFilter)
-    
-  //   if(checked) {
-  //     setMealsFilter(arr => [...arr, value])
-  //     console.log(mealsFilter)
-  //   } else {
-  //     setMealsFilter(arr => arr.filter((type) => type !== value))
-  //     console.log(mealsFilter)
-  //   }
-    
-  //   console.log(e)
-  // }
-
-
-  
-
   return (
+  
     <StyledRestaurantList>
+
+      <button
+      type="button" onClick={() => navigate('/logout')}>
+      Log out
+      </button>
+
       <form>Type of food
         <label>Nordic
-        <input type="checkbox" value="Nordic" checked={typeOfFoodFilter.includes('Nordic')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="Nordic" onChange={updateTypeOfFoodFilter}/> {/*tog bort checked={typeOfFoodFilter.includes('Nordic')} och det fungerade lika. */}
         </label>
         <label>Swedish
-        <input type="checkbox" value="Swedish" checked={typeOfFoodFilter.includes('Swedish')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="Swedish" onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Italian
-        <input type="checkbox" value="Italian" checked={typeOfFoodFilter.includes('Italian')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="Italian" onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Asian
-        <input type="checkbox" value="Asian" checked={typeOfFoodFilter.includes('Asian')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="Asian" onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Spanish
-        <input type="checkbox" value="Spanish" checked={typeOfFoodFilter.includes('Spanish')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="Spanish" onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>American
-        <input type="checkbox" value="American" checked={typeOfFoodFilter.includes('American')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="American" onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>European
-        <input type="checkbox" value="European" checked={typeOfFoodFilter.includes('European')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="European" onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Mediterranian
-        <input type="checkbox" value="Mediterranian" checked={typeOfFoodFilter.includes('Mediterranian')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="Mediterranian" onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Japanese
-        <input type="checkbox" value="Japanese" checked={typeOfFoodFilter.includes('Japanese')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="Japanese" onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Latin American
-        <input type="checkbox" value="Latin American" checked={typeOfFoodFilter.includes('Latin American')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="Latin American" onChange={updateTypeOfFoodFilter}/>
         </label>
         <label>Middle Eastern
-        <input type="checkbox" value="Middle Eastern" checked={typeOfFoodFilter.includes('Middle Eastern')} onChange={updateTypeOfFoodFilter}/>
+        <input type="checkbox" value="Middle Eastern" onChange={updateTypeOfFoodFilter}/>
         </label>
         
       </form>
 
 
 {/* CHECKBOXAR TILL NYA FILTRET SAMT ÖVRIGA, LÄNGST NED RADIOS FÖR BOOLEANS  */}
-      {/* <form>Meals
+      <form>Meals
         <label>Breakfast
-        <input type="checkbox" value="Breakfast" checked={mealsFilter.includes('Breakfast')} onChange={updateMealsFilter}/>
+        <input type="checkbox" value="Breakfast" onChange={updateMealsFilter}/>
         </label>
         <label>Brunch
-        <input type="checkbox" value="Brunch" checked={mealsFilter.includes('Brunch')} onChange={updateMealsFilter}/>
+        <input type="checkbox" value="Brunch" onChange={updateMealsFilter}/>
         </label>
         <label>Lunch
-        <input type="checkbox" value="Lunch" checked={mealsFilter.includes('Lunch')} onChange={updateMealsFilter}/>
+        <input type="checkbox" value="Lunch" onChange={updateMealsFilter}/>
         </label>
         <label>Dinner
-        <input type="checkbox" value="Dinner" checked={mealsFilter.includes('Dinner')} onChange={updateMealsFilter}/>
+        <input type="checkbox" value="Dinner"  onChange={updateMealsFilter}/>
         </label>
-      </form> */}
+      </form>
 
-      {/* <form> Budget
+      <form> Budget
         <label>Low
-        <input type="checkbox" value="Low" checked={ETTFILTER.includes('Low')} onChange={UPDATEETTFILTER}/>
+        <input type="checkbox" value="Low" onChange={updateBudgetFilter}/>
         </label>
         <label>Medium
-        <input type="checkbox" value="Medium" checked={mealsFilter.includes('Medium')} onChange={UPDATEETTFILTER}/>
+        <input type="checkbox" value="Medium" onChange={updateBudgetFilter}/>
         </label>
         <label>High
-        <input type="checkbox" value="High" checked={mealsFilter.includes('High')} onChange={UPDATEETTFILTER}/>
+        <input type="checkbox" value="High" onChange={updateBudgetFilter}/>
         </label>
       </form>
 
       <form> Portion size
         <label>Small
-        <input type="checkbox" value="Small" checked={ETTFILTER.includes('Small')} onChange={UPDATEETTFILTER}/>
+        <input type="checkbox" value="Small" onChange={updatePortionSizeFilter}/>
         </label>
         <label>Medium
-        <input type="checkbox" value="Medium" checked={ETTFILTER.includes('Medium')} onChange={UPDATEETTFILTER}/>
+        <input type="checkbox" value="Medium" onChange={updatePortionSizeFilter}/>
         </label>
         <label>Large
-        <input type="checkbox" value="Large" checked={ETTFILTER.includes('Large')} onChange={UPDATEETTFILTER}/>
+        <input type="checkbox" value="Large" onChange={updatePortionSizeFilter}/>
         </label>
       </form>
 
       <form> Target audience
         <label>Group
-        <input type="checkbox" value="Group" checked={ETTFILTER.includes('Group')} onChange={UPDATEETTFILTER}/>
+        <input type="checkbox" value="Group" onChange={updateTargetAudienceFilter}/>
         </label>
         <label>Date
-        <input type="checkbox" value="Date" checked={ETTFILTER.includes('Date')} onChange={UPDATEETTFILTER}/>
+        <input type="checkbox" value="Date" onChange={updateTargetAudienceFilter}/>
         </label>
         <label>Family
-        <input type="checkbox" value="Family" checked={ETTFILTER.includes('Family')} onChange={UPDATEETTFILTER}/>
+        <input type="checkbox" value="Family" onChange={updateTargetAudienceFilter}/>
         </label>
       </form>
 
       <form> Restaurant focus
-        <label>Low
-        <input type="checkbox" value="Vegan" checked={ETTFILTER.includes('Family')} onChange={UPDATEETTFILTER}/>
+        <label>Vegan
+        <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>
         </label>
-        <label>Medium
-        <input type="checkbox" value="Vegetarian" checked={ETTFILTER.includes('Family')} onChange={UPDATEETTFILTER}/>
+        <label>Vegetarian
+        <input type="checkbox" value="Vegetarian" onChange={updateRestaurantFocusFilter}/>
         </label>
-        <label>High
-        <input type="checkbox" value="Fish" checked={ETTFILTER.includes('Family')} onChange={UPDATEETTFILTER}/>
+        <label>Fish
+        <input type="checkbox" value="Fish" onChange={updateRestaurantFocusFilter}/>
         </label>
-        <label>Low
-        <input type="checkbox" value="Meat" checked={ETTFILTER.includes('Family')} onChange={UPDATEETTFILTER}/>
+        <label>Meat
+        <input type="checkbox" value="Meat" onChange={updateRestaurantFocusFilter}/>
         </label>
-      </form>  */}
+      </form> 
      
-    {/* <form>Dogfriendly
-        <label>Yes
-        <input type="radio" value="true"/>
+     {/* // Fungerar ej */}
+    <form>Dogfriendly
+        <label>Dogs
+        <input type="radio" checked={dogFriendlyFilter==='yes'} value="yes" onChange={updateDogFriendlyFilter}/>
         </label>
-        <label>No
-        <input type="radio" value="false"/>
+        <label>No dogs
+        <input type="radio" checked={dogFriendlyFilter==='no'} value="no" onChange={updateDogFriendlyFilter}/>
+        </label>
+        <label>No preference
+        <input type="radio" checked={dogFriendlyFilter==='no_pref'} value="no_pref" onChange={updateDogFriendlyFilter}/>
         </label>
       </form>
 
+      {/* // Fungerar ej */}  
       <form>Outdoor area
         <label>Yes
-        <input type="radio" value="true"/>
+        <input type="radio" checked={outdoorAreaFilter==='yes'} value="yes" onChange={updateOutdoorAreaFilter}/>
         </label>
         <label>No
-        <input type="radio" value="false"/>
+        <input type="radio" checked={outdoorAreaFilter==='no'} value="no" onChange={updateOutdoorAreaFilter}/>
         </label>
-      </form> */}
-
-  
-
+        <label>No preference
+        <input type="radio" checked={outdoorAreaFilter==='no_pref'} value="no_pref" onChange={updateOutdoorAreaFilter}/>
+        </label>
+      </form>
 
       
       {filteredRestaurants.length == 0 ? (                        ///// Här ska det vara filteredRestaurants.length == 0
@@ -263,12 +363,6 @@ const FilteringPage = () => {
           
         )}
 
-      
-
-      <button
-      type="button" onClick={() => navigate('/logout')}>
-      Log out
-      </button>
     </StyledRestaurantList>
   )
 }
