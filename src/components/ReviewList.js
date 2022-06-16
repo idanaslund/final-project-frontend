@@ -25,7 +25,7 @@ const ReviewList = () => {
     }
   }, [accessToken])
 
-  console.log('reviews', reviews)
+  // console.log('reviews', reviews)
 
 // Post like to API
 const onLike = (singleReviewId) => {

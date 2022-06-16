@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { API_URL } from 'utils/urls'
 
 import user from 'reducers/user'
+import restaurant from 'reducers/restaurant'
 
 const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
@@ -86,39 +87,40 @@ const FilteringPage = () => {
     }
     // Portion size
     if (portionSizeFilter.length > 0) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
+      const filteredRestaurants = restaurants.filter(restaurant =>
         restaurant.portion_size.filter(type => portionSizeFilter.includes(type)).length > 0)
         setFilteredRestaurants(filteredRestaurants)
         console.log(filteredRestaurants)
     }
     // Target audience
     if (targetAudienceFilter.length > 0) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
+      const filteredRestaurants = restaurants.filter(restaurant =>
         restaurant.target_audience.filter(type => targetAudienceFilter.includes(type)).length > 0)
         setFilteredRestaurants(filteredRestaurants)
         console.log(filteredRestaurants)
     }
     // Restaurant focus
     if (restaurantFocusFilter.length > 0) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
+      const filteredRestaurants = restaurants.filter(restaurant =>
         restaurant.restaurant_focus.filter(type => restaurantFocusFilter.includes(type)).length > 0)
         setFilteredRestaurants(filteredRestaurants)
         console.log(filteredRestaurants)
     }
     // Dog friendly - FUNGERAR EJ
     if (dogFriendlyFilter === true) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
+      const filteredRestaurants = restaurants.filter(restaurant =>
         restaurant.dogfriendly.filter(type => dogFriendlyFilter.includes(type)).length > 0)
         setFilteredRestaurants(filteredRestaurants)
         console.log(filteredRestaurants)
     }
     // Outdoor area - FUNGERAR EJ
     if (outdoorAreaFilter === true) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
+      const filteredRestaurants = restaurants.filter(restaurant =>
         restaurant.outdoor_area.filter(type => outdoorAreaFilter.includes(type)).length > 0)
         setFilteredRestaurants(filteredRestaurants)
         console.log(filteredRestaurants)
     }
+    // setFilteredRestaurants(filteredRestaurants)
 
   }, [restaurants, typeOfFoodFilter, mealsFilter, budgetFilter, portionSizeFilter, targetAudienceFilter, restaurantFocusFilter, dogFriendlyFilter, outdoorAreaFilter])           ///Lägg in alla useStates (Här ligger alla våra filter som är beroende av filtreringen)
 
@@ -337,7 +339,7 @@ const FilteringPage = () => {
       </form>
 
       
-      {filteredRestaurants.length == 0 ? (                        ///// Här ska det vara filteredRestaurants.length == 0
+      {filteredRestaurants.length === 0 ? (                        ///// Här ska det vara filteredRestaurants.length == 0
         <div className='restaurantListPage'>
         {restaurants.map(restaurant => (
           <Link key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>

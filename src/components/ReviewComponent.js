@@ -8,6 +8,7 @@ import ReviewForm from 'components/ReviewForm'
 import ReviewList from 'components/ReviewList'
 
 import user from 'reducers/user'
+import restaurant from 'reducers/restaurant'
 
 export const ReviewComponent = ({ reviews, updateLikes }) => {
   const [newReview, setNewReview] = useState('')
@@ -34,6 +35,7 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
   const onFormSubmit = (event) => {
     event.preventDefault()
 
+    console.log(restaurant)
     const options = {
       method: 'POST',
       headers: {
@@ -42,17 +44,18 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
       },
       body: JSON.stringify({
         review: newReview,
-        _id: user._id
+        _id: user._id,
+        resId: restaurant._id
       })
     }
    
-
+    // console.log(options.body.resId)
     if (accessToken) {
       fetch('http://localhost:8080/reviews', options)
         .then(res => res.json())
         .then(() => {
           setNewReview('')
-          console.log('newReview', newReview)
+          // console.log('newReview', newReview)
           setCounter(0)
         })
     }

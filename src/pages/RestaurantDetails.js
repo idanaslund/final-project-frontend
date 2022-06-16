@@ -5,6 +5,7 @@ import { useDispatch, batch, useSelector } from 'react-redux'                   
 // import { RES_ID } from 'utils/urls'
 
 import user from 'reducers/user'
+import restaurant from 'reducers/restaurant'
 
 import { ReviewComponent } from 'components/ReviewComponent'
 import { Paragraph, BackButton } from '../theme/reusable'
