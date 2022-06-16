@@ -18,8 +18,8 @@ const FilteringPage = () => {
   const [portionSizeFilter, setPortionSizeFilter] = useState([])
   const [targetAudienceFilter, setTargetAudienceFilter] = useState([])
   const [restaurantFocusFilter, setRestaurantFocusFilter] = useState([])
-  const [dogFriendlyFilter, setDogFriendlyFilter] = useState([])
-  const [outdoorAreaFilter, setOutdoorAreaFilter] = useState([])
+  const [dogFriendlyFilter, setDogFriendlyFilter] = useState('no_pref')
+  const [outdoorAreaFilter, setOutdoorAreaFilter] = useState('no_pref')
 
   
   const navigate = useNavigate()
@@ -62,64 +62,64 @@ const FilteringPage = () => {
   }, [accessToken, dispatch])
 
   useEffect(() => { // Lägg till if-satser 
-
+    let filteredRestaurants = restaurants
     // Type of Food
     if (typeOfFoodFilter.length > 0) {
-      let filteredRestaurants = restaurants.filter(restaurant => 
+      filteredRestaurants = filteredRestaurants.filter(restaurant => 
         restaurant.type_of_food.filter(type => typeOfFoodFilter.includes(type)).length > 0)
-        setFilteredRestaurants(filteredRestaurants)
+
         console.log(filteredRestaurants)
     } 
     // Meals
     if (mealsFilter.length > 0) {
-      let filteredRestaurants = restaurants.filter(restaurant => 
+      filteredRestaurants = filteredRestaurants.filter(restaurant => 
         restaurant.meals.filter(type => mealsFilter.includes(type)).length > 0)
-        setFilteredRestaurants(filteredRestaurants) // Flytta längst ned  
+        
         console.log(filteredRestaurants)
     }
     // Budget
     if (budgetFilter.length > 0) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
         restaurant.budget.filter(type => budgetFilter.includes(type)).length > 0)
-        setFilteredRestaurants(filteredRestaurants)
+        
         console.log(filteredRestaurants)
     }
     // Portion size
     if (portionSizeFilter.length > 0) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
         restaurant.portion_size.filter(type => portionSizeFilter.includes(type)).length > 0)
-        setFilteredRestaurants(filteredRestaurants)
+        
         console.log(filteredRestaurants)
     }
     // Target audience
     if (targetAudienceFilter.length > 0) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
         restaurant.target_audience.filter(type => targetAudienceFilter.includes(type)).length > 0)
-        setFilteredRestaurants(filteredRestaurants)
+        
         console.log(filteredRestaurants)
     }
     // Restaurant focus
     if (restaurantFocusFilter.length > 0) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
         restaurant.restaurant_focus.filter(type => restaurantFocusFilter.includes(type)).length > 0)
-        setFilteredRestaurants(filteredRestaurants)
+        
         console.log(filteredRestaurants)
     }
-    // Dog friendly - FUNGERAR EJ
-    if (dogFriendlyFilter === true) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
-        restaurant.dogfriendly.filter(type => dogFriendlyFilter.includes(type)).length > 0)
-        setFilteredRestaurants(filteredRestaurants)
-        console.log(filteredRestaurants)
-    }
-    // Outdoor area - FUNGERAR EJ
-    if (outdoorAreaFilter === true) {
-      let filteredRestaurants = restaurants.filter(restaurant =>
-        restaurant.outdoor_area.filter(type => outdoorAreaFilter.includes(type)).length > 0)
-        setFilteredRestaurants(filteredRestaurants)
-        console.log(filteredRestaurants)
-    }
+    // Dog friendly
+    if (dogFriendlyFilter !== 'no_pref') {
+        filteredRestaurants = filteredRestaurants.filter(restaurant =>
+          restaurant.dogfriendly === (dogFriendlyFilter === 'yes' ? true : false))
 
+        console.log(filteredRestaurants)
+    }
+    // Outdoor area
+    if (outdoorAreaFilter !== 'no_pref') {
+      filteredRestaurants = filteredRestaurants.filter(restaurant =>
+        restaurant.outdoor_area === (outdoorAreaFilter === 'yes' ? true : false))
+        
+        console.log(filteredRestaurants)
+    }
+    setFilteredRestaurants(filteredRestaurants)
   }, [restaurants, typeOfFoodFilter, mealsFilter, budgetFilter, portionSizeFilter, targetAudienceFilter, restaurantFocusFilter, dogFriendlyFilter, outdoorAreaFilter])           ///Lägg in alla useStates (Här ligger alla våra filter som är beroende av filtreringen)
 
   // Type of Food
@@ -184,22 +184,12 @@ const FilteringPage = () => {
   // Dog friendly - fungerar ej
   const updateDogFriendlyFilter = (e) => {
     const { value } = e.target
-
-    if(true) {
-      setDogFriendlyFilter(arr => [...arr, value])
-    } else {
-      setDogFriendlyFilter(arr => arr.filter((type) => type !== value))
-    }
+    setDogFriendlyFilter(value)
   }
   // Outdoor area - fungerar ej
   const updateOutdoorAreaFilter = (e) => {
     const { value } = e.target
-
-    if(true) {
-      setOutdoorAreaFilter(arr => [...arr, value])
-    } else {
-      setOutdoorAreaFilter(arr => arr.filter((type) => type !== value))
-    }
+    setOutdoorAreaFilter(value)
   }
 
   return (
@@ -318,21 +308,27 @@ const FilteringPage = () => {
      
      {/* // Fungerar ej */}
     <form>Dogfriendly
-        <label>Yes
-        <input type="radio" value="true" onChange={updateDogFriendlyFilter}/>
+        <label>Dogs
+        <input type="radio" checked={dogFriendlyFilter==='yes'} value="yes" onChange={updateDogFriendlyFilter}/>
         </label>
-        <label>No
-        <input type="radio" value="false" onChange={updateDogFriendlyFilter}/>
+        <label>No dogs
+        <input type="radio" checked={dogFriendlyFilter==='no'} value="no" onChange={updateDogFriendlyFilter}/>
+        </label>
+        <label>No preference
+        <input type="radio" checked={dogFriendlyFilter==='no_pref'} value="no_pref" onChange={updateDogFriendlyFilter}/>
         </label>
       </form>
 
       {/* // Fungerar ej */}  
       <form>Outdoor area
         <label>Yes
-        <input type="radio" value="true" onChange={updateOutdoorAreaFilter}/>
+        <input type="radio" checked={outdoorAreaFilter==='yes'} value="yes" onChange={updateOutdoorAreaFilter}/>
         </label>
         <label>No
-        <input type="radio" value="false" onChange={updateOutdoorAreaFilter}/>
+        <input type="radio" checked={outdoorAreaFilter==='no'} value="no" onChange={updateOutdoorAreaFilter}/>
+        </label>
+        <label>No preference
+        <input type="radio" checked={outdoorAreaFilter==='no_pref'} value="no_pref" onChange={updateOutdoorAreaFilter}/>
         </label>
       </form>
 
