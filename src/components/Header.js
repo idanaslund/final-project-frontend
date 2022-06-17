@@ -2,13 +2,15 @@ import React from "react"
 import Navbar from "./Navbar"
 
 
-import { StyledHeader, HeaderTitle } from '../theme/styles'
+import { StyledHeader } from '../theme/styles'
+
 
 const Header = () => {
     return(
         
         <StyledHeader>
-            <HeaderTitle>FINAL PROJECT</HeaderTitle>
+            <img src="https://i.postimg.cc/44V76f12/foodie-finder.png" alt="foodie-finder-logotype" height="50px" />
+
             <Navbar />
         </StyledHeader>
         
