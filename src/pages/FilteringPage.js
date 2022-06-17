@@ -6,6 +6,8 @@ import { CardWrapper } from '../theme/reusable'
 
 import { API_URL } from 'utils/urls'
 
+import { SecondHeader } from '../theme/styles'
+
 import user from 'reducers/user'
 
 const FilteringPage = () => {
@@ -194,96 +196,121 @@ const FilteringPage = () => {
     <section>
 
       <FilterContainer>
-        <form>Type of food
-          <label>Nordic
+        <form>
+          <SecondHeader>Type of food</SecondHeader>
+          <label>
           <input type="checkbox" value="Nordic" onChange={updateTypeOfFoodFilter}/> 
+          Nordic
           </label>
-          <label>Swedish
+          <label>
           <input type="checkbox" value="Swedish" onChange={updateTypeOfFoodFilter}/>
+          Swedish
           </label>
-          <label>Italian
+          <label>
           <input type="checkbox" value="Italian" onChange={updateTypeOfFoodFilter}/>
+          Italian
           </label>
-          <label>Asian
+          <label>
           <input type="checkbox" value="Asian" onChange={updateTypeOfFoodFilter}/>
+          Asian
           </label>
-          <label>Spanish
+          <label>
           <input type="checkbox" value="Spanish" onChange={updateTypeOfFoodFilter}/>
+          Spanish
           </label>
-          <label>American
+          <label>
           <input type="checkbox" value="American" onChange={updateTypeOfFoodFilter}/>
+          American
           </label>
-          <label>European
+          <label>
           <input type="checkbox" value="European" onChange={updateTypeOfFoodFilter}/>
+          European
           </label>
-          <label>Mediterranian
+          <label>
           <input type="checkbox" value="Mediterranian" onChange={updateTypeOfFoodFilter}/>
+          Mediterranian
           </label>
-          <label>Japanese
+          <label>
           <input type="checkbox" value="Japanese" onChange={updateTypeOfFoodFilter}/>
+          Japanese
           </label>
           <label>Latin American
           <input type="checkbox" value="Latin American" onChange={updateTypeOfFoodFilter}/>
+          Latin American
           </label>
-          <label>Middle Eastern
+          <label>
           <input type="checkbox" value="Middle Eastern" onChange={updateTypeOfFoodFilter}/>
+          Middle Eastern
           </label>
           
         </form>
 
 
-        <form>Meals
-          <label>Breakfast
+        <form>
+        <SecondHeader>Meals</SecondHeader>
+          <label>
           <input type="checkbox" value="Breakfast" onChange={updateMealsFilter}/>
+          Breakfast
           </label>
-          <label>Brunch
+          <label>
           <input type="checkbox" value="Brunch" onChange={updateMealsFilter}/>
+          Brunch
           </label>
-          <label>Lunch
+          <label>
           <input type="checkbox" value="Lunch" onChange={updateMealsFilter}/>
+          Lunch
           </label>
-          <label>Dinner
+          <label>
           <input type="checkbox" value="Dinner"  onChange={updateMealsFilter}/>
+          Dinner
           </label>
         </form>
 
-        <form> Budget
-          <label>Low
+        <form>  <SecondHeader>Budget</SecondHeader>
+          <label>
           <input type="checkbox" value="Low" onChange={updateBudgetFilter}/>
+          Low
           </label>
-          <label>Medium
+          <label>
           <input type="checkbox" value="Medium" onChange={updateBudgetFilter}/>
+          Medium
           </label>
-          <label>High
+          <label>
           <input type="checkbox" value="High" onChange={updateBudgetFilter}/>
+          High
           </label>
         </form>
 
-        <form> Portion size
-          <label>Small
+        <form>  <SecondHeader>Portion size</SecondHeader>
+          <label>
           <input type="checkbox" value="Small" onChange={updatePortionSizeFilter}/>
+          Small
           </label>
-          <label>Medium
+          <label>
           <input type="checkbox" value="Medium" onChange={updatePortionSizeFilter}/>
+          Medium
           </label>
-          <label>Large
+          <label>
           <input type="checkbox" value="Large" onChange={updatePortionSizeFilter}/>
+          Large
           </label>
         </form>
 
-        <form> Target audience
-          <label>Group
+        <form> <SecondHeader>Target audience</SecondHeader>
+          <label>
           <input type="checkbox" value="Group" onChange={updateTargetAudienceFilter}/>
+          Group
           </label>
-          <label>Date
+          <label>
           <input type="checkbox" value="Date" onChange={updateTargetAudienceFilter}/>
+          Date
           </label>
-          <label>Family
-          <input type="checkbox" value="Family" onChange={updateTargetAudienceFilter}/>
+          <label>
+          <input type="checkbox" value="Family" onChange={updateTargetAudienceFilter}/>Family
           </label>
         </form>
 
-        <form> Restaurant focus
+        <form> <SecondHeader>Restaurant focus</SecondHeader>
           <label>Vegan
           <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>
           </label>
@@ -298,27 +325,33 @@ const FilteringPage = () => {
           </label>
         </form> 
       
-      <form>Dogfriendly
-          <label>Dogs
+      <form><SecondHeader> Dog friendly</SecondHeader>
+          <label>
           <input type="radio" checked={dogFriendlyFilter==='yes'} value="yes" onChange={updateDogFriendlyFilter}/>
+          Dogs
           </label>
-          <label>No dogs
+          <label>
           <input type="radio" checked={dogFriendlyFilter==='no'} value="no" onChange={updateDogFriendlyFilter}/>
+          No dogs
           </label>
-          <label>No preference
+          <label>
           <input type="radio" checked={dogFriendlyFilter==='no_pref'} value="no_pref" onChange={updateDogFriendlyFilter}/>
+          No preference
           </label>
         </form>
 
-        <form>Outdoor area
-          <label>Yes
+        <form><SecondHeader>Outdoor area</SecondHeader>
+          <label>
           <input type="radio" checked={outdoorAreaFilter==='yes'} value="yes" onChange={updateOutdoorAreaFilter}/>
+          Yes
           </label>
-          <label>No
+          <label>
           <input type="radio" checked={outdoorAreaFilter==='no'} value="no" onChange={updateOutdoorAreaFilter}/>
+          No
           </label>
-          <label>No preference
+          <label>
           <input type="radio" checked={outdoorAreaFilter==='no_pref'} value="no_pref" onChange={updateOutdoorAreaFilter}/>
+          No preference
           </label>
         </form>
       </FilterContainer>

@@ -10,10 +10,16 @@ export const StyledHeader = styled.header`
 // background-color: white;
 margin-bottom: 10px;
 text-align: center;
+img{max-height: 50px; margin-top: 20px;}
 `
+
 
 export const HeaderTitle = styled.h1`
 margin-top: 0;
+`
+
+export const SecondHeader = styled.h2 `
+font-size: 20px;
 `
 
 export const ReastaurantCard = styled.div`
@@ -34,7 +40,9 @@ export const ReastaurantCard = styled.div`
 `
 
 export const FilterContainer = styled.article`
-border: 1px solid black;
+border: 1px solid darkgray;
+margin: 10px;
+padding: 0.5rem;
 `
 
 export const Burger = styled.div`
@@ -47,7 +55,7 @@ position: relative;
 
 #home, #profile, #about {
   text-decoration: none;
-  color: white;
+  color: #000000;
   font-size: 20px;
   padding: 10px 20px;
   margin: 0 10px;
@@ -79,7 +87,7 @@ position: relative;
   
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: #373a47;
+    background: #000000;
   }
   
   /* Position and sizing of clickable cross button */
@@ -95,7 +103,7 @@ position: relative;
   
   /* General sidebar styles */
   .bm-menu {
-    background-color: #C5B5C8;
+    background-color: #da918b;
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
   }

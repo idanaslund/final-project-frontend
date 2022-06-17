@@ -8,7 +8,6 @@ const GlobalStyle = createGlobalStyle`
   :root {
   --theme-primary: #d8e4da;
   --theme-secondary: #da918b;
-
   }
   body {
   margin: 0;
