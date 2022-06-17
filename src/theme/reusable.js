@@ -10,6 +10,18 @@ export const devices = {
     desktop: "(min-width: 1025px)"
 }
 
+export const Container = styled.section`
+width: 375px;
+margin: 0 auto;
+
+@media ${devices.tablet} {
+    width: 768px;
+}
+@media ${devices.desktop} {
+  width: 1025px;
+}
+`
+
 export const Paragraph = styled.p`
 font-family: 'Cabin', sans-serif;
 font-size: 18px;
@@ -22,5 +34,4 @@ background-color: #C5B5C8;
 border: none;
 width: 150px;
 padding: 8px;
-
 `

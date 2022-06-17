@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'       ///  Component
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
-import styled from 'styled-components'
+import { StyledRestaurantList } from '../theme/styles'
 
 import { API_URL } from 'utils/urls'
 
@@ -369,32 +369,3 @@ const FilteringPage = () => {
 
 export default FilteringPage
 
-const StyledRestaurantList = styled.main`
-  .restaurantListPage {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px;
-    padding: 10px;
-  }
-
-  .restaurantImage {
-    width: 100%;
-    max-height: 140px;
-
-  }
-
-  .restaurantListPage a {
-    width: 25%;
-    color: black;
-    text-decoration: none;
-  }
-
-  .restaurantCard {
-    margin: 5px;
-    border: solid 1px black;
-  }
-
-  h2 {
-    font-size: 12px;
-  }
-`

@@ -1,12 +1,17 @@
 import React from "react"
 import Navbar from "./Navbar"
 
+
+import { StyledHeader, HeaderTitle } from '../theme/styles'
+
 const Header = () => {
     return(
-        <header>
-            <h1>FINAL PROJECT</h1>
+        
+        <StyledHeader>
+            <HeaderTitle>FINAL PROJECT</HeaderTitle>
             <Navbar />
-        </header>
+        </StyledHeader>
+        
     )
 }
 

@@ -11,7 +11,8 @@ import LogOut from 'pages/Logout'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import { RestaurantDetails } from 'pages/RestaurantDetails'
-import GlobalStyle from './theme/globalStyle';
+import GlobalStyle from './theme/globalStyle'
+import { Container } from './theme/reusable'
 
 import user from 'reducers/user'
 import ProfilePage from 'pages/ProfilePage'
@@ -33,6 +34,7 @@ export const App = () => {
       <Provider store={store}>
         <main>
           <Header />
+          <Container>
           <Routes>
             <Route exact path="/" element={<LandingPage />}></Route>
             <Route path="/restaurants" element={<FilteringPage />} />
@@ -41,7 +43,8 @@ export const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/logout" element={<LogOut />} />
-          </Routes> 
+          </Routes>
+          </Container> 
           <Footer />
         </main>
       </Provider>
