@@ -7,6 +7,7 @@ import { CardWrapper } from '../theme/reusable'
 import { API_URL } from 'utils/urls'
 
 import { SecondHeader } from '../theme/styles'
+import { Paragraph } from '../theme/reusable'
 
 import user from 'reducers/user'
 
@@ -197,6 +198,8 @@ const FilteringPage = () => {
 
       <FilterContainer>
         <form>
+          <Paragraph>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet?</Paragraph>
+          <Paragraph>foodiefinder helps you find your next favourite restaurant in Stockholm! </Paragraph>
           <SecondHeader>Type of food</SecondHeader>
           <label>
           <input type="checkbox" value="Nordic" onChange={updateTypeOfFoodFilter}/> 
