@@ -37,6 +37,84 @@ export const FilterContainer = styled.article`
 border: 1px solid black;
 `
 
+// Login & Signup Styling
+export const LoginSignupPage = styled.main`
+  display: flex;
+  justify-content: center;
+
+  .loginSignupContainer {
+    background: white;
+    border: 2px solid black;
+    width: 70vw;
+    border-radius: 60px;
+    padding: 15px 0px;
+  }
+`
+
+
+export const LoginSignupChoice = styled.div`
+  h2 {
+    text-align: center;
+  }
+
+  .modeChoice {
+    display: -webkit-box;
+    justify-content: center;
+    margin: 10px;
+    font-family: 'Cabin', sans-serif;
+  }
+
+  .modeQuestion {
+    margin: 5px;
+  }
+
+  input {
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    background-color: #da918b;
+    border: none;
+    width: 80px;
+    padding: 8px;
+    border-radius: 30px;
+  }
+`
+
+export const LoginSignupForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    background-color: white;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid black;
+    width: 200px;
+    font-family: 'Cabin', sans-serif;
+    border-radius: 60px;
+  }
+
+  .input-username {
+    margin-top: 10px;
+  }
+
+  button {
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    background-color: #da918b;
+    border: none;
+    width: 125px;
+    padding: 8px;
+    margin-top: 14px;
+    border-radius: 30px;
+  }
+
+  p {
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+  }
+`
+
 export const Burger = styled.div`
 #page-wrap{
 text-align: center;
