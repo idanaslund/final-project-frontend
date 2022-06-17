@@ -234,7 +234,7 @@ const FilteringPage = () => {
           <input type="checkbox" value="Japanese" onChange={updateTypeOfFoodFilter}/>
           Japanese
           </label>
-          <label>Latin American
+          <label>
           <input type="checkbox" value="Latin American" onChange={updateTypeOfFoodFilter}/>
           Latin American
           </label>
@@ -311,17 +311,20 @@ const FilteringPage = () => {
         </form>
 
         <form> <SecondHeader>Restaurant focus</SecondHeader>
-          <label>Vegan
-          <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>
+          <label>
+          <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>Vegan
           </label>
-          <label>Vegetarian
+          <label>
           <input type="checkbox" value="Vegetarian" onChange={updateRestaurantFocusFilter}/>
+          Vegetarian
           </label>
-          <label>Fish
+          <label>
           <input type="checkbox" value="Fish" onChange={updateRestaurantFocusFilter}/>
+          Fish
           </label>
-          <label>Meat
+          <label>
           <input type="checkbox" value="Meat" onChange={updateRestaurantFocusFilter}/>
+          Meat
           </label>
         </form> 
       

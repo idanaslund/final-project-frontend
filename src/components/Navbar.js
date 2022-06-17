@@ -12,8 +12,8 @@ const Navbar = () => {
             <Menu pageWrapId={ "page-wrap" }>
                 <div id="page-wrap">
                     <div className='page-wrap' >
-                        <Link id="home" class-name="bm-item" to='/restaurants'>Home</Link>
-                        <Link id="profile" class-name="bm-item" to='/profile'>Profile</Link>
+                        <Link id="home" class-name="bm-item" to='/restaurants'>Find restaurant</Link>
+                        <Link id="profile" class-name="bm-item" to='/profile'>Your profile</Link>
                         <Link id="about" class-name="bm-item" to='/about'>About</Link>
                         <Link id="logout" class-name="bm-item" to='/logout'>Log out</Link>
                     </div>
