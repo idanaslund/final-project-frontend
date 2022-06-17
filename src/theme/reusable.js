@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 // STYLING: MOBILE FIRST!
 
 
@@ -30,7 +29,7 @@ font-size: 18px;
 export const BackButton = styled.button`
 font-family: 'Cabin', sans-serif;
 font-size: 16px;
-background-color: #C5B5C8;
+background-color: var(--theme-primary);
 border: none;
 width: 150px;
 padding: 8px;
