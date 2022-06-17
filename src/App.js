@@ -10,13 +10,13 @@ import About from 'pages/About'
 import LogOut from 'pages/Logout'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
+import ProfilePage from 'pages/ProfilePage'
+import ReviewList from 'pages/ReviewList'
 import { RestaurantDetails } from 'pages/RestaurantDetails'
 import GlobalStyle from './theme/globalStyle'
 import { Container } from './theme/reusable'
 
 import user from 'reducers/user'
-import ProfilePage from 'pages/ProfilePage'
-
 
 
 const reducer = combineReducers({
@@ -39,6 +39,7 @@ export const App = () => {
             <Route exact path="/" element={<LandingPage />}></Route>
             <Route path="/restaurants" element={<FilteringPage />} />
             <Route path="/restaurants/:id" element={<RestaurantDetails />} />
+            <Route path="/reviews" element={<ReviewList />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/about" element={<About />} />
             <Route path="/profile" element={<ProfilePage />} />

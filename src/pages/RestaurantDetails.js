@@ -81,7 +81,8 @@ export const RestaurantDetails = () => {
             </div>
           </div>
         )}
-        <ReviewComponent />
+        <ReviewComponent 
+        restaurant={restaurant.name}/>
       </article>
     </main>
   )
