@@ -29,7 +29,7 @@ font-size: 18px;
 export const BackButton = styled.button`
 font-family: 'Cabin', sans-serif;
 font-size: 16px;
-background-color: var(--theme-primary);
+background-color: #da918b;
 border: none;
 width: 150px;
 padding: 8px;

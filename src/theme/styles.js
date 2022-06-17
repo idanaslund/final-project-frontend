@@ -10,10 +10,16 @@ export const StyledHeader = styled.header`
 // background-color: white;
 margin-bottom: 10px;
 text-align: center;
+img{max-height: 50px; margin-top: 20px;}
 `
+
 
 export const HeaderTitle = styled.h1`
 margin-top: 0;
+`
+
+export const SecondHeader = styled.h2 `
+font-size: 20px;
 `
 
 export const ReastaurantCard = styled.div`
@@ -34,7 +40,9 @@ export const ReastaurantCard = styled.div`
 `
 
 export const FilterContainer = styled.article`
-border: 1px solid black;
+border: 1px solid darkgray;
+margin: 10px;
+padding: 0.5rem;
 `
 
 export const Burger = styled.div`
@@ -44,6 +52,7 @@ export const Burger = styled.div`
     top: 45%;
     position: relative;
   }
+
 
   .page-wrap {
     display: flex;
