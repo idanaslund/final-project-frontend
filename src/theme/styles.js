@@ -39,7 +39,9 @@ export const ReastaurantCard = styled.div`
 `
 
 export const FilterContainer = styled.article`
-border: 1px solid black;
+border: 1px solid darkgray;
+margin: 10px;
+padding: 0.5rem;
 `
 
 export const Burger = styled.div`
