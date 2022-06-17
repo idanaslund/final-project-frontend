@@ -12,8 +12,13 @@ margin-bottom: 10px;
 text-align: center;
 `
 
+
 export const HeaderTitle = styled.h1`
 margin-top: 0;
+`
+
+export const SecondHeader = styled.h2 `
+font-size: 20px;
 `
 
 export const ReastaurantCard = styled.div`
