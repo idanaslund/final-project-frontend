@@ -16,34 +16,27 @@ export const HeaderTitle = styled.h1`
 margin-top: 0;
 `
 
-export const StyledRestaurantList = styled.main`
-  .restaurantListPage {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-  }
+export const ReastaurantCard = styled.div`
+  margin: 10px 0 10px 0;
+  border-bottom: solid 1px black;
 
   .restaurantImage {
     width: 100%;
-    max-height: 140px;
-
-  }
-
-  .restaurantListPage a {
-    width: 25%;
-    color: black;
-    text-decoration: none;
-  }
-
-  .restaurantCard {
-    margin: 5px;
-    border: solid 1px black;
+    // max-height: 140px;
   }
 
   h2 {
     font-size: 12px;
+    color: black;
+    font-family: 'Cabin', sans-serif;
+    font-size: 18px;
   }
 `
+
+export const FilterContainer = styled.article`
+border: 1px solid black;
+`
+
 export const Burger = styled.div`
 #page-wrap{
 text-align: center;

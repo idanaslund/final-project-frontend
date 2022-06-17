@@ -35,3 +35,13 @@ border: none;
 width: 150px;
 padding: 8px;
 `
+
+export const CardWrapper = styled.article`
+display: flex;
+flex-wrap: wrap;
+padding: 10px;
+
+.link{
+    text-decoration: none;
+}
+`

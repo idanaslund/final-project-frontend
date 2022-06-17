@@ -59,7 +59,7 @@ export const RestaurantDetails = () => {
           dispatch(user.actions.setErrors(json.response))
         }
       })
-    }, [dispatch, id])
+    }, [dispatch, id, accessToken])
 
   if (restaurant === null) {
       return <p></p>
