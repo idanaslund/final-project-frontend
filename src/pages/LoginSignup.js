@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { batch, useDispatch, useSelector } from 'react-redux'
 import { API_URL } from 'utils/urls'
+import { LoginSignupForm, LoginSignupChoice, LoginSignupPage } from 'theme/styles'
 
 import user from 'reducers/user'
 
@@ -78,63 +79,78 @@ const LoginSignup = () => {
       }
 
     return (
-        <div>
-            {mode === 'login' && (
-                <div>
-                    <h2>LOG IN</h2>
-                    <label htmlFor='signup'>Register here:</label>
-                    <input 
-                        type='radio'
-                        id='signup'
-                        checked={mode === 'signup'}
-                        onChange={() => setMode('signup')}
-                    />
-                </div>
-            )}
-            {mode === 'signup' && (
-                <div>
-                    <h2>REGISTRATION</h2>
-                    <label htmlFor='login'>Log in here:</label>
-                    <input 
-                        type='radio'
-                        id='login'
-                        checked={mode === 'login'}
-                        onChange={() => setMode('login')}
-                    />
-                </div>
-            )}
-
-            <form onSubmit={onFormSubmit}>
-                <input 
-                    type='text'
-                    id='username'
-                    placeholder='Username'
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
-                />
-                <input 
-                    type='email'
-                    id='email'
-                    placeholder='Email'
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                />
-                <input 
-                    type='password'
-                    id='id'
-                    placeholder='Password'
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                />
+        <LoginSignupPage>
+            <div className='loginSignupContainer'>
                 {mode === 'login' && (
-                    <button type='submit'>Log in</button>
+                    <LoginSignupChoice>
+                        <h2>LOG IN</h2>
+                        <div className='modeChoice'>
+                            <label htmlFor='signup' className='modeQuestion'>
+                                New user?
+                            </label>
+                            <input 
+                                type='button'
+                                id='signup'
+                                value='Sign up'
+                                onClick={() => setMode('signup')}
+                                className='inputButton'
+                            />
+                        </div>
+                    </LoginSignupChoice>
                 )}
                 {mode === 'signup' && (
-                    <button type='submit'>Register</button>
+                    <LoginSignupChoice>
+                        <h2>REGISTRATION</h2>
+                        <div className='modeChoice'>
+                            <label htmlFor='login' className='modeQuestion'>
+                                Already signed up?
+                            </label>
+                            <input 
+                                type='button'
+                                id='login'
+                                value='Log in'
+                                onClick={() => setMode('login')}
+                                className='inputButton'
+                            />
+                        </div>
+                    </LoginSignupChoice>
                 )}
-                <p>{error}</p>
-            </form>
-        </div>
+
+                <LoginSignupForm onSubmit={onFormSubmit}>
+                    <input 
+                        type='text'
+                        id='username'
+                        placeholder='Username'
+                        onChange={(e) => setUsername(e.target.value)}
+                        value={username}
+                        className='input input-username'
+                    />
+                    <input 
+                        type='email'
+                        id='email'
+                        placeholder='Email'
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        className='input'
+                    />
+                    <input 
+                        type='password'
+                        id='id'
+                        placeholder='Password'
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        className='input'
+                    />
+                    {mode === 'login' && (
+                        <button type='submit'>Log in</button>
+                    )}
+                    {mode === 'signup' && (
+                        <button type='submit'>Register</button>
+                    )}
+                    <p>{error}</p>
+                </LoginSignupForm>
+            </div>
+        </LoginSignupPage>
     )
 }
 
