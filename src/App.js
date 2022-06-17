@@ -15,12 +15,13 @@ import GlobalStyle from './theme/globalStyle';
 
 import user from 'reducers/user'
 import ProfilePage from 'pages/ProfilePage'
+import restaurant from 'reducers/restaurant'
 
 
 
 const reducer = combineReducers({
   user: user.reducer,
-  // reviews: reviews.reducer
+  restaurant: restaurant.reducer
 })
 
 const store = configureStore({ reducer: reducer })

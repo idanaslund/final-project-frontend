@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { useDispatch, batch, useSelector } from 'react-redux'                      ///useSelector
+import { useParams, useNavigate } from 'react-router-dom'
+import { useDispatch, batch, useSelector } from 'react-redux'                      
 // import styled from 'styled-components'
 // import { RES_ID } from 'utils/urls'
 
@@ -13,7 +13,7 @@ import { Paragraph, BackButton } from '../theme/reusable'
 export const RestaurantDetails = () => {
 
   const accessToken = useSelector((store) => store.user.accessToken)
-  // const restaurant = useSelector((store) => store.user.restaurant)
+  const resId = useSelector((store) => store.restaurant.resId)
 
   const { id } = useParams()
   const [restaurant, setRestaurant] = useState({})

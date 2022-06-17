@@ -12,7 +12,7 @@ const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
   const [restaurants, setRestaurants] = useState ([])
   const [filteredRestaurants, setFilteredRestaurants] = useState([]) 
-  // const [resId, setResId] = useState ([])
+  const [resId, setResId] = useState ('')
   const [typeOfFoodFilter, setTypeOfFoodFilter] = useState([]) // Lägg till alla filter som är arrays
   const [mealsFilter, setMealsFilter] = useState([])          // Nytt filter, se mer på rad 86
   const [budgetFilter, setBudgetFilter] = useState([])
@@ -51,7 +51,7 @@ const FilteringPage = () => {
        
             batch(() => {
               setRestaurants(json.response)
-              // setResId(json.response)
+              setResId(json.response)
               // dispatch(user.actions.setRestaurants(data.restaurants))
               dispatch(user.actions.setErrors(null))
             })
