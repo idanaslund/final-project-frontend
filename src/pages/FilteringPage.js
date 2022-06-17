@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'       ///  Component
+import React, { useEffect, useState } from 'react'      
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
-import { StyledRestaurantList } from '../theme/styles'
+import { FilterContainer, ReastaurantCard } from '../theme/styles'
+import { CardWrapper } from '../theme/reusable'
 
 import { API_URL } from 'utils/urls'
 
@@ -11,9 +12,8 @@ const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
   const [restaurants, setRestaurants] = useState ([])
   const [filteredRestaurants, setFilteredRestaurants] = useState([]) 
-  // const [resId, setResId] = useState ([])
-  const [typeOfFoodFilter, setTypeOfFoodFilter] = useState([]) // Lägg till alla filter som är arrays
-  const [mealsFilter, setMealsFilter] = useState([])          // Nytt filter, se mer på rad 86
+  const [typeOfFoodFilter, setTypeOfFoodFilter] = useState([]) 
+  const [mealsFilter, setMealsFilter] = useState([])         
   const [budgetFilter, setBudgetFilter] = useState([])
   const [portionSizeFilter, setPortionSizeFilter] = useState([])
   const [targetAudienceFilter, setTargetAudienceFilter] = useState([])
@@ -50,8 +50,6 @@ const FilteringPage = () => {
        
             batch(() => {
               setRestaurants(json.response)
-              // setResId(json.response)
-              // dispatch(user.actions.setRestaurants(data.restaurants))
               dispatch(user.actions.setErrors(null))
             })
           } else {
@@ -61,7 +59,7 @@ const FilteringPage = () => {
     }
   }, [accessToken, dispatch])
 
-  useEffect(() => { // Lägg till if-satser 
+  useEffect(() => { 
     let filteredRestaurants = restaurants
     // Type of Food
     if (typeOfFoodFilter.length > 0) {
@@ -125,8 +123,7 @@ const FilteringPage = () => {
   // Type of Food
   const updateTypeOfFoodFilter = (e) => {
     const { value, checked } = e.target
-    // console.log(`${value} is ${checked}`)
-    // console.log(typeOfFoodFilter)
+
     if(checked) {
       setTypeOfFoodFilter(arr => [...arr, value])
     } else {
@@ -181,12 +178,12 @@ const FilteringPage = () => {
       setRestaurantFocusFilter(arr => arr.filter((type) => type !== value))
     }
   }
-  // Dog friendly - fungerar ej
+  // Dog friendly 
   const updateDogFriendlyFilter = (e) => {
     const { value } = e.target
     setDogFriendlyFilter(value)
   }
-  // Outdoor area - fungerar ej
+  // Outdoor area 
   const updateOutdoorAreaFilter = (e) => {
     const { value } = e.target
     setOutdoorAreaFilter(value)
@@ -194,176 +191,170 @@ const FilteringPage = () => {
 
   return (
   
-    <StyledRestaurantList>
+    <section>
 
-      <button
-      type="button" onClick={() => navigate('/logout')}>
-      Log out
-      </button>
-
-      <form>Type of food
-        <label>Nordic
-        <input type="checkbox" value="Nordic" onChange={updateTypeOfFoodFilter}/> {/*tog bort checked={typeOfFoodFilter.includes('Nordic')} och det fungerade lika. */}
-        </label>
-        <label>Swedish
-        <input type="checkbox" value="Swedish" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        <label>Italian
-        <input type="checkbox" value="Italian" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        <label>Asian
-        <input type="checkbox" value="Asian" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        <label>Spanish
-        <input type="checkbox" value="Spanish" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        <label>American
-        <input type="checkbox" value="American" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        <label>European
-        <input type="checkbox" value="European" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        <label>Mediterranian
-        <input type="checkbox" value="Mediterranian" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        <label>Japanese
-        <input type="checkbox" value="Japanese" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        <label>Latin American
-        <input type="checkbox" value="Latin American" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        <label>Middle Eastern
-        <input type="checkbox" value="Middle Eastern" onChange={updateTypeOfFoodFilter}/>
-        </label>
-        
-      </form>
+      <FilterContainer>
+        <form>Type of food
+          <label>Nordic
+          <input type="checkbox" value="Nordic" onChange={updateTypeOfFoodFilter}/> 
+          </label>
+          <label>Swedish
+          <input type="checkbox" value="Swedish" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          <label>Italian
+          <input type="checkbox" value="Italian" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          <label>Asian
+          <input type="checkbox" value="Asian" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          <label>Spanish
+          <input type="checkbox" value="Spanish" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          <label>American
+          <input type="checkbox" value="American" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          <label>European
+          <input type="checkbox" value="European" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          <label>Mediterranian
+          <input type="checkbox" value="Mediterranian" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          <label>Japanese
+          <input type="checkbox" value="Japanese" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          <label>Latin American
+          <input type="checkbox" value="Latin American" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          <label>Middle Eastern
+          <input type="checkbox" value="Middle Eastern" onChange={updateTypeOfFoodFilter}/>
+          </label>
+          
+        </form>
 
 
-{/* CHECKBOXAR TILL NYA FILTRET SAMT ÖVRIGA, LÄNGST NED RADIOS FÖR BOOLEANS  */}
-      <form>Meals
-        <label>Breakfast
-        <input type="checkbox" value="Breakfast" onChange={updateMealsFilter}/>
-        </label>
-        <label>Brunch
-        <input type="checkbox" value="Brunch" onChange={updateMealsFilter}/>
-        </label>
-        <label>Lunch
-        <input type="checkbox" value="Lunch" onChange={updateMealsFilter}/>
-        </label>
-        <label>Dinner
-        <input type="checkbox" value="Dinner"  onChange={updateMealsFilter}/>
-        </label>
-      </form>
+        <form>Meals
+          <label>Breakfast
+          <input type="checkbox" value="Breakfast" onChange={updateMealsFilter}/>
+          </label>
+          <label>Brunch
+          <input type="checkbox" value="Brunch" onChange={updateMealsFilter}/>
+          </label>
+          <label>Lunch
+          <input type="checkbox" value="Lunch" onChange={updateMealsFilter}/>
+          </label>
+          <label>Dinner
+          <input type="checkbox" value="Dinner"  onChange={updateMealsFilter}/>
+          </label>
+        </form>
 
-      <form> Budget
-        <label>Low
-        <input type="checkbox" value="Low" onChange={updateBudgetFilter}/>
-        </label>
-        <label>Medium
-        <input type="checkbox" value="Medium" onChange={updateBudgetFilter}/>
-        </label>
-        <label>High
-        <input type="checkbox" value="High" onChange={updateBudgetFilter}/>
-        </label>
-      </form>
+        <form> Budget
+          <label>Low
+          <input type="checkbox" value="Low" onChange={updateBudgetFilter}/>
+          </label>
+          <label>Medium
+          <input type="checkbox" value="Medium" onChange={updateBudgetFilter}/>
+          </label>
+          <label>High
+          <input type="checkbox" value="High" onChange={updateBudgetFilter}/>
+          </label>
+        </form>
 
-      <form> Portion size
-        <label>Small
-        <input type="checkbox" value="Small" onChange={updatePortionSizeFilter}/>
-        </label>
-        <label>Medium
-        <input type="checkbox" value="Medium" onChange={updatePortionSizeFilter}/>
-        </label>
-        <label>Large
-        <input type="checkbox" value="Large" onChange={updatePortionSizeFilter}/>
-        </label>
-      </form>
+        <form> Portion size
+          <label>Small
+          <input type="checkbox" value="Small" onChange={updatePortionSizeFilter}/>
+          </label>
+          <label>Medium
+          <input type="checkbox" value="Medium" onChange={updatePortionSizeFilter}/>
+          </label>
+          <label>Large
+          <input type="checkbox" value="Large" onChange={updatePortionSizeFilter}/>
+          </label>
+        </form>
 
-      <form> Target audience
-        <label>Group
-        <input type="checkbox" value="Group" onChange={updateTargetAudienceFilter}/>
-        </label>
-        <label>Date
-        <input type="checkbox" value="Date" onChange={updateTargetAudienceFilter}/>
-        </label>
-        <label>Family
-        <input type="checkbox" value="Family" onChange={updateTargetAudienceFilter}/>
-        </label>
-      </form>
+        <form> Target audience
+          <label>Group
+          <input type="checkbox" value="Group" onChange={updateTargetAudienceFilter}/>
+          </label>
+          <label>Date
+          <input type="checkbox" value="Date" onChange={updateTargetAudienceFilter}/>
+          </label>
+          <label>Family
+          <input type="checkbox" value="Family" onChange={updateTargetAudienceFilter}/>
+          </label>
+        </form>
 
-      <form> Restaurant focus
-        <label>Vegan
-        <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>
-        </label>
-        <label>Vegetarian
-        <input type="checkbox" value="Vegetarian" onChange={updateRestaurantFocusFilter}/>
-        </label>
-        <label>Fish
-        <input type="checkbox" value="Fish" onChange={updateRestaurantFocusFilter}/>
-        </label>
-        <label>Meat
-        <input type="checkbox" value="Meat" onChange={updateRestaurantFocusFilter}/>
-        </label>
-      </form> 
-     
-     {/* // Fungerar ej */}
-    <form>Dogfriendly
-        <label>Dogs
-        <input type="radio" checked={dogFriendlyFilter==='yes'} value="yes" onChange={updateDogFriendlyFilter}/>
-        </label>
-        <label>No dogs
-        <input type="radio" checked={dogFriendlyFilter==='no'} value="no" onChange={updateDogFriendlyFilter}/>
-        </label>
-        <label>No preference
-        <input type="radio" checked={dogFriendlyFilter==='no_pref'} value="no_pref" onChange={updateDogFriendlyFilter}/>
-        </label>
-      </form>
+        <form> Restaurant focus
+          <label>Vegan
+          <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>
+          </label>
+          <label>Vegetarian
+          <input type="checkbox" value="Vegetarian" onChange={updateRestaurantFocusFilter}/>
+          </label>
+          <label>Fish
+          <input type="checkbox" value="Fish" onChange={updateRestaurantFocusFilter}/>
+          </label>
+          <label>Meat
+          <input type="checkbox" value="Meat" onChange={updateRestaurantFocusFilter}/>
+          </label>
+        </form> 
+      
+      <form>Dogfriendly
+          <label>Dogs
+          <input type="radio" checked={dogFriendlyFilter==='yes'} value="yes" onChange={updateDogFriendlyFilter}/>
+          </label>
+          <label>No dogs
+          <input type="radio" checked={dogFriendlyFilter==='no'} value="no" onChange={updateDogFriendlyFilter}/>
+          </label>
+          <label>No preference
+          <input type="radio" checked={dogFriendlyFilter==='no_pref'} value="no_pref" onChange={updateDogFriendlyFilter}/>
+          </label>
+        </form>
 
-      {/* // Fungerar ej */}  
-      <form>Outdoor area
-        <label>Yes
-        <input type="radio" checked={outdoorAreaFilter==='yes'} value="yes" onChange={updateOutdoorAreaFilter}/>
-        </label>
-        <label>No
-        <input type="radio" checked={outdoorAreaFilter==='no'} value="no" onChange={updateOutdoorAreaFilter}/>
-        </label>
-        <label>No preference
-        <input type="radio" checked={outdoorAreaFilter==='no_pref'} value="no_pref" onChange={updateOutdoorAreaFilter}/>
-        </label>
-      </form>
+        <form>Outdoor area
+          <label>Yes
+          <input type="radio" checked={outdoorAreaFilter==='yes'} value="yes" onChange={updateOutdoorAreaFilter}/>
+          </label>
+          <label>No
+          <input type="radio" checked={outdoorAreaFilter==='no'} value="no" onChange={updateOutdoorAreaFilter}/>
+          </label>
+          <label>No preference
+          <input type="radio" checked={outdoorAreaFilter==='no_pref'} value="no_pref" onChange={updateOutdoorAreaFilter}/>
+          </label>
+        </form>
+      </FilterContainer>
 
       
-      {filteredRestaurants.length == 0 ? (                        ///// Här ska det vara filteredRestaurants.length == 0
-        <div className='restaurantListPage'>
+      {filteredRestaurants.length == 0 ? ( 
+        <CardWrapper className='restaurantListPage'>
         {restaurants.map(restaurant => (
-          <Link key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
-              <div className='restaurantCard'>
+          <Link className='link' key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
+              <ReastaurantCard className='restaurantCard'>
                <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
                <div>
                   <h2>{restaurant.name}</h2>
                </div>
-               </div>
+               </ReastaurantCard>
             </Link>
 
         ))}
-        </div>
+        </CardWrapper>
         ) : (
-          <div className='restaurantListPage'>
+          <CardWrapper className='restaurantListPage'>
           {filteredRestaurants.map(restaurant => (
-            <Link key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
-                <div className='restaurantCard'>
+            <Link className='link' key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
+                <ReastaurantCard className='restaurantCard'>
                  <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
                  <div>
                     <h2>{restaurant.name}</h2>
                  </div>
-                 </div>
+                 </ReastaurantCard>
               </Link>
           ))}
-          </div>
+          </CardWrapper>
           
         )}
 
-    </StyledRestaurantList>
+    </section>
   )
 }
 
