@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
 // background-color: white;
 margin-bottom: 10px;
 text-align: center;
+img{max-height: 50px; margin-top: 20px;}
 `
 
 

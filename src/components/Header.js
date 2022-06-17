@@ -9,7 +9,7 @@ const Header = () => {
     return(
         
         <StyledHeader>
-            <img src="https://i.postimg.cc/44V76f12/foodie-finder.png" alt="foodie-finder-logotype" height="50px" />
+            <img src="https://i.postimg.cc/44V76f12/foodie-finder.png" alt="foodie-finder-logotype" />
 
             <Navbar />
         </StyledHeader>
