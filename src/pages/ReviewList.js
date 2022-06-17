@@ -23,6 +23,7 @@ const ReviewList = () => {
       .then(reviews => setReviews(reviews))
       .catch(error => console.error(error))
     }
+    console.log(reviews)
   }, [accessToken])
 
   console.log('reviews', reviews)
@@ -55,6 +56,8 @@ const updateLikes = (singleReviewId) => {
       {reviews.map(singleReview => (
         <article key={singleReview._id} review={singleReview} onLike={onLike}>
           <p>{singleReview.review}</p>
+          <p>{singleReview.restaurant}</p>
+          <p>{singleReview.author}</p>
           <div>
             <div>
             <button 

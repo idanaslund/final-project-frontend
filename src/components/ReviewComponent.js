@@ -5,16 +5,16 @@ import { useNavigate } from 'react-router-dom'
 import { API_URL, REVIEWS } from 'utils/urls'
 
 import ReviewForm from 'components/ReviewForm'
-import ReviewList from 'components/ReviewList'
+// import ReviewList from 'pages/ReviewList'
 
 import user from 'reducers/user'
 
-export const ReviewComponent = ({ reviews, updateLikes }) => {
+export const ReviewComponent = ({ restaurant }) => {                  ////reviews, updateLikes
   const [newReview, setNewReview] = useState('')
   const [counter, setCounter] = useState(0)
 
   const accessToken = useSelector((store) => store.user.accessToken)
-  // const userId = JSON.parse(localStorage.getItem('user'))?.userId
+  const author = JSON.parse(localStorage.getItem('user'))?.username
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -42,7 +42,8 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
       },
       body: JSON.stringify({
         review: newReview,
-        _id: user._id
+        author: author,
+        restaurant: restaurant
       })
     }
    
@@ -67,10 +68,11 @@ export const ReviewComponent = ({ reviews, updateLikes }) => {
         onNewReviewChange={handleNewReviewChange}
         onFormSubmit={onFormSubmit}
         counter={counter}
+        restaurant={restaurant}
       />
-      <ReviewList
+      {/* <ReviewList
         reviews={reviews}
-        updateLikes={updateLikes} />
+        updateLikes={updateLikes} /> */}
 
     </div>
   )
