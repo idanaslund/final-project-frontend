@@ -23,11 +23,9 @@ const FilteringPage = () => {
   const [dogFriendlyFilter, setDogFriendlyFilter] = useState('no_pref')
   const [outdoorAreaFilter, setOutdoorAreaFilter] = useState('no_pref')
   const [filterActive, setFilterActive] = useState(false)
-
   
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
 
   useEffect(() => {
     if (!accessToken) {
