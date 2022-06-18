@@ -29,7 +29,7 @@ const LogOut = () => {
           <h3>Are you sure you want to log out?</h3>
           <div className='buttonContainer'>
             <BackButton
-              type="button" onClick={() => dispatch(user.actions.logOut())} className="logoutButton logoutPage"
+              type="button" onClick={() => dispatch(user.actions.logOut())} className="logoutButton"
             >
               Log out
             </BackButton>
