@@ -201,7 +201,7 @@ const FilteringPage = () => {
           <SecondHeader>Type of food</SecondHeader>
           
      
-          <Label for="Nordic">
+          <Label htmlFor="Nordic">
           <StyledInput id="Nordic" type="checkbox" value="Nordic" defaultChecked={false} onChange={updateTypeOfFoodFilter} /> 
           Nordic
           </Label>
