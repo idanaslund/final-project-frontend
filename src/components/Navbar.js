@@ -27,8 +27,10 @@ const Navbar = () => {
                 <div id="page-wrap">
                     <div className='page-wrap' >
 
+
                         <Link id="home" class-name="bm-item" to='/restaurants' onClick={closeSideBar}>Find restaurant</Link>
                         <Link id="profile" class-name="bm-item" to='/profile' onClick={closeSideBar}>Your profile</Link>
+                        <Link id="reviews" class-name="bm-item" to='/reviews' onClick={closeSideBar}>Reviews</Link>
                         <Link id="about" class-name="bm-item" to='/about' onClick={closeSideBar}>About</Link>
                         <Link id="logout" class-name="bm-item" to='/logout' onClick={closeSideBar}>Log out</Link>
                     </div>

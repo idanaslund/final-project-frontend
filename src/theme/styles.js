@@ -139,7 +139,7 @@ export const Burger = styled.div`
     flex-direction: column;
   }
 
-  #home, #profile, #about,  #logout {
+  #home, #profile, #reviews, #about, #logout {
     text-decoration: none;
     color: white;
     font-size: 20px;
@@ -224,6 +224,49 @@ export const Burger = styled.div`
   
 `
 
+export const ReviewContainer = styled.article`
+position: relative;
+`
+
+export const RestaurantName = styled.p`
+font-size: 18px;
+font-weight: 700;
+color: #2A5744;
+`
+export const StyledReviewBox = styled.article`
+margin-top: 15px;
+margin-bottom: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+`
+export const Reviews = styled.div`
+background-color: white;
+border: gray solid 1px;
+width: 300px;
+font-size: 16px;
+font-weight: 300;
+`
+
+export const ReviewInfo = styled.p`
+display: inline;
+position: absolute;
+right: 10px;
+top: 105px;
+font-weight: 500;
+`
+
+export const TimePosted = styled.p`
+display: inline;
+font-size: 16px;
+`
+
+export const LikeButtonArea = styled.div`
+text-align: start;
+margin-top: 5px;
+`
+
+
 
 export const FooterStyling = styled.section`
     display: flex; 
@@ -263,4 +306,3 @@ export const LogOutPage = styled.section`
       display: block;
     }
 `
-
