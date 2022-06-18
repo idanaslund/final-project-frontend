@@ -7,7 +7,8 @@ import { useDispatch, batch, useSelector } from 'react-redux'                   
 import user from 'reducers/user'
 
 import { ReviewComponent } from 'components/ReviewComponent'
-import { Paragraph, BackButton } from '../theme/reusable'
+import { Paragraph, BackButton, GetInspiredButton, SecondHeader } from '../theme/reusable'
+import { ImageWrapper, RestaurantDetailsContainer } from '../theme/styles'
 
 export const RestaurantDetails = () => {
 
@@ -21,6 +22,10 @@ export const RestaurantDetails = () => {
 
   const onBackButtonClick = () => {
     navigate(-1)
+  }
+
+  const onGetInspiredButtonClick = () => {
+    navigate('/reviews')
   }
 
   // useEffect(() => {
@@ -68,22 +73,33 @@ export const RestaurantDetails = () => {
   return (
     <main>
       <article>
+      <RestaurantDetailsContainer>
         {restaurant && (
           <div>
-            <h1>HI</h1>
-            <BackButton onClick={onBackButtonClick}>Go back</BackButton>
+
             <div key={restaurant.id}>
-              <img src={restaurant.image_URL} alt={restaurant.name} />
+          
+        
+              <ImageWrapper src={restaurant.image_URL} alt={restaurant.name} />
+           
               <div>
-                <h2>{restaurant.name}</h2>
+                <SecondHeader>{restaurant.name}</SecondHeader>
                 <Paragraph>{restaurant.description}</Paragraph>
               </div>
+         
             </div>
+            
           </div>
+         
         )}
         <ReviewComponent 
         restaurant={restaurant.name}/>
+             </RestaurantDetailsContainer>
       </article>
+      
+
+      <BackButton onClick={onBackButtonClick}>Go back</BackButton>
+      <GetInspiredButton onClick={onGetInspiredButtonClick}>Read more reviews</GetInspiredButton>
     </main>
   )
 }

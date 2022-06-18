@@ -1,35 +1,15 @@
 import styled from "styled-components"
 
-export const devices = { 
-    mobile: "(min-width: 375px)",
-    tablet: "(min-width: 768px)",
-    desktop: "(min-width: 1025px)"
-}
 
-export const StyledHeader = styled.header`
-// background-color: white;
-margin-bottom: 10px;
-text-align: center;
-img{max-height: 50px; margin-top: 20px;}
-`
+/////////////// Restaurant card on Filtering page ///////////////
 
-
-export const HeaderTitle = styled.h1`
-margin-top: 0;
-`
-
-export const SecondHeader = styled.h2 `
-font-size: 20px;
-color: #2a5744;
-`
-
-export const ReastaurantCard = styled.div`
+export const RestaurantCard = styled.div`
   margin: 10px 0 10px 0;
   border-bottom: solid 1px black;
 
   .restaurantImage {
     width: 100%;
-    // max-height: 140px;
+    // max-height: 140px; /* Ska vi behålla denna eller ta bort?*/
   }
 
   h2 {
@@ -39,6 +19,7 @@ export const ReastaurantCard = styled.div`
     font-size: 18px;
   }
 `
+/////////////// Login / Signup ///////////////
 
 export const FilterContainer = styled.article`
 border: 1px solid darkgray;
@@ -47,7 +28,8 @@ padding: 1rem;
 border-radius: 2px;
 `
 
-// Login & Signup Styling
+/////////////// Login / Signup ///////////////
+
 export const LoginSignupPage = styled.main`
   display: flex;
   justify-content: center;
@@ -60,7 +42,6 @@ export const LoginSignupPage = styled.main`
     padding: 15px 0px;
   }
 `
-
 
 export const LoginSignupChoice = styled.div`
   h2 {
@@ -124,6 +105,8 @@ export const LoginSignupForm = styled.form`
     font-size: 16px;
   }
 `
+
+/////////////// Burger menu ///////////////
 
 export const Burger = styled.div`
   #page-wrap{
@@ -221,10 +204,10 @@ export const Burger = styled.div`
       margin-top: 14px;
       border-radius: 30px;
     }
-  
 `
 
-//////////////////////////// Review styling //////////////////////////////////////////////
+
+/////////////// Review page ///////////////
 
 export const ReviewContainer = styled.article`
 position: relative;
@@ -268,22 +251,7 @@ text-align: start;
 margin-top: 5px;
 `
 
-
-
-export const FooterStyling = styled.section`
-    display: flex; 
-    justify-content: center;
-    margin: 10px;
-
-  .footerContainer {
-    text-align: center;
-    font-size: 18px;
-    color: black;
-    padding: 0px 10px;
-    width: 70vw;
-    line-height: 1.5;
-  }
-`
+/////////////// Log out page ///////////////
 
 export const LogOutPage = styled.section`
     display: flex;
@@ -309,8 +277,35 @@ export const LogOutPage = styled.section`
     }
 `
 
-
 ///////////////////Profile styling /////////////////////////////////////
 export const ProfileSection = styled.section`
 margin: 1rem;
 `
+
+/////////////// Restaurant details page ///////////////
+
+export const ImageWrapper = styled.img`
+width: 340px;
+`
+
+export const RestaurantDetailsContainer = styled.div`
+padding: 1rem;
+`
+
+/////////////// Footer styling ///////////////
+
+export const FooterStyling = styled.section`
+    display: flex; 
+    justify-content: center;
+    margin: 10px;
+
+  .footerContainer {
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    padding: 0px 10px;
+    width: 70vw;
+    line-height: 1.5;
+  }
+`
+
