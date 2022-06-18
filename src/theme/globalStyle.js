@@ -6,6 +6,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
+  --theme-darkgray: #2e2e2e;
   --theme-lightgreen: #d8e4da;
   --theme-pinkish: #da918b;
   --theme-darkgreen: #2a5744;

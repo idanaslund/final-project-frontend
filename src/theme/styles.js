@@ -281,7 +281,7 @@ margin-block-end: 5.4px;
 
 export const TextLabel = styled.label`
 font-size: 16px;
-color: #4e7565;
+color: #2e2e2e;
 font-family: 'Cabin', sans-serif;
 `
 
@@ -301,11 +301,12 @@ background: #fdf8f8;
 border: none;
 width: 120px;
 padding: 8px;
+
 `
 
 export const Characters = styled.p`
 margin-block-start: 5.4px;
-color: #4e7565;
+color: #2e2e2e;
 font-family: 'Cabin', sans-serif;
 `
 
@@ -316,6 +317,15 @@ text-align: center;
 export const LinkContainer = styled.a`
 font-family: 'Cabin', sans-serif;
 color: #2a5744;
+display: block;
+`
+
+export const TypeOfFood = styled.p`
+background: #fbf4f3;
+display: inline-block;
+padding: 8px;
+font-family: 'Cabin', sans-serif;
+margin-block-end: 0;
 `
 
 export const RestaurantAddress = styled.div`
@@ -330,6 +340,19 @@ font-size: 16px;
 background: #fbf4f3;
 padding: 0.6em;
 line-height: 1.6;
+color: #2e2e2e;
+`
+
+export const OpenHoursContainer = styled.div`
+font-family: 'Cabin', sans-serif;
+line-height: 0.6;
+background: #fbf4f3;
+padding: 10px;
+`
+
+export const ListedHours = styled.p`
+font-size: 16px;
+color: #4e7565;
 `
 
 /////////////// Log out page ///////////////

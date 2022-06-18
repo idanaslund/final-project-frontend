@@ -54,6 +54,7 @@ border: none;
 width: 120px;
 padding: 8px;
 margin-left: 1rem;
+color: #2e2e2e;
 `
 
 export const GetInspiredButton = styled.button`

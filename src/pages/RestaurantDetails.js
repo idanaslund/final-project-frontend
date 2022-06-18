@@ -6,9 +6,9 @@ import user from 'reducers/user'
 
 import { ReviewComponent } from 'components/ReviewComponent'
 import { MarginSection, BackButton, GetInspiredButton, SecondHeader } from '../theme/reusable'
-import { ImageWrapper, ButtonBox, LinkContainer, RestaurantAddress, RestaurantDescription } from '../theme/styles'
+import { ImageWrapper, ButtonBox, LinkContainer, RestaurantAddress, RestaurantDescription, OpenHoursContainer, ListedHours, TypeOfFood } from '../theme/styles'
 
-export const RestaurantDetails = ({website, address, opening_hours_mon, opening_hours_tue, opening_hours_wed, opening_hours_thur, opening_hours_fri, opening_hours_sat, opening_hours_sun}) => {
+export const RestaurantDetails = ({website, address, opening_hours_mon, opening_hours_tue, opening_hours_wed, opening_hours_thur, opening_hours_fri, opening_hours_sat, opening_hours_sun, type_of_food}) => {
 
   const accessToken = useSelector((store) => store.user.accessToken)
 
@@ -72,38 +72,48 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
 
             <div key={restaurant.id}>
           
-        
+              
               <ImageWrapper src={restaurant.image_URL} alt={restaurant.name} />
-        
-           
-              <div>
+              
+         
+            
                 <SecondHeader>{restaurant.name}</SecondHeader>
                 <RestaurantAddress>{restaurant.address}</RestaurantAddress>
                 <LinkContainer>
-                <Link to="{restaurant.website}" pathname={restaurant.website}>Website</Link>
+                <Link to={`/restaurant.website`} pathname={restaurant.website}>Website</Link>
                 </LinkContainer>
+                <TypeOfFood>{restaurant.type_of_food}</TypeOfFood>
+               
                 <RestaurantDescription>{restaurant.description}</RestaurantDescription>
-              </div>
+             
 
-              <p>Monday:
-               {restaurant.opening_hours_mon}</p>
-              <div>
-              {opening_hours_tue}
-              </div>
-              <div>
-              {opening_hours_wed}
-              </div>
-              <div>
-              {opening_hours_thur}
-              </div>
-              <div>
-              {opening_hours_fri}
-              </div>
-              <div>
-              {opening_hours_sat}
-              </div><div>
-                
-              {opening_hours_sun}
+            <OpenHoursContainer>
+              <SecondHeader>Opening hours</SecondHeader>
+              <ListedHours>
+                Monday: &nbsp;
+               {restaurant.opening_hours_mon}</ListedHours>
+              <ListedHours> Tuesday: &nbsp;
+              {restaurant. opening_hours_tue}
+              </ListedHours>
+              <ListedHours> Wednesday: &nbsp;
+              {restaurant. opening_hours_wed}
+              </ListedHours>
+              <ListedHours>Thursday: &nbsp;
+              {restaurant. opening_hours_thur}
+              </ListedHours>
+              <ListedHours> Friday: &nbsp;
+              {restaurant. opening_hours_fri}
+              </ListedHours>
+              <ListedHours>Saturday: &nbsp;
+              {restaurant. opening_hours_sat}
+              </ListedHours>
+              <ListedHours>Sunday: &nbsp;
+              {restaurant. opening_hours_sun}
+              </ListedHours>
+              </OpenHoursContainer>
+              
+           <div>
+              
               
               </div>
             
