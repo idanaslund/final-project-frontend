@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'      
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
-import { FilterContainer, ReastaurantCard } from '../theme/styles'
+import { FilterContainer, RestaurantCard } from '../theme/styles'
 import { CardWrapper } from '../theme/reusable'
 
 import { API_URL } from 'utils/urls'
 
-import { SecondHeader } from '../theme/styles'
+import { SecondHeader } from '../theme/reusable'
 import { Paragraph, Label, StyledInput } from '../theme/reusable'
 
 import user from 'reducers/user'
@@ -374,12 +374,12 @@ const FilteringPage = () => {
         <CardWrapper className='restaurantListPage'>
         {restaurants.map(restaurant => (
           <Link className='link' key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
-              <ReastaurantCard className='restaurantCard'>
+              <RestaurantCard className='restaurantCard'>
                <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
                <div>
                   <h2>{restaurant.name}</h2>
                </div>
-               </ReastaurantCard>
+               </RestaurantCard>
             </Link>
 
         ))}
@@ -392,12 +392,12 @@ const FilteringPage = () => {
           <CardWrapper className='restaurantListPage'>
           {filteredRestaurants.map(restaurant => (
             <Link className='link' key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
-                <ReastaurantCard className='restaurantCard'>
+                <RestaurantCard className='restaurantCard'>
                  <img src={restaurant.image_URL} alt={restaurant.name} className='restaurantImage' />
                  <div>
                     <h2>{restaurant.name}</h2>
                  </div>
-                 </ReastaurantCard>
+                 </RestaurantCard>
               </Link>
           ))}
           </CardWrapper>
