@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { formatDistance } from 'date-fns'
+import { Reviews, StyledReviewBox, ReviewInfo, TimePosted, RestaurantName, LikeButtonArea, ReviewContainer } from '../theme/styles'
+import heart from '../assets/heart.svg'
 
 import user from 'reducers/user'
 
@@ -54,26 +56,26 @@ const updateLikes = (singleReviewId) => {
 
     <section>
       {reviews.map(singleReview => (
-        <article key={singleReview._id} review={singleReview} onLike={onLike}>
-          <p>{singleReview.review}</p>
-          <p>{singleReview.restaurant}</p>
-          <p>{singleReview.author}</p>
-          <div>
-            <div>
-            <button 
-                onClick={() => onLike(singleReview._id)}>
-          
-              <span>x {singleReview.like}</span></button>
-            </div>
-          </div>
-
-          <p>
+        <ReviewContainer key={singleReview._id} review={singleReview} onLike={onLike}>
+          <RestaurantName>{singleReview.restaurant}</RestaurantName>
+          <StyledReviewBox>
+          <Reviews>
+            <p>{singleReview.review}</p>
+          </Reviews>
+          </StyledReviewBox>
+           <TimePosted>
             {formatDistance(new Date(singleReview.createdAt), Date.now(), {
               addSuffix: true,
             })}
-          </p>
+          </TimePosted>
+          <ReviewInfo>Reviewed by: {singleReview.author}</ReviewInfo>
+          
+            <LikeButtonArea>
+              <img src={heart} alt="heart" height="30px" onClick={() => onLike(singleReview._id)}/>
+              <span>x {singleReview.like}</span>
+            </LikeButtonArea>  
 
-        </article>
+        </ReviewContainer>
       ))}
     </section>
 
