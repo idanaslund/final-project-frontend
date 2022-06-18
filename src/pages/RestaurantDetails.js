@@ -85,15 +85,28 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
                 <RestaurantDescription>{restaurant.description}</RestaurantDescription>
               </div>
 
+              <p>Monday:
+               {restaurant.opening_hours_mon}</p>
               <div>
-              {opening_hours_mon}
               {opening_hours_tue}
-              {opening_hours_wed}
-              {opening_hours_thur}
-              {opening_hours_fri}
-              {opening_hours_sat}
-              {opening_hours_sun}
               </div>
+              <div>
+              {opening_hours_wed}
+              </div>
+              <div>
+              {opening_hours_thur}
+              </div>
+              <div>
+              {opening_hours_fri}
+              </div>
+              <div>
+              {opening_hours_sat}
+              </div><div>
+                
+              {opening_hours_sun}
+              
+              </div>
+            
             </div>
             
           </div>
