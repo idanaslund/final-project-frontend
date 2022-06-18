@@ -224,6 +224,22 @@ export const Burger = styled.div`
   
 `
 
+
+export const FooterStyling = styled.section`
+    display: flex; 
+    justify-content: center;
+    margin: 10px;
+
+  .footerContainer {
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    padding: 0px 10px;
+    width: 70vw;
+    line-height: 1.5;
+  }
+`
+
 export const LogOutPage = styled.section`
     display: flex;
     justify-content: center;
@@ -247,3 +263,4 @@ export const LogOutPage = styled.section`
       display: block;
     }
 `
+
