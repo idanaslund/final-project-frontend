@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
   --theme-lightgreen: #d8e4da;
   --theme-pinkish: #da918b;
-  --theme-darkgreen: #000000;
+  --theme-darkgreen: #2a5744;
   }
   body {
   margin: 0;

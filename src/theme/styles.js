@@ -1,5 +1,14 @@
 import styled from "styled-components"
 
+/////////////// Header styling ///////////////
+
+export const StyledHeader = styled.header`
+// background-color: white;
+margin-bottom: 10px;
+text-align: center;
+img{max-height: 50px; margin-top: 20px;}
+`
+
 
 /////////////// Restaurant card on Filtering page ///////////////
 
@@ -208,7 +217,6 @@ export const Burger = styled.div`
 
 
 /////////////// Review page ///////////////
-
 export const ReviewContainer = styled.article`
 position: relative;
 `
@@ -251,8 +259,62 @@ text-align: start;
 margin-top: 5px;
 `
 
-/////////////// Log out page ///////////////
 
+/////////////// Post Review secion ///////////////
+
+export const PostReviewBox = styled.div`
+  border: 1px solid darkgray;
+  padding: 0.6em;
+  font-family: "Roboto", sans-serif;
+  max-width: 375px;
+  overflow-wrap: break-word;
+  border-radius: 2px;
+  margin: 1.5rem 0 1.5rem 0;
+`
+
+export const ReviewBoxTitle = styled.h2`
+font-size: 16px;
+font-weight: 400;
+color: #2a5744;
+margin-block-start: 0px;
+margin-block-end: 5.4px;
+`
+
+export const TextLabel = styled.label`
+font-size: 16px;
+color: #2a5744;
+font-family: 'Cabin', sans-serif;
+`
+
+export const ReviewTextArea = styled.textarea`
+font-family: 'Cabin', sans-serif;
+border-radius: 2px;
+padding: 0.4em;
+width: 95%;
+background: #fdf8f8;
+font-size: 16px;
+`
+
+export const SubmitReviewButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fdf8f8;
+border: none;
+width: 120px;
+padding: 8px;
+`
+
+export const Characters = styled.p`
+margin-block-start: 5.4px;
+color: #2a5744;
+font-family: 'Cabin', sans-serif;
+`
+
+export const ButtonBox = styled.div`
+text-align: center;
+`
+
+/////////////// Log out page ///////////////
 export const LogOutPage = styled.section`
     display: flex;
     justify-content: center;
@@ -277,19 +339,10 @@ export const LogOutPage = styled.section`
     }
 `
 
-///////////////////Profile styling /////////////////////////////////////
-export const ProfileSection = styled.section`
-margin: 1rem;
-`
 
 /////////////// Restaurant details page ///////////////
-
 export const ImageWrapper = styled.img`
 width: 340px;
-`
-
-export const RestaurantDetailsContainer = styled.div`
-padding: 1rem;
 `
 
 /////////////// Footer styling ///////////////
@@ -308,4 +361,5 @@ export const FooterStyling = styled.section`
     line-height: 1.5;
   }
 `
+
 

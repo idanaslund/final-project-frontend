@@ -1,18 +1,18 @@
 import React from 'react'
+import { PostReviewBox, TextLabel, ReviewTextArea, Characters } from 'theme/styles'
 
-const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter, restaurant }) => {
+const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter }) => {
 
   return (
 
     <form onSubmit={onFormSubmit}>
-      <div>
-        <p>{restaurant}</p>
-        <label htmlFor='newReview'>
+      <PostReviewBox>
+        <TextLabel htmlFor='newReview'>
           How was your experience at this restaurant?
-        </label>
+        </TextLabel>
         <br /> 
         <br />
-        <textarea 
+        <ReviewTextArea 
           className={
             counter < 6 || counter > 140 ? 'diabled-textarea' : 'textarea'
           }
@@ -24,9 +24,9 @@ const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter, resta
           onChange={onNewReviewChange}
           placeholder='Please write your review.'
         />
-        <p>
+        <Characters>
           {140 - counter} / 140 characters left
-        </p>
+        </Characters>
         <div>
     
           <button
@@ -35,7 +35,7 @@ const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter, resta
           >Submit review
           </button>
         </div>
-      </div>
+      </PostReviewBox>
     </form>
 
   )

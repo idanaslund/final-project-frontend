@@ -70,10 +70,6 @@ export const ReviewComponent = ({ restaurant }) => {                  ////review
         counter={counter}
         restaurant={restaurant}
       />
-      {/* <ReviewList
-        reviews={reviews}
-        updateLikes={updateLikes} /> */}
-
     </div>
   )
 }

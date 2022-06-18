@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { useDispatch, batch, useSelector } from 'react-redux'                      ///useSelector
-// import styled from 'styled-components'
-// import { RES_ID } from 'utils/urls'
+import { useDispatch, batch, useSelector } from 'react-redux'  
+import { Link } from 'react-router-dom'                  
 
 import user from 'reducers/user'
 
 import { ReviewComponent } from 'components/ReviewComponent'
-import { Paragraph, BackButton, GetInspiredButton, SecondHeader } from '../theme/reusable'
-import { ImageWrapper, RestaurantDetailsContainer } from '../theme/styles'
+import { MarginSection, Paragraph, BackButton, GetInspiredButton, SecondHeader } from '../theme/reusable'
+import { ImageWrapper, ButtonBox } from '../theme/styles'
 
-export const RestaurantDetails = () => {
+export const RestaurantDetails = ({website}) => {
 
   const accessToken = useSelector((store) => store.user.accessToken)
-  // const restaurant = useSelector((store) => store.user.restaurant)
 
   const { id } = useParams()
   const [restaurant, setRestaurant] = useState({})
@@ -28,9 +26,6 @@ export const RestaurantDetails = () => {
     navigate('/reviews')
   }
 
-  // useEffect(() => {
-  //   console.log(restaurantId)
-  // }, [])
 
   useEffect(() => {
     if (!accessToken) {
@@ -71,9 +66,8 @@ export const RestaurantDetails = () => {
   }
 
   return (
-    <main>
+    <MarginSection>
       <article>
-      <RestaurantDetailsContainer>
         {restaurant && (
           <div>
 
@@ -94,12 +88,15 @@ export const RestaurantDetails = () => {
         )}
         <ReviewComponent 
         restaurant={restaurant.name}/>
-             </RestaurantDetailsContainer>
-      </article>
-      
 
+      <div><Link to={`{restaurant.website}`}>Website</Link></div>
+      </article>
+
+    <ButtonBox>
       <BackButton onClick={onBackButtonClick}>Go back</BackButton>
       <GetInspiredButton onClick={onGetInspiredButtonClick}>Read more reviews</GetInspiredButton>
-    </main>
+      </ButtonBox>
+      
+    </MarginSection>
   )
 }

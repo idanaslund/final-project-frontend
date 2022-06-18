@@ -23,14 +23,12 @@ margin: 0 auto;
 }
 `
 
-/////////////// Headings and paragraphs ///////////////
-
-export const StyledHeader = styled.header`
-// background-color: white;
-margin-bottom: 10px;
-text-align: center;
-img{max-height: 50px; margin-top: 20px;}
+/////////////// On all pages – Add this to section for space ///////////////
+export const MarginSection = styled.section`
+margin: 1rem;
 `
+
+/////////////// Headings and paragraphs ///////////////
 
 export const HeaderTitle = styled.h1`
 margin-top: 0;

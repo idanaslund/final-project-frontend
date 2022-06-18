@@ -2,7 +2,7 @@ import React from "react"
 import Navbar from "./Navbar"
 
 
-import { StyledHeader } from '../theme/reusable'
+import { StyledHeader } from '../theme/styles'
 
 
 const Header = () => {
