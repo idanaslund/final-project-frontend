@@ -301,7 +301,6 @@ background: #fdf8f8;
 border: none;
 width: 120px;
 padding: 8px;
-
 `
 
 export const Characters = styled.p`
@@ -353,6 +352,20 @@ padding: 10px;
 export const ListedHours = styled.p`
 font-size: 16px;
 color: #2e2e2e;
+`
+
+export const BookATableContainer = styled.form`
+margin-top: 20px;
+background: #fbf4f3;
+padding: 8px;
+`
+
+export const BookATableInput = styled.input`
+font-family: 'Cabin',sans-serif;
+font-size: 16px;
+margin-bottom: 8px;
+border: none;
+padding: 8px;
 `
 
 /////////////// Log out page ///////////////

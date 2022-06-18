@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
-import { useDispatch, batch, useSelector } from 'react-redux'                 
+import { useDispatch, batch, useSelector } from 'react-redux'             
 
 import user from 'reducers/user'
 
 import { ReviewComponent } from 'components/ReviewComponent'
 import { MarginSection, BackButton, GetInspiredButton, SecondHeader } from '../theme/reusable'
 import { ImageWrapper, ButtonBox, LinkContainer, RestaurantAddress, RestaurantDescription, OpenHoursContainer, ListedHours, TypeOfFood } from '../theme/styles'
+import BookATable from 'components/BookATable'
 
 export const RestaurantDetails = ({website, address, opening_hours_mon, opening_hours_tue, opening_hours_wed, opening_hours_thur, opening_hours_fri, opening_hours_sat, opening_hours_sun, type_of_food}) => {
 
@@ -64,6 +65,7 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
       return <p></p>
   }
 
+
   return (
     <MarginSection>
       <article>
@@ -82,6 +84,7 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
                 <LinkContainer>
                 <Link to={`/restaurant.website`} pathname={restaurant.website}>Website</Link>
                 </LinkContainer>
+
                 <TypeOfFood>{restaurant.type_of_food}</TypeOfFood>
                
                 <RestaurantDescription>{restaurant.description}</RestaurantDescription>
@@ -129,10 +132,13 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
     
       </article>
 
+
     <ButtonBox>
       <BackButton onClick={onBackButtonClick}>Go back</BackButton>
       <GetInspiredButton onClick={onGetInspiredButtonClick}>Read more reviews</GetInspiredButton>
       </ButtonBox>
+
+        <BookATable />
       
     </MarginSection>
   )
