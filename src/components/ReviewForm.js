@@ -1,11 +1,12 @@
 import React from 'react'
 
-const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter }) => {
+const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter, restaurant }) => {
 
   return (
 
     <form onSubmit={onFormSubmit}>
       <div>
+        <p>{restaurant}</p>
         <label htmlFor='newReview'>
           How was your experience at this restaurant?
         </label>
