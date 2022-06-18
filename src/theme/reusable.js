@@ -3,6 +3,8 @@ import styled from "styled-components";
 // STYLING: MOBILE FIRST!
 
 
+/////////////// DEVICES ///////////////
+
 export const devices = {
     mobile: "(min-width: 375px)",
     tablet: "(min-width: 768px)",
@@ -21,10 +23,30 @@ margin: 0 auto;
 }
 `
 
+/////////////// Headings and paragraphs ///////////////
+
+export const StyledHeader = styled.header`
+// background-color: white;
+margin-bottom: 10px;
+text-align: center;
+img{max-height: 50px; margin-top: 20px;}
+`
+
+export const HeaderTitle = styled.h1`
+margin-top: 0;
+`
+
+export const SecondHeader = styled.h2 `
+font-size: 20px;
+color: #2a5744;
+`
+
 export const Paragraph = styled.p`
 font-family: 'Cabin', sans-serif;
-font-size: 18px;
+font-size: 16px;
 `
+
+/////////////// Buttons ///////////////
 
 export const BackButton = styled.button`
 font-family: 'Cabin', sans-serif;
@@ -33,6 +55,18 @@ background-color: #da918b;
 border: none;
 width: 120px;
 padding: 8px;
+margin-left: 1rem;
+`
+
+export const GetInspiredButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background-color: #2a5744;
+color: white;
+border: none;
+width: 150px;
+padding: 8px;
+margin-left: 1rem;
 `
 
 export const CardWrapper = styled.article`
@@ -40,9 +74,12 @@ display: flex;
 flex-wrap: wrap;
 padding: 10px;
 
-.link{
+.link {
     text-decoration: none;
 }
+`
+
+/////////////// Checkboxes ///////////////
 
 export const Label = styled.label`
 padding: 8px;
@@ -65,7 +102,4 @@ export const StyledInput = styled.input`
   }
 
 `
-
-
-// when clicked background:  #fdf1e8;
-
+// when clicked background:  #fdf1e8; /* Use this maybe? */
