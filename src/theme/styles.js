@@ -20,6 +20,7 @@ margin-top: 0;
 
 export const SecondHeader = styled.h2 `
 font-size: 20px;
+color: #2a5744;
 `
 
 export const ReastaurantCard = styled.div`
@@ -42,7 +43,8 @@ export const ReastaurantCard = styled.div`
 export const FilterContainer = styled.article`
 border: 1px solid darkgray;
 margin: 10px;
-padding: 0.5rem;
+padding: 1rem;
+border-radius: 2px;
 `
 
 // Login & Signup Styling

@@ -7,6 +7,7 @@ import { CardWrapper } from '../theme/reusable'
 import { API_URL } from 'utils/urls'
 
 import { SecondHeader } from '../theme/styles'
+import { Paragraph, Label, StyledInput } from '../theme/reusable'
 
 import user from 'reducers/user'
 
@@ -195,15 +196,26 @@ const FilteringPage = () => {
 
       <FilterContainer>
         <form>
+          <Paragraph>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet?</Paragraph>
+          <Paragraph>foodiefinder helps you find your next favourite restaurant in Stockholm! </Paragraph>
           <SecondHeader>Type of food</SecondHeader>
-          <label>
-          <input type="checkbox" value="Nordic" onChange={updateTypeOfFoodFilter}/> 
+          
+     
+          <Label for="Nordic">
+          <StyledInput id="Nordic" type="checkbox" value="Nordic" defaultChecked={false} onChange={updateTypeOfFoodFilter} /> 
           Nordic
-          </label>
+          </Label>
+      
+
+          
+        
           <label>
           <input type="checkbox" value="Swedish" onChange={updateTypeOfFoodFilter}/>
           Swedish
           </label>
+
+
+
           <label>
           <input type="checkbox" value="Italian" onChange={updateTypeOfFoodFilter}/>
           Italian
@@ -232,7 +244,7 @@ const FilteringPage = () => {
           <input type="checkbox" value="Japanese" onChange={updateTypeOfFoodFilter}/>
           Japanese
           </label>
-          <label>Latin American
+          <label>
           <input type="checkbox" value="Latin American" onChange={updateTypeOfFoodFilter}/>
           Latin American
           </label>
@@ -309,17 +321,20 @@ const FilteringPage = () => {
         </form>
 
         <form> <SecondHeader>Restaurant focus</SecondHeader>
-          <label>Vegan
-          <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>
+          <label>
+          <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>Vegan
           </label>
-          <label>Vegetarian
+          <label>
           <input type="checkbox" value="Vegetarian" onChange={updateRestaurantFocusFilter}/>
+          Vegetarian
           </label>
-          <label>Fish
+          <label>
           <input type="checkbox" value="Fish" onChange={updateRestaurantFocusFilter}/>
+          Fish
           </label>
-          <label>Meat
+          <label>
           <input type="checkbox" value="Meat" onChange={updateRestaurantFocusFilter}/>
+          Meat
           </label>
         </form> 
       
