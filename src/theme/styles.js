@@ -224,6 +224,8 @@ export const Burger = styled.div`
   
 `
 
+//////////////////////////// Review styling //////////////////////////////////////////////
+
 export const ReviewContainer = styled.article`
 position: relative;
 `
@@ -305,4 +307,10 @@ export const LogOutPage = styled.section`
     .LogOutContainer {
       display: block;
     }
+`
+
+
+///////////////////Profile styling /////////////////////////////////////
+export const ProfileSection = styled.section`
+margin: 1rem;
 `
