@@ -263,13 +263,12 @@ margin-top: 5px;
 /////////////// Post Review secion ///////////////
 
 export const PostReviewBox = styled.div`
-  border: 1px solid darkgray;
   padding: 0.6em;
   font-family: "Roboto", sans-serif;
   max-width: 375px;
   overflow-wrap: break-word;
-  border-radius: 2px;
   margin: 1.5rem 0 1.5rem 0;
+  background: #fbf4f352;
 `
 
 export const ReviewBoxTitle = styled.h2`
@@ -282,7 +281,7 @@ margin-block-end: 5.4px;
 
 export const TextLabel = styled.label`
 font-size: 16px;
-color: #2a5744;
+color: #4e7565;
 font-family: 'Cabin', sans-serif;
 `
 
@@ -306,12 +305,31 @@ padding: 8px;
 
 export const Characters = styled.p`
 margin-block-start: 5.4px;
-color: #2a5744;
+color: #4e7565;
 font-family: 'Cabin', sans-serif;
 `
 
 export const ButtonBox = styled.div`
 text-align: center;
+`
+
+export const LinkContainer = styled.a`
+font-family: 'Cabin', sans-serif;
+color: #2a5744;
+`
+
+export const RestaurantAddress = styled.div`
+font-family: 'Cabin', sans-serif;
+color: #4e7565;
+line-height: 1.6;
+`
+
+export const RestaurantDescription = styled.p`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fbf4f3;
+padding: 0.6em;
+line-height: 1.6;
 `
 
 /////////////// Log out page ///////////////

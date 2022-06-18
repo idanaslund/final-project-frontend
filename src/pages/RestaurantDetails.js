@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { useDispatch, batch, useSelector } from 'react-redux'  
-import { Link } from 'react-router-dom'                  
+import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
+import { useDispatch, batch, useSelector } from 'react-redux'                 
 
 import user from 'reducers/user'
 
 import { ReviewComponent } from 'components/ReviewComponent'
-import { MarginSection, Paragraph, BackButton, GetInspiredButton, SecondHeader } from '../theme/reusable'
-import { ImageWrapper, ButtonBox } from '../theme/styles'
+import { MarginSection, BackButton, GetInspiredButton, SecondHeader } from '../theme/reusable'
+import { ImageWrapper, ButtonBox, LinkContainer, RestaurantAddress, RestaurantDescription } from '../theme/styles'
 
-export const RestaurantDetails = ({website}) => {
+export const RestaurantDetails = ({website, address, opening_hours_mon, opening_hours_tue, opening_hours_wed, opening_hours_thur, opening_hours_fri, opening_hours_sat, opening_hours_sun}) => {
 
   const accessToken = useSelector((store) => store.user.accessToken)
 
@@ -75,12 +74,26 @@ export const RestaurantDetails = ({website}) => {
           
         
               <ImageWrapper src={restaurant.image_URL} alt={restaurant.name} />
+        
            
               <div>
                 <SecondHeader>{restaurant.name}</SecondHeader>
-                <Paragraph>{restaurant.description}</Paragraph>
+                <RestaurantAddress>{restaurant.address}</RestaurantAddress>
+                <LinkContainer>
+                <Link to="{restaurant.website}" pathname={restaurant.website}>Website</Link>
+                </LinkContainer>
+                <RestaurantDescription>{restaurant.description}</RestaurantDescription>
               </div>
-         
+
+              <div>
+              {opening_hours_mon}
+              {opening_hours_tue}
+              {opening_hours_wed}
+              {opening_hours_thur}
+              {opening_hours_fri}
+              {opening_hours_sat}
+              {opening_hours_sun}
+              </div>
             </div>
             
           </div>
@@ -89,7 +102,8 @@ export const RestaurantDetails = ({website}) => {
         <ReviewComponent 
         restaurant={restaurant.name}/>
 
-      <div><Link to={`{restaurant.website}`}>Website</Link></div>
+
+    
       </article>
 
     <ButtonBox>
