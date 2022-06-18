@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { formatDistance } from 'date-fns'
 import { Reviews, StyledReviewBox, ReviewInfo, TimePosted, RestaurantName, LikeButtonArea, ReviewContainer } from '../theme/styles'
+import { MarginSection } from '../theme/reusable'
 import heart from '../assets/heart.svg'
 
 import user from 'reducers/user'
@@ -54,7 +55,7 @@ const updateLikes = (singleReviewId) => {
 
   return (
 
-    <section>
+    <MarginSection>
       {reviews.map(singleReview => (
         <ReviewContainer key={singleReview._id} review={singleReview} onLike={onLike}>
           <RestaurantName>{singleReview.restaurant}</RestaurantName>
@@ -77,7 +78,7 @@ const updateLikes = (singleReviewId) => {
 
         </ReviewContainer>
       ))}
-    </section>
+    </MarginSection>
 
   )
 

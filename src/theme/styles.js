@@ -256,7 +256,7 @@ font-size: 16px;
 
 export const LikeButtonArea = styled.div`
 text-align: start;
-margin-top: 5px;
+margin-top: 7px;
 `
 
 
