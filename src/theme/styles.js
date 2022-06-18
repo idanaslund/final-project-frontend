@@ -206,6 +206,7 @@ export const Burger = styled.div`
     }
 `
 
+
 /////////////// Review page ///////////////
 
 export const ReviewContainer = styled.article`
@@ -276,6 +277,10 @@ export const LogOutPage = styled.section`
     }
 `
 
+///////////////////Profile styling /////////////////////////////////////
+export const ProfileSection = styled.section`
+margin: 1rem;
+`
 
 /////////////// Restaurant details page ///////////////
 
@@ -286,7 +291,6 @@ width: 340px;
 export const RestaurantDetailsContainer = styled.div`
 padding: 1rem;
 `
-
 
 /////////////// Footer styling ///////////////
 
@@ -304,3 +308,4 @@ export const FooterStyling = styled.section`
     line-height: 1.5;
   }
 `
+

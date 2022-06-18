@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { Paragraph, BackButton } from '../theme/reusable'
-
+import { BackButton } from '../theme/reusable'
+import { ProfileSection } from '../theme/styles'
 
 import user from 'reducers/user'
 import { EDIT_USER } from '../utils/urls'
 
 const ProfilePage = () => {
-  // const [userId, setUserId] = useState(useSelector((store) => store.user.id))
   const [fullName, setFullName] = useState(useSelector((store) => store.user.fullName))
   const [phone, setPhone] = useState(useSelector((store) => store.user.phone))
   const [bio, setBio] = useState(useSelector((store) => store.user.bio))
@@ -16,6 +15,7 @@ const ProfilePage = () => {
 
   const accessToken = JSON.parse(localStorage.getItem('user'))?.accessToken
   const userId = JSON.parse(localStorage.getItem('user'))?.userId
+  const username = JSON.parse(localStorage.getItem('user'))?.username
  
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -31,7 +31,11 @@ const ProfilePage = () => {
         'Content-Type': 'application/json',
         'Authorization': accessToken
       },
-      body: JSON.stringify({ fullName, phone, bio  })            
+      body: JSON.stringify({ 
+        fullName, 
+        phone, 
+        bio  
+      })            
     }
 
     fetch(EDIT_USER(userId), options) 
@@ -52,11 +56,6 @@ const ProfilePage = () => {
           }))
           alert('Your information has been updated!')
         })
-          // setFullName(data.response.fullName)
-          // setPhone(data.response.phone)
-          // setBio(data.response.bio)
-
-
         } else {
           dispatch(user.actions.setErrors(data))
         }
@@ -65,12 +64,16 @@ const ProfilePage = () => {
   }
 
   return (
-    <>
-      <h1>This is your profile page</h1>
-
-      <p>Welcome {fullName}</p>
-      <p>Phone number: {phone}</p>
+    <ProfileSection>
+      <h2>{username}</h2>
       <p>Bio: {bio}</p>
+
+      <h3>Your information</h3>
+      <p>Full name: {fullName}</p>
+      <p>Phone number: {phone}</p>
+      
+
+      <h3>Update your information</h3>
 
       <form onSubmit={onFormSubmit}>
         <label htmlFor="fullName">Your full name</label>
@@ -85,7 +88,7 @@ const ProfilePage = () => {
           htmlFor="phone">Phone number</label>
         <input
           id="phone"
-          type="phone"
+          type="number"
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
         />
@@ -93,14 +96,14 @@ const ProfilePage = () => {
           htmlFor="bio">Bio</label>
         <input
           id="bio"
-          type="bio"
+          type="text"
           value={bio}
           onChange={(event) => setBio(event.target.value)}
         />
         <button type="submit">Submit new info</button>
       </form>
       <BackButton type="button" onClick={onBackButtonClick}>Go back</BackButton>
-    </>
+    </ProfileSection>
   )
 }
 
