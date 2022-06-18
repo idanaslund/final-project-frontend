@@ -228,6 +228,7 @@ position: relative;
 export const RestaurantName = styled.p`
 font-size: 18px;
 font-weight: 700;
+color: #2A5744;
 `
 export const StyledReviewBox = styled.article`
 margin-top: 15px;
@@ -260,5 +261,4 @@ font-size: 16px;
 export const LikeButtonArea = styled.div`
 text-align: start;
 margin-top: 5px;
-color: #da918b;
 `
