@@ -301,6 +301,7 @@ background: #fdf8f8;
 border: none;
 width: 120px;
 padding: 8px;
+display: block;
 `
 
 export const Characters = styled.p`
@@ -366,6 +367,22 @@ font-size: 16px;
 margin-bottom: 8px;
 border: none;
 padding: 8px;
+`
+
+export const BookATableTextArea = styled.textarea`
+font-family: 'Cabin',sans-serif;
+font-size: 16px;
+margin-bottom: 8px;
+border: none;
+padding: 8px;
+width: 95%;
+overflow-wrap: break-word;
+`
+
+export const BookATableLogo = styled.img`
+height: 40px;
+display: block;
+margin-bottom: 10px;
 `
 
 /////////////// Log out page ///////////////

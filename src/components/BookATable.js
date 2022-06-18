@@ -5,7 +5,7 @@ import React from 'react'
 import { useState } from 'react';
 import { send } from 'emailjs-com';
 
-import { BookATableContainer, BookATableInput, SubmitReviewButton } from 'theme/styles';
+import { BookATableContainer, BookATableInput, SubmitReviewButton, BookATableLogo,  BookATableTextArea } from 'theme/styles';
 
 
 const BookATable = () => {
@@ -38,9 +38,9 @@ const BookATable = () => {
     
       return (
 <>
-        <img src="/final-project-frontend/src/assets/book-a-table.png" alt="book-a-table"/>
+
         <BookATableContainer onSubmit={onSubmit}>
-   
+        <BookATableLogo src="https://i.postimg.cc/0QvNBQ3n/book-a-table.png" alt="book-a-table"/>
         <BookATableInput
           type='text'
           name='from_name'
@@ -48,20 +48,21 @@ const BookATable = () => {
           value={toSend.from_name}
           onChange={handleChange}
         />
-        <BookATableInput
-          type='text'
-          name='message'
-          placeholder='Your message'
-          value={toSend.message}
-          onChange={handleChange}
-        />
-        <BookATableInput
+           <BookATableInput
           type='text'
           name='reply_to'
           placeholder='Your email'
           value={toSend.reply_to}
           onChange={handleChange}
         />
+        <BookATableTextArea
+          type='text'
+          name='message'
+          placeholder='I would love to make a reservation for 2 people this Saturday, 7PM. Is that possible?'
+          value={toSend.message}
+          onChange={handleChange}
+        />
+     
         <SubmitReviewButton type='submit'>Submit</SubmitReviewButton>
       </BookATableContainer>
 
