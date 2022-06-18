@@ -223,3 +223,27 @@ export const Burger = styled.div`
     }
   
 `
+
+export const LogOutPage = styled.section`
+    display: flex;
+    justify-content: center;
+
+    h3 {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .buttonContainer {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .logoutButton {
+      margin-right: 20px;
+    }
+
+    .LogOutContainer {
+      display: block;
+    }
+`

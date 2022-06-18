@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { Paragraph, BackButton } from '../theme/reusable'
+import { BackButton } from '../theme/reusable'
 import user from 'reducers/user'
+import { LogOutPage } from 'theme/styles'
 
 const LogOut = () => {
 
@@ -23,16 +24,24 @@ const LogOut = () => {
 
 
     return(
-            <article>
-                <h3>Are you sure you want to log out?</h3>
-                <button
-                type="button" onClick={() => dispatch(user.actions.logOut())}
-                >Log out</button>
-
-                <BackButton
-                type="button" onClick={onBackButtonClick}
-                >No, go back</BackButton>
-            </article>
+      <LogOutPage>
+        <div className='LogOutContainer'>
+          <h3>Are you sure you want to log out?</h3>
+          <div className='buttonContainer'>
+            <BackButton
+              type="button" onClick={() => dispatch(user.actions.logOut())} className="logoutButton"
+            >
+              Log out
+            </BackButton>
+            <BackButton
+              type="button" onClick={onBackButtonClick}
+            >
+              No, go back
+            </BackButton>
+          </div>
+        </div>
+      </LogOutPage>
+            
     )
 }
 
