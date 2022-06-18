@@ -5,7 +5,7 @@ import React from 'react'
 import { useState } from 'react';
 import { send } from 'emailjs-com';
 
-import { BookATableContainer, BookATableInput, SubmitReviewButton, BookATableLogo,  BookATableTextArea } from 'theme/styles';
+import { BookATableContainer, BookATableInput, BookATableLogo,  BookATableTextArea, SubmitReservationButton } from 'theme/styles';
 
 
 const BookATable = () => {
@@ -63,7 +63,7 @@ const BookATable = () => {
           onChange={handleChange}
         />
      
-        <SubmitReviewButton type='submit'>Submit</SubmitReviewButton>
+        <SubmitReservationButton type='submit'>Submit</SubmitReservationButton>
       </BookATableContainer>
 
       </>

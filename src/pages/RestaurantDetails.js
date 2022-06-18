@@ -89,6 +89,10 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
                
                 <RestaurantDescription>{restaurant.description}</RestaurantDescription>
              
+             <div>
+                <BookATable /></div>
+            
+
 
             <OpenHoursContainer>
               <SecondHeader>Opening hours</SecondHeader>
@@ -138,7 +142,7 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
       <GetInspiredButton onClick={onGetInspiredButtonClick}>Read more reviews</GetInspiredButton>
       </ButtonBox>
 
-        <BookATable />
+  
       
     </MarginSection>
   )

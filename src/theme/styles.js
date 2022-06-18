@@ -304,6 +304,16 @@ padding: 8px;
 display: block;
 `
 
+export const SubmitReservationButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fff;
+border: none;
+width: 120px;
+padding: 8px;
+display: block;
+`
+
 export const Characters = styled.p`
 margin-block-start: 5.4px;
 color: #2e2e2e;
@@ -348,6 +358,7 @@ font-family: 'Cabin', sans-serif;
 line-height: 0.6;
 background: #fbf4f3;
 padding: 10px;
+margin-top: 1.4rem;
 `
 
 export const ListedHours = styled.p`
@@ -375,8 +386,9 @@ font-size: 16px;
 margin-bottom: 8px;
 border: none;
 padding: 8px;
-width: 95%;
+width: 74%;
 overflow-wrap: break-word;
+height: 86px;
 `
 
 export const BookATableLogo = styled.img`
