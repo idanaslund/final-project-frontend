@@ -31,7 +31,7 @@ font-family: 'Cabin', sans-serif;
 font-size: 16px;
 background-color: #da918b;
 border: none;
-width: 150px;
+width: 120px;
 padding: 8px;
 `
 

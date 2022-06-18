@@ -228,12 +228,17 @@ export const LogOutPage = styled.section`
 
     h3 {
       font-size: 18px;
+      text-align: center;
     }
 
     .buttonContainer {
       display: flex;
       justify-content: center;
       padding: 10px;
+    }
+
+    .logoutButton {
+      margin-right: 20px;
     }
 
     .LogOutContainer {
