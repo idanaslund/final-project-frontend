@@ -33,10 +33,6 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* <button
-                    type="button" onClick={() => navigate('/logout')}>
-                    Log out
-                </button> */}
             </Menu>
         </Burger>
         
