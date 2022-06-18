@@ -352,7 +352,7 @@ padding: 10px;
 
 export const ListedHours = styled.p`
 font-size: 16px;
-color: #4e7565;
+color: #2e2e2e;
 `
 
 /////////////// Log out page ///////////////
