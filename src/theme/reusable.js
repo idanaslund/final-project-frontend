@@ -42,7 +42,7 @@ padding: 10px;
 
 .link{
     text-decoration: none;
-}
+}`
 
 export const Label = styled.label`
 padding: 8px;
