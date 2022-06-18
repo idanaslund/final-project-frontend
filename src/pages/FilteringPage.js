@@ -22,6 +22,7 @@ const FilteringPage = () => {
   const [restaurantFocusFilter, setRestaurantFocusFilter] = useState([])
   const [dogFriendlyFilter, setDogFriendlyFilter] = useState('no_pref')
   const [outdoorAreaFilter, setOutdoorAreaFilter] = useState('no_pref')
+  const [filterActive, setFilterActive] = useState(false)
 
   
   const navigate = useNavigate()
@@ -62,62 +63,61 @@ const FilteringPage = () => {
   }, [accessToken, dispatch])
 
   useEffect(() => { 
+    setFilterActive(false)
     let filteredRestaurants = restaurants
     // Type of Food
     if (typeOfFoodFilter.length > 0) {
       filteredRestaurants = filteredRestaurants.filter(restaurant => 
         restaurant.type_of_food.filter(type => typeOfFoodFilter.includes(type)).length > 0)
-
-        console.log(filteredRestaurants)
+        setFilterActive(true)
     } 
     // Meals
     if (mealsFilter.length > 0) {
       filteredRestaurants = filteredRestaurants.filter(restaurant => 
         restaurant.meals.filter(type => mealsFilter.includes(type)).length > 0)
-        
-        console.log(filteredRestaurants)
+        setFilterActive(true)
     }
     // Budget
     if (budgetFilter.length > 0) {
       filteredRestaurants = filteredRestaurants.filter(restaurant =>
         restaurant.budget.filter(type => budgetFilter.includes(type)).length > 0)
         
-        console.log(filteredRestaurants)
+        setFilterActive(true)
     }
     // Portion size
     if (portionSizeFilter.length > 0) {
       filteredRestaurants = filteredRestaurants.filter(restaurant =>
         restaurant.portion_size.filter(type => portionSizeFilter.includes(type)).length > 0)
         
-        console.log(filteredRestaurants)
+        setFilterActive(true)
     }
     // Target audience
     if (targetAudienceFilter.length > 0) {
       filteredRestaurants = filteredRestaurants.filter(restaurant =>
         restaurant.target_audience.filter(type => targetAudienceFilter.includes(type)).length > 0)
         
-        console.log(filteredRestaurants)
+        setFilterActive(true)
     }
     // Restaurant focus
     if (restaurantFocusFilter.length > 0) {
       filteredRestaurants = filteredRestaurants.filter(restaurant =>
         restaurant.restaurant_focus.filter(type => restaurantFocusFilter.includes(type)).length > 0)
         
-        console.log(filteredRestaurants)
+        setFilterActive(true)
     }
     // Dog friendly
     if (dogFriendlyFilter !== 'no_pref') {
         filteredRestaurants = filteredRestaurants.filter(restaurant =>
           restaurant.dogfriendly === (dogFriendlyFilter === 'yes' ? true : false))
 
-        console.log(filteredRestaurants)
+        setFilterActive(true)
     }
     // Outdoor area
     if (outdoorAreaFilter !== 'no_pref') {
       filteredRestaurants = filteredRestaurants.filter(restaurant =>
         restaurant.outdoor_area === (outdoorAreaFilter === 'yes' ? true : false))
         
-        console.log(filteredRestaurants)
+        setFilterActive(true)
     }
     setFilteredRestaurants(filteredRestaurants)
   }, [restaurants, typeOfFoodFilter, mealsFilter, budgetFilter, portionSizeFilter, targetAudienceFilter, restaurantFocusFilter, dogFriendlyFilter, outdoorAreaFilter])           ///Lägg in alla useStates (Här ligger alla våra filter som är beroende av filtreringen)
@@ -357,7 +357,7 @@ const FilteringPage = () => {
       </FilterContainer>
 
       
-      {filteredRestaurants.length == 0 ? ( 
+      {!filterActive ? ( 
         <CardWrapper className='restaurantListPage'>
         {restaurants.map(restaurant => (
           <Link className='link' key={restaurant.id} state={{restaurantId: restaurant.id}} to={`/restaurants/${restaurant.id}`}>
@@ -371,6 +371,10 @@ const FilteringPage = () => {
 
         ))}
         </CardWrapper>
+        ) : (filterActive && filteredRestaurants.length == 0) ? (
+          <CardWrapper>
+            <p>Sorry, we couldn't find any restaurants...</p>
+          </CardWrapper>
         ) : (
           <CardWrapper className='restaurantListPage'>
           {filteredRestaurants.map(restaurant => (
