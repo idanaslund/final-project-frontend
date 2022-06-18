@@ -3,7 +3,7 @@ import styled from "styled-components";
 // STYLING: MOBILE FIRST!
 
 
-export const devices = { 
+export const devices = {
     mobile: "(min-width: 375px)",
     tablet: "(min-width: 768px)",
     desktop: "(min-width: 1025px)"
@@ -44,3 +44,30 @@ padding: 10px;
     text-decoration: none;
 }
 `
+
+
+export const Label = styled.label`
+padding: 8px;
+border: solid 1px #2a5744;
+border-radius: 2px;
+width: 140px;
+height: 40px;
+margin-top: 10px;
+color: #2a5744;
+text-align: center;
+line-height: 40px;
+background: transparent;
+`
+
+export const StyledInput = styled.input`
+/* appearance: inherit; // */
+
+&:after + ${Label} {
+    background: blue;
+  }
+
+`
+
+
+// when clicked background:  #fdf1e8;
+

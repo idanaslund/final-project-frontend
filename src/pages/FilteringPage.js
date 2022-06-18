@@ -7,7 +7,7 @@ import { CardWrapper } from '../theme/reusable'
 import { API_URL } from 'utils/urls'
 
 import { SecondHeader } from '../theme/styles'
-import { Paragraph } from '../theme/reusable'
+import { Paragraph, Label, StyledInput } from '../theme/reusable'
 
 import user from 'reducers/user'
 
@@ -201,14 +201,23 @@ const FilteringPage = () => {
           <Paragraph>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet?</Paragraph>
           <Paragraph>foodiefinder helps you find your next favourite restaurant in Stockholm! </Paragraph>
           <SecondHeader>Type of food</SecondHeader>
-          <label>
-          <input type="checkbox" value="Nordic" onChange={updateTypeOfFoodFilter}/> 
+          
+     
+          <Label for="Nordic">
+          <StyledInput id="Nordic" type="checkbox" value="Nordic" defaultChecked={false} onChange={updateTypeOfFoodFilter} /> 
           Nordic
-          </label>
+          </Label>
+      
+
+          
+        
           <label>
           <input type="checkbox" value="Swedish" onChange={updateTypeOfFoodFilter}/>
           Swedish
           </label>
+
+
+
           <label>
           <input type="checkbox" value="Italian" onChange={updateTypeOfFoodFilter}/>
           Italian
