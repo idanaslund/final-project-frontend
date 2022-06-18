@@ -6,8 +6,9 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
-  --theme-primary: #d8e4da;
-  --theme-secondary: #da918b;
+  --theme-lightgreen: #d8e4da;
+  --theme-pinkish: #da918b;
+  --theme-darkgreen: #000000;
   }
   body {
   margin: 0;

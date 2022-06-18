@@ -20,6 +20,7 @@ margin-top: 0;
 
 export const SecondHeader = styled.h2 `
 font-size: 20px;
+color: #2a5744;
 `
 
 export const ReastaurantCard = styled.div`
@@ -42,7 +43,8 @@ export const ReastaurantCard = styled.div`
 export const FilterContainer = styled.article`
 border: 1px solid darkgray;
 margin: 10px;
-padding: 0.5rem;
+padding: 1rem;
+border-radius: 2px;
 `
 
 // Login & Signup Styling
@@ -221,6 +223,7 @@ export const Burger = styled.div`
     }
   
 `
+
 export const ReviewContainer = styled.article`
 position: relative;
 `
@@ -261,4 +264,45 @@ font-size: 16px;
 export const LikeButtonArea = styled.div`
 text-align: start;
 margin-top: 5px;
+`
+
+
+
+export const FooterStyling = styled.section`
+    display: flex; 
+    justify-content: center;
+    margin: 10px;
+
+  .footerContainer {
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    padding: 0px 10px;
+    width: 70vw;
+    line-height: 1.5;
+  }
+`
+
+export const LogOutPage = styled.section`
+    display: flex;
+    justify-content: center;
+
+    h3 {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .buttonContainer {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .logoutButton {
+      margin-right: 20px;
+    }
+
+    .LogOutContainer {
+      display: block;
+    }
 `
