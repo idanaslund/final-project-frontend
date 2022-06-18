@@ -23,14 +23,12 @@ margin: 0 auto;
 }
 `
 
-/////////////// Headings and paragraphs ///////////////
-
-export const StyledHeader = styled.header`
-// background-color: white;
-margin-bottom: 10px;
-text-align: center;
-img{max-height: 50px; margin-top: 20px;}
+/////////////// On all pages – Add this to section for space ///////////////
+export const MarginSection = styled.section`
+margin: 1rem;
 `
+
+/////////////// Headings and paragraphs ///////////////
 
 export const HeaderTitle = styled.h1`
 margin-top: 0;
@@ -56,6 +54,7 @@ border: none;
 width: 120px;
 padding: 8px;
 margin-left: 1rem;
+color: #2e2e2e;
 `
 
 export const GetInspiredButton = styled.button`

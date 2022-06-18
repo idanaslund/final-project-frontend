@@ -1,5 +1,14 @@
 import styled from "styled-components"
 
+/////////////// Header styling ///////////////
+
+export const StyledHeader = styled.header`
+// background-color: white;
+margin-bottom: 10px;
+text-align: center;
+img{max-height: 50px; margin-top: 20px;}
+`
+
 
 /////////////// Restaurant card on Filtering page ///////////////
 
@@ -208,7 +217,6 @@ export const Burger = styled.div`
 
 
 /////////////// Review page ///////////////
-
 export const ReviewContainer = styled.article`
 position: relative;
 `
@@ -251,8 +259,133 @@ text-align: start;
 margin-top: 5px;
 `
 
-/////////////// Log out page ///////////////
 
+/////////////// Post Review secion ///////////////
+
+export const PostReviewBox = styled.div`
+  padding: 0.6em;
+  font-family: "Roboto", sans-serif;
+  max-width: 375px;
+  overflow-wrap: break-word;
+  margin: 1.5rem 0 1.5rem 0;
+  background: #fbf4f352;
+`
+
+export const ReviewBoxTitle = styled.h2`
+font-size: 16px;
+font-weight: 400;
+color: #2a5744;
+margin-block-start: 0px;
+margin-block-end: 5.4px;
+`
+
+export const TextLabel = styled.label`
+font-size: 16px;
+color: #2e2e2e;
+font-family: 'Cabin', sans-serif;
+`
+
+export const ReviewTextArea = styled.textarea`
+font-family: 'Cabin', sans-serif;
+border-radius: 2px;
+padding: 0.4em;
+width: 95%;
+background: #fdf8f8;
+font-size: 16px;
+`
+
+export const SubmitReviewButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fdf8f8;
+border: none;
+width: 120px;
+padding: 8px;
+display: block;
+`
+
+export const Characters = styled.p`
+margin-block-start: 5.4px;
+color: #2e2e2e;
+font-family: 'Cabin', sans-serif;
+`
+
+export const ButtonBox = styled.div`
+text-align: center;
+`
+
+export const LinkContainer = styled.a`
+font-family: 'Cabin', sans-serif;
+color: #2a5744;
+display: block;
+`
+
+export const TypeOfFood = styled.p`
+background: #fbf4f3;
+display: inline-block;
+padding: 8px;
+font-family: 'Cabin', sans-serif;
+margin-block-end: 0;
+`
+
+export const RestaurantAddress = styled.div`
+font-family: 'Cabin', sans-serif;
+color: #4e7565;
+line-height: 1.6;
+`
+
+export const RestaurantDescription = styled.p`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fbf4f3;
+padding: 0.6em;
+line-height: 1.6;
+color: #2e2e2e;
+`
+
+export const OpenHoursContainer = styled.div`
+font-family: 'Cabin', sans-serif;
+line-height: 0.6;
+background: #fbf4f3;
+padding: 10px;
+`
+
+export const ListedHours = styled.p`
+font-size: 16px;
+color: #2e2e2e;
+`
+
+export const BookATableContainer = styled.form`
+margin-top: 20px;
+background: #fbf4f3;
+padding: 8px;
+`
+
+export const BookATableInput = styled.input`
+font-family: 'Cabin',sans-serif;
+font-size: 16px;
+margin-bottom: 8px;
+border: none;
+padding: 8px;
+`
+
+export const BookATableTextArea = styled.textarea`
+font-family: 'Cabin',sans-serif;
+font-size: 16px;
+margin-bottom: 8px;
+border: none;
+padding: 8px;
+width: 95%;
+overflow-wrap: break-word;
+`
+
+export const BookATableLogo = styled.img`
+height: 40px;
+display: block;
+margin-bottom: 10px;
+`
+
+/////////////// Log out page ///////////////
 export const LogOutPage = styled.section`
     display: flex;
     justify-content: center;
@@ -277,19 +410,10 @@ export const LogOutPage = styled.section`
     }
 `
 
-///////////////////Profile styling /////////////////////////////////////
-export const ProfileSection = styled.section`
-margin: 1rem;
-`
 
 /////////////// Restaurant details page ///////////////
-
 export const ImageWrapper = styled.img`
 width: 340px;
-`
-
-export const RestaurantDetailsContainer = styled.div`
-padding: 1rem;
 `
 
 /////////////// Footer styling ///////////////
@@ -308,4 +432,5 @@ export const FooterStyling = styled.section`
     line-height: 1.5;
   }
 `
+
 

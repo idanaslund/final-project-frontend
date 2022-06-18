@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { BackButton } from '../theme/reusable'
-import { ProfileSection } from '../theme/styles'
+import { MarginSection } from '../theme/reusable'
 
 import user from 'reducers/user'
 import { EDIT_USER } from '../utils/urls'
@@ -64,7 +64,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <ProfileSection>
+    <MarginSection>
       <h2>{username}</h2>
       <p>Bio: {bio}</p>
 
@@ -103,7 +103,7 @@ const ProfilePage = () => {
         <button type="submit">Submit new info</button>
       </form>
       <BackButton type="button" onClick={onBackButtonClick}>Go back</BackButton>
-    </ProfileSection>
+    </MarginSection>
   )
 }
 
