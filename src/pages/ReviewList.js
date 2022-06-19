@@ -6,7 +6,7 @@ import { Reviews, StyledReviewBox, ReviewInfo, TimePosted, RestaurantName, LikeB
 import { MarginSection, BackButton } from '../theme/reusable'
 import heart from '../assets/heart.svg'
 
-import { API_LIKES_URL, API_URL } from 'utils/urls'
+import { API_URL } from 'utils/urls'
 
 const ReviewList = () => {
   const [reviews, setReviews] = useState([])
