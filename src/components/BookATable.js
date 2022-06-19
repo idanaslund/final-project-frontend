@@ -1,13 +1,9 @@
-// + Book a table as user with a form sent to email
-// Create an email for dummy emails
-
 import React from 'react'
 import { useState } from 'react';
 import { send } from 'emailjs-com';
 
 
-import { BookATableContainer, BookATableInput, BookATableLogo,  BookATableTextArea } from 'theme/styles'
-import { SubmitButton } from '../theme/reusable'
+import { BookATableContainer, BookATableInput, BookATableLogo,  BookATableTextArea, SubmitReservationButton } from 'theme/styles'
 
 
 const BookATable = () => {
@@ -67,9 +63,6 @@ const BookATable = () => {
           onChange={handleChange}
         />
      
-
-        <SubmitButton type='submit'>Send request</SubmitButton>
-
         <SubmitReservationButton type='submit'>Send request</SubmitReservationButton>
 
       </BookATableContainer>

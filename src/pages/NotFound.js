@@ -1,7 +1,7 @@
 import React from 'react'
 import Lottie from 'react-lottie'
 import animationData from 'lotties/404-lottie'
-import { HomeButton, MarginSection, GetInspiredButton} from 'theme/reusable'
+import { MarginSection, GetInspiredButton} from 'theme/reusable'
 import { NotFoundContainer, NotFoundHeader, BackToHomePageButton  } from 'theme/styles'
 
 const NotFound = () => {

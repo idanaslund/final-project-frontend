@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-// STYLING: MOBILE FIRST!
-
-
 /////////////// DEVICES ///////////////
 
 export const devices = {
@@ -10,6 +7,9 @@ export const devices = {
     tablet: "(min-width: 768px)",
     desktop: "(min-width: 1025px)"
 }
+
+
+/////////////// On all pages ///////////////
 
 export const Container = styled.section`
 width: 375px;
@@ -22,8 +22,6 @@ margin: 0 auto;
   width: 1025px;
 }
 `
-
-/////////////// On all pages – Add this to section for space ///////////////
 export const MarginSection = styled.section`
 margin: 1rem;
 `
@@ -58,17 +56,6 @@ padding: 8px;
 margin-left: 1rem;
 color: #2e2e2e;
 `
-export const HomeButton = styled.button`
-font-family: 'Cabin', sans-serif;
-font-size: 16px;
-background-color: #2a5744;
-border: none;
-width: 160px;
-padding: 8px;
-margin-left: 1rem;
-color: white;
-`
-
 export const GetInspiredButton = styled.button`
 font-family: 'Cabin', sans-serif;
 font-size: 16px;

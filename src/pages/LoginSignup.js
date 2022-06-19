@@ -1,4 +1,3 @@
-// Login- and sign up function
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { batch, useDispatch, useSelector } from 'react-redux'
@@ -40,7 +39,6 @@ const LoginSignup = () => {
         fetch(API_URL(mode), options)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data)
             if (data.success) {
               batch(() => {
                 dispatch(user.actions.setId(data.response.userId))

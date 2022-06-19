@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { LogOutPage } from 'theme/styles'
 import { BackButton } from '../theme/reusable'
 import user from 'reducers/user'
-import { LogOutPage } from 'theme/styles'
 
 const LogOut = () => {
 

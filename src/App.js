@@ -18,13 +18,13 @@ import { Container } from './theme/reusable'
 
 import user from 'reducers/user'
 
-
 const reducer = combineReducers({
   user: user.reducer,
-  // reviews: reviews.reducer
 })
 
-const store = configureStore({ reducer: reducer })
+const store = configureStore({ 
+  reducer: reducer 
+})
 
 export const App = () => {
   return (

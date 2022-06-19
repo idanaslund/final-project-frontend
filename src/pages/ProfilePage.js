@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { BackButton, MarginSection, SubmitButton } from '../theme/reusable'
 import { ProfileWrapper, ProfileInput } from '../theme/styles'
 
-
 import user from 'reducers/user'
 import { EDIT_USER } from '../utils/urls'
 
@@ -43,7 +42,6 @@ const ProfilePage = () => {
       .then(res => res.json())
       .then(data => {
         if (data.success) {        
-            console.log(data)
             batch(() => {
               dispatch(user.actions.setFullName(data.response.fullName))
               dispatch(user.actions.setPhone(data.response.phone))

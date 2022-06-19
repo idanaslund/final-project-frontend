@@ -25,7 +25,6 @@ const ReviewList = () => {
       .then(reviews => setReviews(reviews))
       .catch(error => console.error(error))
     }
-    console.log(reviews)
   }, [accessToken])
 
   console.log('reviews', reviews)
@@ -43,19 +42,19 @@ const onLike = (singleReviewId) => {
 const updateLikes = (singleReviewId) => {
   const updatedReview = reviews.map(review => {
     if (review._id === singleReviewId) {
-      review.like += 1;
+      review.like += 1
     }
-    return review;
+    return review
   })
-  setReviews(updatedReview) // The state is changed with the updated thoughts, based on new number of likes
-};
+  setReviews(updatedReview) 
+}
 
 
   return (
 
     <MarginSection>
       {reviews.map(singleReview => (
-        <ReviewContainer key={singleReview._id} review={singleReview} onLike={onLike}>
+        <ReviewContainer key={singleReview._id} review={singleReview} onClick={onLike}>
           <RestaurantName>{singleReview.restaurant}</RestaurantName>
           <StyledReviewBox>
           <Reviews>

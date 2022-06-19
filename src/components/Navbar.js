@@ -4,11 +4,8 @@ import { slide as Menu } from 'react-burger-menu'
 import { Burger } from "theme/styles"
 
 const Navbar = () => {
-
-    // const navigate = useNavigate()
-
     const [isOpen, setOpen] = useState(false)
-
+    
     const handleIsOpen = () => {
         setOpen(!isOpen) 
     }

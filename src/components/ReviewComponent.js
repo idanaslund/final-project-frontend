@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch, batch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { API_URL, REVIEWS } from 'utils/urls'
+// import { API_URL, REVIEWS } from 'utils/urls'
 
 import ReviewForm from 'components/ReviewForm'
-// import ReviewList from 'pages/ReviewList'
-
 import user from 'reducers/user'
 
-export const ReviewComponent = ({ restaurant }) => {                  ////reviews, updateLikes
+export const ReviewComponent = ({ restaurant }) => {                 
   const [newReview, setNewReview] = useState('')
   const [counter, setCounter] = useState(0)
 
   const accessToken = useSelector((store) => store.user.accessToken)
   const author = JSON.parse(localStorage.getItem('user'))?.username
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+
 
   useEffect(() => {
     if (!accessToken) {

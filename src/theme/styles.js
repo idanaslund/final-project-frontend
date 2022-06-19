@@ -8,7 +8,6 @@ text-align: center;
 img{max-height: 50px; margin-top: 20px;}
 `
 
-
 /////////////// Restaurant card on Filtering page ///////////////
 
 export const RestaurantCard = styled.div`
@@ -17,7 +16,6 @@ export const RestaurantCard = styled.div`
 
   .restaurantImage {
     width: 100%;
-    // max-height: 140px; /* Ska vi behålla denna eller ta bort?*/
   }
 
   h2 {
@@ -216,6 +214,7 @@ export const Burger = styled.div`
 
 
 /////////////// Review page ///////////////
+
 export const ReviewContainer = styled.article`
 position: relative;
 padding: 0.6em;
@@ -266,7 +265,6 @@ text-align: start;
 margin-top: 7px;
 `
 
-
 /////////////// Post Review secion ///////////////
 
 export const PostReviewBox = styled.div`
@@ -302,16 +300,6 @@ background: #fdf8f8;
 font-size: 16px;
 `
 
-export const SubmitReviewButton = styled.button`
-font-family: 'Cabin', sans-serif;
-font-size: 16px;
-background: #fdf8f8;
-border: none;
-width: 120px;
-padding: 8px;
-display: block;
-`
-
 export const SubmitReservationButton = styled.button`
 font-family: 'Cabin', sans-serif;
 font-size: 16px;
@@ -321,7 +309,6 @@ width: 120px;
 padding: 8px;
 display: block;
 `
-
 
 export const Characters = styled.p`
 margin-block-start: 5.4px;
@@ -333,7 +320,7 @@ export const ButtonBox = styled.div`
 text-align: center;
 `
 
-export const LinkContainer = styled.a`
+export const LinkContainer = styled.div`
 font-family: 'Cabin', sans-serif;
 color: #2a5744;
 display: block;
@@ -432,12 +419,10 @@ export const LogOutPage = styled.section`
     }
 `
 
-
 /////////////// Restaurant details page ///////////////
 export const ImageWrapper = styled.img`
 width: 340px;
 `
-
 
 /////// Profile page ///////////////////////////
 
@@ -460,8 +445,6 @@ font-size: 16px;
 color: #2e2e2e;
 `
 
-
-
 /////////////// Footer styling ///////////////
 
 export const FooterStyling = styled.section`
@@ -477,7 +460,6 @@ export const FooterStyling = styled.section`
     line-height: 1.5;
   }
 `
-
 
 /////////////// 404 Not found-page ///////////////
 
