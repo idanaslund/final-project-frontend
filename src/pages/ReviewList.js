@@ -18,18 +18,21 @@ const ReviewList = () => {
 
   useEffect(() => {
     if (accessToken) {
-      fetch(API_URL('reviews'), {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json',
-        Authorization: accessToken}
-      }) 
-      .then(res => res.json())
-      .then(reviews => setReviews(reviews))
-      .catch(error => console.error(error))
-    }
+     fetchReviews()}
   }, [accessToken])
 
   console.log('reviews', reviews)
+
+  const fetchReviews = () => {
+    fetch(API_URL('reviews'), {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json',
+      Authorization: accessToken }
+    }) 
+    .then(res => res.json())
+    .then(reviews => setReviews(reviews))
+    .catch(error => console.error(error))
+  }
 
 const onLike = (id) => {
   fetch(`https://restaurants-backend-database.herokuapp.com/reviews/${id}/like`, {
@@ -37,18 +40,7 @@ const onLike = (id) => {
     headers: { 'Content-Type': 'application/json',
     Authorization: accessToken},
     body: ''
-  }).then(() => updateLikes(id))
-};
-
-// Function for updating likes
-const updateLikes = (id) => {
-  const updatedReview = reviews.map(review => {
-    if (review._id === id) {
-      review.like += 1
-    }
-    return review
-  })
-  setReviews(updatedReview) 
+  }).then(() => fetchReviews())
 }
 
 
