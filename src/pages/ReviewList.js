@@ -31,19 +31,19 @@ const ReviewList = () => {
 
   console.log('reviews', reviews)
 
-const onLike = (singleReviewId) => {
-  fetch(`https://restaurants-backend-database.herokuapp.com/reviews/${singleReviewId}/like`, {
+const onLike = (id) => {
+  fetch(`https://restaurants-backend-database.herokuapp.com/reviews/${id}/like`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json',
     Authorization: accessToken},
     body: ''
-  }).then(() => updateLikes(singleReviewId))
+  }).then(() => updateLikes(id))
 };
 
 // Function for updating likes
-const updateLikes = (singleReviewId) => {
+const updateLikes = (id) => {
   const updatedReview = reviews.map(review => {
-    if (review._id === singleReviewId) {
+    if (review._id === id) {
       review.like += 1
     }
     return review
