@@ -53,7 +53,7 @@ const BookATable = () => {
            <BookATableInput
           type='text'
           name='reply_to'
-          placeholder='Your email'
+          placeholder='Email address'
           value={toSend.reply_to}
           onChange={handleChange}
         />
@@ -65,7 +65,7 @@ const BookATable = () => {
           onChange={handleChange}
         />
      
-        <SubmitReservationButton type='submit'>Submit</SubmitReservationButton>
+        <SubmitReservationButton type='submit'>Send request</SubmitReservationButton>
       </BookATableContainer>
 
       </>

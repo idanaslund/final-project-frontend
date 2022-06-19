@@ -269,6 +269,7 @@ export const PostReviewBox = styled.div`
   overflow-wrap: break-word;
   margin: 1.5rem 0 1.5rem 0;
   background: #fbf4f352;
+  padding-top: 18px;
 `
 
 export const ReviewBoxTitle = styled.h2`
