@@ -378,6 +378,7 @@ font-size: 16px;
 margin-bottom: 8px;
 border: none;
 padding: 8px;
+width: 74%;
 `
 
 export const BookATableTextArea = styled.textarea`
