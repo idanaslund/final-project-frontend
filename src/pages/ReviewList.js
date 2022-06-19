@@ -56,7 +56,7 @@ const updateLikes = (id) => {
 
     <MarginSection>
       {reviews.map(singleReview => (
-        <ReviewContainer key={singleReview._id} review={singleReview} onClick={onLike}>
+        <ReviewContainer key={singleReview._id} review={singleReview}>
           <RestaurantName>{singleReview.restaurant}</RestaurantName>
           <StyledReviewBox>
           <Reviews>
@@ -71,7 +71,7 @@ const updateLikes = (id) => {
           <ReviewInfo>Reviewed by: {singleReview.author}</ReviewInfo>
           
             <LikeButtonArea>
-              <img src={heart} alt="heart" height="30px" onClick={() => onLike(singleReview._id)}/>
+              <img src={heart} alt="heart" height="30px" onClick={onLike(singleReview._id)}/>
               <span>x {singleReview.like}</span>
             </LikeButtonArea>  
 
