@@ -30,18 +30,18 @@ const ReviewList = () => {
       Authorization: accessToken }
     }) 
     .then(res => res.json())
-    .then(reviews => setReviews(reviews))
+    .then(setReviews)
     .catch(error => console.error(error))
   }
 
-const onLike = (id) => {
-  fetch(`https://restaurants-backend-database.herokuapp.com/reviews/${id}/like`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json',
-    Authorization: accessToken},
-    body: ''
-  }).then(() => fetchReviews())
-}
+// const onLike = (id) => {
+//   fetch(`https://restaurants-backend-database.herokuapp.com/reviews/${id}/like`, {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json',
+//     Authorization: accessToken},
+//     body: ''
+//   }).then(() => fetchReviews())
+// }
 
 
   return (
@@ -63,7 +63,8 @@ const onLike = (id) => {
           <ReviewInfo>Reviewed by: {singleReview.author}</ReviewInfo>
           
             <LikeButtonArea>
-              <img src={heart} alt="heart" height="30px" onClick={onLike(singleReview._id)}/>
+              <img src={heart} alt="heart" height="30px" /> 
+               {/* onClick={onLike(singleReview._id)} */}
               <span>x {singleReview.like}</span>
             </LikeButtonArea>  
 
