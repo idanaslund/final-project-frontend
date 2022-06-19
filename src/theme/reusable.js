@@ -44,6 +44,18 @@ font-family: 'Cabin', sans-serif;
 font-size: 16px;
 `
 
+export const LongerTexts = styled.p`
+font-family: 'Raleway', sans-serif;
+font-size: 16px;
+`
+
+export const ParagraphLInks = styled.span`
+font-family: 'Raleway', sans-serif;
+font-size: 16px;
+font-weight: 500;
+text-decoration: underline;
+`
+
 /////////////// Buttons ///////////////
 
 export const BackButton = styled.button`
@@ -53,7 +65,6 @@ background-color: #da918b;
 border: none;
 width: 120px;
 padding: 8px;
-margin-left: 1rem;
 color: #2e2e2e;
 `
 export const GetInspiredButton = styled.button`
