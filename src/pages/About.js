@@ -1,7 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AboutContainer } from '../theme/styles'
-import { MarginSection, BackButton, SecondHeader, LongerTexts, ParagraphLInks } from '../theme/reusable'
+import { MarginSection, BackButton, SecondHeader, ParagraphLInks, BoldParagraphs } from '../theme/reusable'
+import { EmmaImage, JoannaImage, IdaImage, AboutProfileTexts, LongerTexts} from '../theme/styles'
 
 const About = () => {
 
@@ -15,23 +16,25 @@ const About = () => {
             <MarginSection>
                 <SecondHeader>About us</SecondHeader>
                 <AboutContainer>
-
-                    <LongerTexts>"This is where we can write a short text about us."</LongerTexts>
+                <JoannaImage src="https://i.postimg.cc/Hn9qF5c0/1642405918592.jpg" height="110px" />
+                <AboutProfileTexts>"This is where we can write a short text about us."</AboutProfileTexts>
                     <a href="https://github.com/joannalodell19" rel="link to linkedin" target="_blank">
-                        <h4> – Joanna Lodell</h4>
+                        <BoldParagraphs> – Joanna Lodell</BoldParagraphs>
                     </a>
                 </AboutContainer>
                 <AboutContainer>
-                    <LongerTexts>"This is where we can write a short text about us."</LongerTexts>
+                    <EmmaImage src="https://i.postimg.cc/JnntSk8V/1588602797626-1.jpg" height="110px" />
+                    <AboutProfileTexts>I'm a Frontend Developer with five years experience of working with SEO, communication and marketing. Code has been a friend of mine for years, remembering feeling very cool creating my own Lunarstorm profile in HTML 2007.</AboutProfileTexts>
                     <a href="https://github.com/emmajosefina" rel="link to linkedin" target="_blank">
-                        <h4> – Emma Lindell</h4>
+                        <BoldParagraphs> – Emma Lindell</BoldParagraphs>
                     </a>
                 </AboutContainer>
                 <AboutContainer>
-                    <LongerTexts>"I am a frontend developer with five years experience in social work. 
-                        I am a skilled communicator and teamplayer who is always eager to learn."</LongerTexts>
+                <IdaImage src="https://i.postimg.cc/3wMH4KTv/1650215401175.jpg" height="110px" />
+                    <AboutProfileTexts>I am a frontend developer with five years experience in social work. 
+                        I am a skilled communicator and teamplayer who is always eager to learn.</AboutProfileTexts>
                     <a href="https://github.com/idanaslund" rel="link to linkedin" target="_blank">
-                        <h4> – Ida Näslund</h4>
+                        <BoldParagraphs> – Ida Näslund</BoldParagraphs>
                     </a>
 
                 </AboutContainer>

@@ -44,16 +44,17 @@ font-family: 'Cabin', sans-serif;
 font-size: 16px;
 `
 
-export const LongerTexts = styled.p`
-font-family: 'Raleway', sans-serif;
-font-size: 16px;
-`
-
 export const ParagraphLInks = styled.span`
 font-family: 'Raleway', sans-serif;
 font-size: 16px;
 font-weight: 500;
 text-decoration: underline;
+`
+
+export const BoldParagraphs = styled.p`
+font-family: 'Raleway', sans-serif;
+color: #2a5744;
+font-weight: 500;
 `
 
 /////////////// Buttons ///////////////
