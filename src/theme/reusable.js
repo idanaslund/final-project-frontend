@@ -80,6 +80,16 @@ padding: 8px;
 margin-left: 1rem;
 `
 
+export const SubmitButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fdf8f8;
+border: none;
+width: 120px;
+padding: 8px;
+display: block;
+`
+
 export const CardWrapper = styled.article`
 display: flex;
 flex-wrap: wrap;

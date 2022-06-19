@@ -322,6 +322,7 @@ padding: 8px;
 display: block;
 `
 
+
 export const Characters = styled.p`
 margin-block-start: 5.4px;
 color: #2e2e2e;
@@ -436,6 +437,30 @@ export const LogOutPage = styled.section`
 export const ImageWrapper = styled.img`
 width: 340px;
 `
+
+
+/////// Profile page ///////////////////////////
+
+export const ProfileWrapper = styled.article`
+padding: 0.6em;
+max-width: 375px;
+overflow-wrap: break-word;
+margin: 1.5rem 0 1.5rem 0;
+background: #fbf4f352;
+color: #2e2e2e;
+`
+
+export const ProfileInput = styled.input`
+margin: 10px 0 10px 0;
+border-radius: 2px;
+padding: 0.4em;
+width: 95%;
+background: #fdf8f8;
+font-size: 16px;
+color: #2e2e2e;
+`
+
+
 
 /////////////// Footer styling ///////////////
 
