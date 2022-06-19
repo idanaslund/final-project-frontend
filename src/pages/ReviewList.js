@@ -56,7 +56,7 @@ const updateLikes = (id) => {
 
     <MarginSection>
       {reviews.map(singleReview => (
-        <ReviewContainer key={singleReview._id} review={singleReview}>
+        <ReviewContainer key={singleReview._id}>
           <RestaurantName>{singleReview.restaurant}</RestaurantName>
           <StyledReviewBox>
           <Reviews>
