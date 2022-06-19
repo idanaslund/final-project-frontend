@@ -218,7 +218,6 @@ export const Burger = styled.div`
 export const ReviewContainer = styled.article`
 position: relative;
 padding: 0.6em;
-// max-width: 375px;
 overflow-wrap: break-word;
 margin: 1.5rem 0 1.5rem 0;
 background: #fbf4f352;
@@ -443,6 +442,32 @@ width: 95%;
 background: #fdf8f8;
 font-size: 16px;
 color: #2e2e2e;
+`
+
+///////////// About page ///////////////////
+
+export const AboutContainer = styled.article`
+position: relative;
+padding: 0.6em;
+overflow-wrap: break-word;
+margin: 1.5rem 0 1.5rem 0;
+background: #fbf4f352;
+color: #2E2E2E;
+
+a {
+  text-decoration: none;
+  color: #2e2e2e;
+}
+
+h4 {
+  margin: 3px 0 3px 0;
+  text-align: end;
+  font-family: 'Cabin',sans-serif;
+}
+
+p {
+  margin-bottom: 2px;
+}
 `
 
 /////////////// Footer styling ///////////////
