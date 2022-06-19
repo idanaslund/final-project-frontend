@@ -7,9 +7,11 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   :root {
   --theme-darkgray: #2e2e2e;
-  --theme-lightgreen: #d8e4da;
+  --theme-lightgreen: #d8e4da; 
+  --theme-softgreen: #4e7565;
   --theme-pinkish: #da918b;
   --theme-darkgreen: #2a5744;
+  --theme-lightpinkish: #fbf4f3;
   }
   body {
   margin: 0;

@@ -121,7 +121,7 @@ export const Burger = styled.div`
   #page-wrap{
     text-align: center;
     overflow: auto;
-    top: 45%;
+    top: 10px;
     position: relative;
   }
 
@@ -158,10 +158,10 @@ export const Burger = styled.div`
     
     .bm-burger-button {
       position: fixed;
-      width: 36px;
+      width: 42px;
       height: 30px;
-      left: 36px;
-      top: 36px;
+      left: 16px;
+      top: 32px;
     }
     
     /* Color/shape of burger icon bars */

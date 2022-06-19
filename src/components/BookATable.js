@@ -26,6 +26,8 @@ const BookATable = () => {
         )
           .then((response) => {
             console.log('SUCCESS!', response.status, response.text);
+            alert('Your request has been sent!')
+            console.log(alert)
           })
           .catch((err) => {
             console.log('FAILED...', err);
