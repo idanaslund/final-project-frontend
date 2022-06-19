@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { formatDistance } from 'date-fns'
 import { Reviews, StyledReviewBox, ReviewInfo, TimePosted, RestaurantName, LikeButtonArea, ReviewContainer } from '../theme/styles'
+import { MarginSection, BackButton } from '../theme/reusable'
 import heart from '../assets/heart.svg'
-
-import user from 'reducers/user'
 
 const ReviewList = () => {
   const [reviews, setReviews] = useState([])
-
   const accessToken = useSelector((store) => store.user.accessToken)
 
-  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  // Fetching GET reviews if accesstoken
+  const onBackButtonClick = () => navigate(-1)
+
   useEffect(() => {
     if (accessToken) {
       fetch("http://localhost:8080/reviews/", {
@@ -30,7 +30,6 @@ const ReviewList = () => {
 
   console.log('reviews', reviews)
 
-// Post like to API
 const onLike = (singleReviewId) => {
   fetch(`http://localhost:8080/reviews/${singleReviewId}/like`, {
     method: 'POST',
@@ -54,7 +53,7 @@ const updateLikes = (singleReviewId) => {
 
   return (
 
-    <section>
+    <MarginSection>
       {reviews.map(singleReview => (
         <ReviewContainer key={singleReview._id} review={singleReview} onLike={onLike}>
           <RestaurantName>{singleReview.restaurant}</RestaurantName>
@@ -77,7 +76,8 @@ const updateLikes = (singleReviewId) => {
 
         </ReviewContainer>
       ))}
-    </section>
+       <BackButton type="button" onClick={onBackButtonClick}>Go back</BackButton>
+    </MarginSection>
 
   )
 

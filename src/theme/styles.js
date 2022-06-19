@@ -3,7 +3,6 @@ import styled from "styled-components"
 /////////////// Header styling ///////////////
 
 export const StyledHeader = styled.header`
-// background-color: white;
 margin-bottom: 10px;
 text-align: center;
 img{max-height: 50px; margin-top: 20px;}
@@ -23,7 +22,7 @@ export const RestaurantCard = styled.div`
 
   h2 {
     font-size: 12px;
-    color: black;
+    color: #2e2e2e;
     font-family: 'Cabin', sans-serif;
     font-size: 18px;
   }
@@ -121,7 +120,7 @@ export const Burger = styled.div`
   #page-wrap{
     text-align: center;
     overflow: auto;
-    top: 45%;
+    top: 10px;
     position: relative;
   }
 
@@ -157,11 +156,11 @@ export const Burger = styled.div`
     }
     
     .bm-burger-button {
-      position: fixed;
-      width: 36px;
+      position: absolute;
+      width: 42px;
       height: 30px;
-      left: 36px;
-      top: 36px;
+      left: 16px;
+      top: 32px;
     }
     
     /* Color/shape of burger icon bars */
@@ -219,6 +218,12 @@ export const Burger = styled.div`
 /////////////// Review page ///////////////
 export const ReviewContainer = styled.article`
 position: relative;
+padding: 0.6em;
+// max-width: 375px;
+overflow-wrap: break-word;
+margin: 1.5rem 0 1.5rem 0;
+background: #fbf4f352;
+color: #2E2E2E;
 `
 
 export const RestaurantName = styled.p`
@@ -234,18 +239,20 @@ flex-direction: column;
 align-items: center;
 `
 export const Reviews = styled.div`
-background-color: white;
-border: gray solid 1px;
-width: 300px;
+background: #fdf8f8;
+border: #2E2E2E solid 1px;
 font-size: 16px;
 font-weight: 300;
+border-radius: 2px;
+padding: 0.4em;
+width: 300px;
 `
 
 export const ReviewInfo = styled.p`
 display: inline;
 position: absolute;
 right: 10px;
-top: 105px;
+top: 140px;
 font-weight: 500;
 `
 
@@ -256,7 +263,7 @@ font-size: 16px;
 
 export const LikeButtonArea = styled.div`
 text-align: start;
-margin-top: 5px;
+margin-top: 7px;
 `
 
 
@@ -269,6 +276,7 @@ export const PostReviewBox = styled.div`
   overflow-wrap: break-word;
   margin: 1.5rem 0 1.5rem 0;
   background: #fbf4f352;
+  padding-top: 18px;
 `
 
 export const ReviewBoxTitle = styled.h2`
@@ -293,6 +301,27 @@ width: 95%;
 background: #fdf8f8;
 font-size: 16px;
 `
+
+export const SubmitReviewButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fdf8f8;
+border: none;
+width: 120px;
+padding: 8px;
+display: block;
+`
+
+export const SubmitReservationButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fff;
+border: none;
+width: 120px;
+padding: 8px;
+display: block;
+`
+
 
 export const Characters = styled.p`
 margin-block-start: 5.4px;
@@ -338,6 +367,7 @@ font-family: 'Cabin', sans-serif;
 line-height: 0.6;
 background: #fbf4f3;
 padding: 10px;
+margin-top: 1.4rem;
 `
 
 export const ListedHours = styled.p`
@@ -357,6 +387,7 @@ font-size: 16px;
 margin-bottom: 8px;
 border: none;
 padding: 8px;
+width: 74%;
 `
 
 export const BookATableTextArea = styled.textarea`
@@ -365,8 +396,9 @@ font-size: 16px;
 margin-bottom: 8px;
 border: none;
 padding: 8px;
-width: 95%;
+width: 74%;
 overflow-wrap: break-word;
+height: 86px;
 `
 
 export const BookATableLogo = styled.img`
@@ -433,14 +465,13 @@ color: #2e2e2e;
 /////////////// Footer styling ///////////////
 
 export const FooterStyling = styled.section`
-    display: flex; 
-    justify-content: center;
-    margin: 10px;
+  display: flex; 
+  justify-content: center;
 
   .footerContainer {
     text-align: center;
     font-size: 18px;
-    color: black;
+    color: #2E2E2E;
     padding: 0px 10px;
     width: 70vw;
     line-height: 1.5;
@@ -448,3 +479,25 @@ export const FooterStyling = styled.section`
 `
 
 
+/////////////// 404 Not found-page ///////////////
+
+export const NotFoundContainer = styled.div`
+text-align: center;
+margin-top: 40px;
+`
+
+export const NotFoundHeader = styled.h1`
+    font-size: 24px;
+    color: #2a5744;
+    font-family: 'Cabin', sans-serif;
+`
+
+export const BackToHomePageButton = styled.button`
+background: #da918b;
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+color: white;
+border: none;
+width: 150px;
+padding: 8px;
+`

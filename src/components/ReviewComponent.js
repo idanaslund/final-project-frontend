@@ -56,6 +56,7 @@ export const ReviewComponent = ({ restaurant }) => {                  ////review
           console.log('newReview', newReview)
           setCounter(0)
         })
+        alert('Your review has been sent!')
     }
   }
   
