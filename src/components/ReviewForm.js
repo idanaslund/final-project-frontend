@@ -22,7 +22,7 @@ const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter }) => 
           type='text'
           value={newReview}
           onChange={onNewReviewChange}
-          placeholder='Please write your review.'
+          placeholder='Tell us everything about your experience'
         />
         <Characters>
           {140 - counter} / 140 characters left

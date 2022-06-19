@@ -82,13 +82,19 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
                 <SecondHeader>{restaurant.name}</SecondHeader>
                 <RestaurantAddress>{restaurant.address}</RestaurantAddress>
                 <LinkContainer>
-                <Link to={`/restaurant.website`} pathname={restaurant.website}>Website</Link>
+
+                <a href={restaurant.website}>Website</a>
+                  
                 </LinkContainer>
 
                 <TypeOfFood>{restaurant.type_of_food}</TypeOfFood>
                
                 <RestaurantDescription>{restaurant.description}</RestaurantDescription>
              
+             <div>
+                <BookATable /></div>
+            
+
 
             <OpenHoursContainer>
               <SecondHeader>Opening hours</SecondHeader>
@@ -138,7 +144,7 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
       <GetInspiredButton onClick={onGetInspiredButtonClick}>Read more reviews</GetInspiredButton>
       </ButtonBox>
 
-        <BookATable />
+  
       
     </MarginSection>
   )

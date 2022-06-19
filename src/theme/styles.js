@@ -23,7 +23,7 @@ export const RestaurantCard = styled.div`
 
   h2 {
     font-size: 12px;
-    color: black;
+    color: #2e2e2e;
     font-family: 'Cabin', sans-serif;
     font-size: 18px;
   }
@@ -121,7 +121,7 @@ export const Burger = styled.div`
   #page-wrap{
     text-align: center;
     overflow: auto;
-    top: 45%;
+    top: 10px;
     position: relative;
   }
 
@@ -157,11 +157,11 @@ export const Burger = styled.div`
     }
     
     .bm-burger-button {
-      position: fixed;
-      width: 36px;
+      position: absolute;
+      width: 42px;
       height: 30px;
-      left: 36px;
-      top: 36px;
+      left: 16px;
+      top: 32px;
     }
     
     /* Color/shape of burger icon bars */
@@ -269,6 +269,7 @@ export const PostReviewBox = styled.div`
   overflow-wrap: break-word;
   margin: 1.5rem 0 1.5rem 0;
   background: #fbf4f352;
+  padding-top: 18px;
 `
 
 export const ReviewBoxTitle = styled.h2`
@@ -298,6 +299,16 @@ export const SubmitReviewButton = styled.button`
 font-family: 'Cabin', sans-serif;
 font-size: 16px;
 background: #fdf8f8;
+border: none;
+width: 120px;
+padding: 8px;
+display: block;
+`
+
+export const SubmitReservationButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fff;
 border: none;
 width: 120px;
 padding: 8px;
@@ -348,6 +359,7 @@ font-family: 'Cabin', sans-serif;
 line-height: 0.6;
 background: #fbf4f3;
 padding: 10px;
+margin-top: 1.4rem;
 `
 
 export const ListedHours = styled.p`
@@ -367,6 +379,7 @@ font-size: 16px;
 margin-bottom: 8px;
 border: none;
 padding: 8px;
+width: 74%;
 `
 
 export const BookATableTextArea = styled.textarea`
@@ -375,8 +388,9 @@ font-size: 16px;
 margin-bottom: 8px;
 border: none;
 padding: 8px;
-width: 95%;
+width: 74%;
 overflow-wrap: break-word;
+height: 86px;
 `
 
 export const BookATableLogo = styled.img`
@@ -434,3 +448,25 @@ export const FooterStyling = styled.section`
 `
 
 
+/////////////// 404 Not found-page ///////////////
+
+export const NotFoundContainer = styled.div`
+text-align: center;
+margin-top: 40px;
+`
+
+export const NotFoundHeader = styled.h1`
+    font-size: 24px;
+    color: #2a5744;
+    font-family: 'Cabin', sans-serif;
+`
+
+export const BackToHomePageButton = styled.button`
+background: #da918b;
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+color: white;
+border: none;
+width: 150px;
+padding: 8px;
+`

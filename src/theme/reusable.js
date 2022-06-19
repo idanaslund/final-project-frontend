@@ -37,6 +37,8 @@ margin-top: 0;
 export const SecondHeader = styled.h2 `
 font-size: 20px;
 color: #2a5744;
+margin-block-end: 0.4px;
+font-family: 'Cabin', sans-serif;
 `
 
 export const Paragraph = styled.p`
@@ -55,6 +57,16 @@ width: 120px;
 padding: 8px;
 margin-left: 1rem;
 color: #2e2e2e;
+`
+export const HomeButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background-color: #2a5744;
+border: none;
+width: 160px;
+padding: 8px;
+margin-left: 1rem;
+color: white;
 `
 
 export const GetInspiredButton = styled.button`

@@ -5,7 +5,7 @@ import React from 'react'
 import { useState } from 'react';
 import { send } from 'emailjs-com';
 
-import { BookATableContainer, BookATableInput, SubmitReviewButton, BookATableLogo,  BookATableTextArea } from 'theme/styles';
+import { BookATableContainer, BookATableInput, BookATableLogo,  BookATableTextArea, SubmitReservationButton } from 'theme/styles';
 
 
 const BookATable = () => {
@@ -26,6 +26,8 @@ const BookATable = () => {
         )
           .then((response) => {
             console.log('SUCCESS!', response.status, response.text);
+            alert('Your request has been sent!')
+            console.log(alert)
           })
           .catch((err) => {
             console.log('FAILED...', err);
@@ -51,7 +53,7 @@ const BookATable = () => {
            <BookATableInput
           type='text'
           name='reply_to'
-          placeholder='Your email'
+          placeholder='Email address'
           value={toSend.reply_to}
           onChange={handleChange}
         />
@@ -63,7 +65,7 @@ const BookATable = () => {
           onChange={handleChange}
         />
      
-        <SubmitReviewButton type='submit'>Submit</SubmitReviewButton>
+        <SubmitReservationButton type='submit'>Send request</SubmitReservationButton>
       </BookATableContainer>
 
       </>
