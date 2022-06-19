@@ -1,5 +1,6 @@
 import React from 'react'
-import { PostReviewBox, TextLabel, ReviewTextArea, Characters, SubmitReviewButton } from 'theme/styles'
+import { PostReviewBox, TextLabel, ReviewTextArea, Characters } from 'theme/styles'
+import { SubmitButton } from '../theme/reusable'
 
 const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter }) => {
 
@@ -29,11 +30,11 @@ const ReviewForm = ({ newReview, onNewReviewChange, onFormSubmit, counter }) => 
         </Characters>
         <div>
     
-          <SubmitReviewButton
+          <SubmitButton
           type='submit'
           disabled={newReview.length < 6 || newReview.length > 140}
           >Submit review
-          </SubmitReviewButton>
+          </SubmitButton>
         </div>
       </PostReviewBox>
     </form>
