@@ -3,7 +3,6 @@ import styled from "styled-components"
 /////////////// Header styling ///////////////
 
 export const StyledHeader = styled.header`
-// background-color: white;
 margin-bottom: 10px;
 text-align: center;
 img{max-height: 50px; margin-top: 20px;}
@@ -219,6 +218,12 @@ export const Burger = styled.div`
 /////////////// Review page ///////////////
 export const ReviewContainer = styled.article`
 position: relative;
+padding: 0.6em;
+// max-width: 375px;
+overflow-wrap: break-word;
+margin: 1.5rem 0 1.5rem 0;
+background: #fbf4f352;
+color: #2E2E2E;
 `
 
 export const RestaurantName = styled.p`
@@ -234,18 +239,20 @@ flex-direction: column;
 align-items: center;
 `
 export const Reviews = styled.div`
-background-color: white;
-border: gray solid 1px;
-width: 300px;
+background: #fdf8f8;
+border: #2E2E2E solid 1px;
 font-size: 16px;
 font-weight: 300;
+border-radius: 2px;
+padding: 0.4em;
+width: 300px;
 `
 
 export const ReviewInfo = styled.p`
 display: inline;
 position: absolute;
 right: 10px;
-top: 105px;
+top: 140px;
 font-weight: 500;
 `
 
@@ -419,14 +426,13 @@ width: 340px;
 /////////////// Footer styling ///////////////
 
 export const FooterStyling = styled.section`
-    display: flex; 
-    justify-content: center;
-    margin: 10px;
+  display: flex; 
+  justify-content: center;
 
   .footerContainer {
     text-align: center;
     font-size: 18px;
-    color: black;
+    color: #2E2E2E;
     padding: 0px 10px;
     width: 70vw;
     line-height: 1.5;
