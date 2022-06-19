@@ -2,14 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import { FilterContainer, RestaurantCard } from '../theme/styles'
-import { CardWrapper } from '../theme/reusable'
+import { Paragraph, Label, StyledInput, SecondHeader, CardWrapper  } from '../theme/reusable'
+import user from 'reducers/user'
 
 import { API_URL } from 'utils/urls'
-
-import { SecondHeader } from '../theme/reusable'
-import { Paragraph, Label, StyledInput } from '../theme/reusable'
-
-import user from 'reducers/user'
 
 const FilteringPage = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
@@ -64,16 +60,19 @@ const FilteringPage = () => {
   useEffect(() => { 
     setFilterActive(false)
     let filteredRestaurants = restaurants
+
     // Type of Food
     if (typeOfFoodFilter.length > 0) {
       filteredRestaurants = filteredRestaurants.filter(restaurant => 
         restaurant.type_of_food.filter(type => typeOfFoodFilter.includes(type)).length > 0)
+
         setFilterActive(true)
     } 
     // Meals
     if (mealsFilter.length > 0) {
       filteredRestaurants = filteredRestaurants.filter(restaurant => 
         restaurant.meals.filter(type => mealsFilter.includes(type)).length > 0)
+
         setFilterActive(true)
     }
     // Budget
@@ -206,7 +205,6 @@ const FilteringPage = () => {
           Nordic
           </Label>
       
-
           
         
           <label>
@@ -214,12 +212,11 @@ const FilteringPage = () => {
           Swedish
           </label>
 
-
-
           <label>
           <input type="checkbox" value="Italian" onChange={updateTypeOfFoodFilter}/>
           Italian
           </label>
+
           <label>
           <input type="checkbox" value="Asian" onChange={updateTypeOfFoodFilter}/>
           Asian
@@ -316,13 +313,15 @@ const FilteringPage = () => {
           Date
           </label>
           <label>
-          <input type="checkbox" value="Family" onChange={updateTargetAudienceFilter}/>Family
+          <input type="checkbox" value="Family" onChange={updateTargetAudienceFilter}/>
+          Family
           </label>
         </form>
 
         <form> <SecondHeader>Restaurant focus</SecondHeader>
           <label>
-          <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>Vegan
+          <input type="checkbox" value="Vegan" onChange={updateRestaurantFocusFilter}/>
+          Vegan
           </label>
           <label>
           <input type="checkbox" value="Vegetarian" onChange={updateRestaurantFocusFilter}/>
@@ -384,7 +383,7 @@ const FilteringPage = () => {
 
         ))}
         </CardWrapper>
-        ) : (filterActive && filteredRestaurants.length == 0) ? (
+        ) : (filterActive && filteredRestaurants.length === 0) ? (
           <CardWrapper>
             <p>Sorry, we couldn't find any restaurants...</p>
           </CardWrapper>

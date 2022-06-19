@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
+import { useParams, useNavigate} from 'react-router-dom'
 import { useDispatch, batch, useSelector } from 'react-redux'             
 
 import user from 'reducers/user'
@@ -9,14 +9,14 @@ import { MarginSection, BackButton, GetInspiredButton, SecondHeader } from '../t
 import { ImageWrapper, ButtonBox, LinkContainer, RestaurantAddress, RestaurantDescription, OpenHoursContainer, ListedHours, TypeOfFood } from '../theme/styles'
 import BookATable from 'components/BookATable'
 
-export const RestaurantDetails = ({website, address, opening_hours_mon, opening_hours_tue, opening_hours_wed, opening_hours_thur, opening_hours_fri, opening_hours_sat, opening_hours_sun, type_of_food}) => {
+export const RestaurantDetails = () => { 
 
   const accessToken = useSelector((store) => store.user.accessToken)
 
-  const { id } = useParams()
   const [restaurant, setRestaurant] = useState({})
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { id } = useParams()
 
   const onBackButtonClick = () => {
     navigate(-1)
@@ -46,12 +46,9 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
     fetch(`http://localhost:8080/restaurants/${id}`, options)
       .then(res => res.json())
       .then((json) => {
-        console.log('json', json.response)
-        // console.log('json', restaurant)
         if (json.success) {
           batch(() => {
             setRestaurant(json.response)
-            console.log('json.response', json.response)
             dispatch(user.actions.setErrors(null))
 
           })

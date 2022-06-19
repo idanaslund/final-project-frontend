@@ -1,6 +1,3 @@
-// Here we add all our global styles that we want to for example:
-// Set a font-family for all our typography and set background on every page
-// Override some browser default styling
 import { createGlobalStyle } from 'styled-components'
 
 
@@ -25,8 +22,6 @@ const GlobalStyle = createGlobalStyle`
   background: #d8e4da;
   }
 `
-
-// Continue adding global design here
 
 
 export default GlobalStyle
