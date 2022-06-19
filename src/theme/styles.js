@@ -476,12 +476,14 @@ font-family: 'Raleway', sans-serif;
 font-size: 16px;
 max-width: 84%;
 margin-block-start: 0.2px;
+line-height: 1.2;
 `
 
 export const LongerTexts = styled.p`
 font-family: 'Raleway', sans-serif;
 font-size: 16px;
 margin-block-start: 0.2px;
+line-height: 1.4;
 `
 
 export const EmmaImage = styled.img`
