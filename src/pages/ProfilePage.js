@@ -56,12 +56,12 @@ const ProfilePage = () => {
           alert('Your information has been updated!')
         })
         } else {
-          dispatch(user.actions.setErrors(data))
+          setError('Something went wrong, try again.')
         }
-        setError('Something went wrong, try again.')
       })
   }
 
+  
   return (
     <MarginSection>
       <ProfileWrapper>
@@ -104,6 +104,7 @@ const ProfilePage = () => {
           />
           <SubmitButton type="submit">Submit info</SubmitButton>
         </form>
+        <p>{error}</p>
       </ProfileWrapper>
       <BackButton type="button" onClick={onBackButtonClick}>Go back</BackButton>
     </MarginSection>

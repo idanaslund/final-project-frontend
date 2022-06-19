@@ -99,22 +99,22 @@ export const RestaurantDetails = () => {
                 Monday: &nbsp;
                {restaurant.opening_hours_mon}</ListedHours>
               <ListedHours> Tuesday: &nbsp;
-              {restaurant. opening_hours_tue}
+              {restaurant.opening_hours_tue}
               </ListedHours>
               <ListedHours> Wednesday: &nbsp;
-              {restaurant. opening_hours_wed}
+              {restaurant.opening_hours_wed}
               </ListedHours>
               <ListedHours>Thursday: &nbsp;
-              {restaurant. opening_hours_thur}
+              {restaurant.opening_hours_thur}
               </ListedHours>
               <ListedHours> Friday: &nbsp;
-              {restaurant. opening_hours_fri}
+              {restaurant.opening_hours_fri}
               </ListedHours>
               <ListedHours>Saturday: &nbsp;
-              {restaurant. opening_hours_sat}
+              {restaurant.opening_hours_sat}
               </ListedHours>
               <ListedHours>Sunday: &nbsp;
-              {restaurant. opening_hours_sun}
+              {restaurant.opening_hours_sun}
               </ListedHours>
               </OpenHoursContainer>
               
