@@ -82,7 +82,9 @@ export const RestaurantDetails = ({website, address, opening_hours_mon, opening_
                 <SecondHeader>{restaurant.name}</SecondHeader>
                 <RestaurantAddress>{restaurant.address}</RestaurantAddress>
                 <LinkContainer>
-                <Link to={`/restaurant.website`} pathname={restaurant.website}>Website</Link>
+
+                <a href={restaurant.website}>Website</a>
+                  
                 </LinkContainer>
 
                 <TypeOfFood>{restaurant.type_of_food}</TypeOfFood>

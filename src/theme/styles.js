@@ -23,7 +23,7 @@ export const RestaurantCard = styled.div`
 
   h2 {
     font-size: 12px;
-    color: black;
+    color: #2e2e2e;
     font-family: 'Cabin', sans-serif;
     font-size: 18px;
   }
@@ -157,7 +157,7 @@ export const Burger = styled.div`
     }
     
     .bm-burger-button {
-      position: fixed;
+      position: absolute;
       width: 42px;
       height: 30px;
       left: 16px;
@@ -448,3 +448,25 @@ export const FooterStyling = styled.section`
 `
 
 
+/////////////// 404 Not found-page ///////////////
+
+export const NotFoundContainer = styled.div`
+text-align: center;
+margin-top: 40px;
+`
+
+export const NotFoundHeader = styled.h1`
+    font-size: 24px;
+    color: #2a5744;
+    font-family: 'Cabin', sans-serif;
+`
+
+export const BackToHomePageButton = styled.button`
+background: #da918b;
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+color: white;
+border: none;
+width: 150px;
+padding: 8px;
+`
