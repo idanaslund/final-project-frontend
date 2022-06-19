@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-// import { API_URL, REVIEWS } from 'utils/urls'
+import { API_URL, REVIEWS } from 'utils/urls'
 
 import ReviewForm from 'components/ReviewForm'
 import user from 'reducers/user'
@@ -47,7 +47,7 @@ export const ReviewComponent = ({ restaurant }) => {
    
 
     if (accessToken) {
-      fetch('http://localhost:8080/reviews', options)
+      fetch(API_URL(REVIEWS), options)
         .then(res => res.json())
         .then(() => {
           setNewReview('')
