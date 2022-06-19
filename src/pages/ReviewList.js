@@ -6,6 +6,8 @@ import { Reviews, StyledReviewBox, ReviewInfo, TimePosted, RestaurantName, LikeB
 import { MarginSection, BackButton } from '../theme/reusable'
 import heart from '../assets/heart.svg'
 
+import { API_LIKES_URL, API_URL } from 'utils/urls'
+
 const ReviewList = () => {
   const [reviews, setReviews] = useState([])
   const accessToken = useSelector((store) => store.user.accessToken)
@@ -16,7 +18,7 @@ const ReviewList = () => {
 
   useEffect(() => {
     if (accessToken) {
-      fetch("http://localhost:8080/reviews/", {
+      fetch(API_URL('reviews'), {
         method: 'GET',
         headers: { 'Content-Type': 'application/json',
         Authorization: accessToken}
@@ -30,7 +32,7 @@ const ReviewList = () => {
   console.log('reviews', reviews)
 
 const onLike = (singleReviewId) => {
-  fetch(`http://localhost:8080/reviews/${singleReviewId}/like`, {
+  fetch(`https://restaurants-backend-database.herokuapp.com/reviews/${singleReviewId}/like`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json',
     Authorization: accessToken},

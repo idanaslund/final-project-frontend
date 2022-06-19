@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate} from 'react-router-dom'
-import { useDispatch, batch, useSelector } from 'react-redux'             
+import { useDispatch, batch, useSelector } from 'react-redux'  
+
+import { API_URL } from 'utils/urls'
 
 import user from 'reducers/user'
 
@@ -43,7 +45,7 @@ export const RestaurantDetails = () => {
         },
       }
 
-    fetch(`http://localhost:8080/restaurants/${id}`, options)
+    fetch(API_URL(`restaurants/${id}`), options)
       .then(res => res.json())
       .then((json) => {
         if (json.success) {

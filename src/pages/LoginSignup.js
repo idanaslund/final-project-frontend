@@ -10,9 +10,6 @@ const LoginSignup = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const [fullName, setFullName] = useState(useSelector((store) => store.user.fullName))
-    // const [phone, setPhone] = useState(useSelector((store) => store.user.phone))
-    // const [bio, setBio] = useState(useSelector((store) => store.user.bio))
     const [mode, setMode] = useState('signup')
     const [error, setError] = useState('')
 
@@ -49,9 +46,6 @@ const LoginSignup = () => {
                 dispatch(user.actions.setUsername(data.response.username))
                 dispatch(user.actions.setEmail(data.response.email))
                 dispatch(user.actions.setAccessToken(data.response.accessToken))
-                // dispatch(user.actions.setFullName(data.response.fullName))
-                // dispatch(user.actions.setPhone(data.response.phone))
-                // dispatch(user.actions.setBio(data.response.bio))
                 dispatch(user.actions.setErrors(null))
     
                 localStorage.setItem('user', JSON.stringify({
@@ -59,9 +53,6 @@ const LoginSignup = () => {
                   userId: data.response.userId,
                   username: data.response.username,
                   email: data.response.email,
-                //   fullName: data.response.fullName,
-                //   phone: data.response.phone,
-                //   bio: data.response.bio
                 }))
               })
             } else {
@@ -70,9 +61,6 @@ const LoginSignup = () => {
                 dispatch(user.actions.setUsername(null))
                 dispatch(user.actions.setEmail(null))
                 dispatch(user.actions.setAccessToken(null))
-                // dispatch(user.actions.setFullName(null))
-                // dispatch(user.actions.setPhone(null))
-                // dispatch(user.actions.setBio(null))
                 dispatch(user.actions.setErrors(data.response))
               })
               setError('Something went wrong, try again.')
