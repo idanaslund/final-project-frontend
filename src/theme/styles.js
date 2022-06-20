@@ -429,6 +429,10 @@ background: #fbf4f352;
 color: #2e2e2e;
 `
 
+export const ProfileForm = styled.form`
+margin-top: 10px;
+`
+
 export const ProfileInput = styled.input`
 margin: 10px 0 10px 0;
 border-radius: 2px;
