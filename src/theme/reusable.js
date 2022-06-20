@@ -107,7 +107,9 @@ border: none;
 width: 120px;
 padding: 8px;
 display: block;
+color: #2e2e2e;
 margin-top: 10px;
+
 `
 
 export const CardWrapper = styled.article`
