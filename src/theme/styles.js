@@ -305,11 +305,12 @@ margin-block-end: 5.4px;
 export const TimePosted = styled.p`
 font-size: 16px;
 margin-top: 5px;
+margin-bottom: 30px;
 `
 export const ReviewInfo = styled.p`
 font-weight: 500;
 margin-bottom: 2px;
-margin-top: 20px;
+
 `
 
 
