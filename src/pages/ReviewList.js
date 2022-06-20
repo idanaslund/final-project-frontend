@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { formatDistance } from 'date-fns'
 import { Reviews, StyledReviewBox, ReviewInfo, TimePosted, RestaurantName, ReviewContainer } from '../theme/styles'
-import { MarginSection, BackButton } from '../theme/reusable'
+import { MarginSection, BackButton, GetInspiredButton } from '../theme/reusable'
 
 import { API_URL } from 'utils/urls'
 
@@ -13,7 +13,13 @@ const ReviewList = () => {
 
   const navigate = useNavigate()
 
-  const onBackButtonClick = () => navigate(-1)
+  const onBackButtonClick = () =>{
+    navigate(-1)
+  } 
+
+  const onHomeButtonClick = () => {
+    navigate('/')
+  }
 
   useEffect(() => {
     if (accessToken) {
@@ -50,6 +56,7 @@ const ReviewList = () => {
         </ReviewContainer>
       ))}
        <BackButton type="button" onClick={onBackButtonClick}>Go back</BackButton>
+       <GetInspiredButton type="button" onClick={onHomeButtonClick}>Pick restaurant</GetInspiredButton>
     </MarginSection>
 
   )

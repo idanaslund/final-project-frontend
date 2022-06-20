@@ -44,8 +44,6 @@ const FilteringPage = () => {
         .then((res) => res.json())
         .then((json) => {
           if (json.success) {
-            console.log(json)
-       
             batch(() => {
               setRestaurants(json.response)
               dispatch(user.actions.setErrors(null))
