@@ -470,6 +470,46 @@ p {
 }
 `
 
+
+export const AboutProfileTexts = styled.p`
+font-family: 'Raleway', sans-serif;
+font-size: 16px;
+max-width: 84%;
+margin-block-start: 0.2px;
+line-height: 1.2;
+`
+
+export const LongerTexts = styled.p`
+font-family: 'Raleway', sans-serif;
+font-size: 16px;
+margin-block-start: 0.2px;
+line-height: 1.4;
+`
+
+export const EmmaImage = styled.img`
+border-radius: 50%;
+position: absolute;
+height: 42%;
+right: -2px;
+top: 123px;
+`
+
+export const JoannaImage = styled.img`
+border-radius: 50%;
+position: absolute;
+height: 81%;
+right: -2px;
+top: 34px;
+`
+
+export const IdaImage = styled.img`
+border-radius: 50%;
+position: absolute;
+height: 54%;
+right: -4px;
+top: 81px;
+`
+
 /////////////// Footer styling ///////////////
 
 export const FooterStyling = styled.section`
