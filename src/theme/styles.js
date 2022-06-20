@@ -259,11 +259,6 @@ display: inline;
 font-size: 16px;
 `
 
-export const LikeButtonArea = styled.div`
-text-align: start;
-margin-top: 7px;
-`
-
 /////////////// Post Review secion ///////////////
 
 export const PostReviewBox = styled.div`

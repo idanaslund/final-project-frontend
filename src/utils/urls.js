@@ -8,4 +8,3 @@ export const API_URL = (slug) => `${BASE_URL}/${slug}`
 
 export const REVIEWS = 'reviews'
 
-export const API_LIKES_URL = (singleReviewId) => `https://restaurants-backend-database.herokuapp.com/reviews/${singleReviewId}/like`
