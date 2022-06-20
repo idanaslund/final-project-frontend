@@ -24,6 +24,13 @@ margin: 0 auto;
 `
 export const MarginSection = styled.section`
 margin: 1rem;
+
+@media ${devices.tablet} {
+  margin: 2rem;
+}
+@media ${devices.desktop} {
+  margin: 3rem;
+}
 `
 
 export const DarkGreenHeader = styled.h1`
