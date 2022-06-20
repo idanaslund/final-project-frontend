@@ -31,6 +31,8 @@ export const RestaurantCard = styled.div`
     font-size: 18px;
   }
 `
+
+
 // /////////////// Filtering Page ///////////////
 
 export const FilterContainer = styled.article`
@@ -38,6 +40,15 @@ border: 1px solid darkgray;
 margin: 10px;
 padding: 1rem;
 border-radius: 2px;
+`
+
+export const EachFilterContainer = styled.div`
+display: flex;
+flex-wrap: wrap;
+// align-items: center;
+`
+export const EachCheckBox = styled.div`
+width: 150px;
 `
 
 /////////////// Login / Signup ///////////////
