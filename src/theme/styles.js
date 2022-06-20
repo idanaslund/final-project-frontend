@@ -94,6 +94,7 @@ export const LoginSignupChoice = styled.div`
     width: 70px;
     padding: 8px;
     border-radius: 1px;
+    -webkit-appearance: none;
   }
 `
 
