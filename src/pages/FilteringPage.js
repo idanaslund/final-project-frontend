@@ -5,6 +5,8 @@ import { FilterContainer, RestaurantCard } from '../theme/styles'
 import { Paragraph, Label, StyledInput, SecondHeader, CardWrapper  } from '../theme/reusable'
 import user from 'reducers/user'
 
+import { Checkbox, FormControlLabel } from '@material-ui/core' //tillagd nu
+
 import { API_URL } from 'utils/urls'
 
 const FilteringPage = () => {
@@ -20,6 +22,7 @@ const FilteringPage = () => {
   const [dogFriendlyFilter, setDogFriendlyFilter] = useState('no_pref')
   const [outdoorAreaFilter, setOutdoorAreaFilter] = useState('no_pref')
   const [filterActive, setFilterActive] = useState(false)
+  const [val, setVal] = useState(false)
   
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -124,8 +127,14 @@ const FilteringPage = () => {
 
     if(checked) {
       setTypeOfFoodFilter(arr => [...arr, value])
+      if(checked) {
+        setVal(e.target.checked)
+      }
     } else {
       setTypeOfFoodFilter(arr => arr.filter((type) => type !== value))
+      if(!checked) {
+        setVal(false)
+      }
     }
   }
   // Meals
@@ -198,17 +207,38 @@ const FilteringPage = () => {
           <SecondHeader>Type of food</SecondHeader>
           
      
-          <Label htmlFor="Nordic">
+          {/* <Label htmlFor="Nordic">
           <StyledInput id="Nordic" type="checkbox" value="Nordic" defaultChecked={false} onChange={updateTypeOfFoodFilter} /> 
           Nordic
-          </Label>
+          </Label> */}
+
+          <FormControlLabel
+            control={
+              <Checkbox id="Nordic" type="checkbox" style={{
+                color: '#da918b'
+              }} 
+              checked={val} value="Nordic" onChange={updateTypeOfFoodFilter}/>
+            }
+            label={
+              <Label>
+                Nordic
+              </Label>
+            }
+          />
       
-          
-        
-          <label>
-          <input type="checkbox" value="Swedish" onChange={updateTypeOfFoodFilter}/>
-          Swedish
-          </label>
+          <FormControlLabel
+            control={
+              <Checkbox id="Swedish" type="checkbox" style={{
+                color: '#da918b'
+              }} 
+              checked={val} value="Swedish" onChange={updateTypeOfFoodFilter}/>
+            }
+            label={
+              <Label>
+                Swedish
+              </Label>
+            }
+          />
 
           <label>
           <input type="checkbox" value="Italian" onChange={updateTypeOfFoodFilter}/>

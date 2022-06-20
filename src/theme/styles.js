@@ -32,6 +32,7 @@ border: 1px solid darkgray;
 margin: 10px;
 padding: 1rem;
 border-radius: 2px;
+
 `
 
 /////////////// Login / Signup ///////////////

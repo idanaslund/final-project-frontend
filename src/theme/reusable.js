@@ -110,9 +110,10 @@ padding: 10px;
 /////////////// Checkboxes ///////////////
 
 export const Label = styled.label`
-padding: 8px;
-border: solid 1px #2a5744;
-border-radius: 2px;
+// padding: 8px;
+// border: solid 1px #2a5744;
+// border-radius: 2px;
+margin-left: -6px;
 width: 140px;
 height: 40px;
 margin-top: 10px;
