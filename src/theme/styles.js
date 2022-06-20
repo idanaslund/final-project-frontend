@@ -1,5 +1,11 @@
 import styled from "styled-components"
 
+export const devices = {
+  mobile: "(min-width: 375px)",
+  tablet: "(min-width: 768px)",
+  desktop: "(min-width: 1025px)"
+}
+
 /////////////// Header styling ///////////////
 
 export const StyledHeader = styled.header`
@@ -25,6 +31,8 @@ export const RestaurantCard = styled.div`
     font-size: 18px;
   }
 `
+
+
 // /////////////// Filtering Page ///////////////
 
 export const FilterContainer = styled.article`
@@ -32,6 +40,15 @@ border: 1px solid darkgray;
 margin: 10px;
 padding: 1rem;
 border-radius: 2px;
+`
+
+export const EachFilterContainer = styled.div`
+display: flex;
+flex-wrap: wrap;
+// align-items: center;
+`
+export const EachCheckBox = styled.div`
+width: 150px;
 `
 
 /////////////// Login / Signup ///////////////
@@ -347,6 +364,10 @@ color: #4e7565;
 line-height: 1.6;
 `
 
+export const RestaurantLink = styled.a`
+color: #4e7565;
+`
+
 export const RestaurantDescription = styled.p`
 font-family: 'Raleway', sans-serif;
 font-size: 16px;
@@ -504,6 +525,7 @@ position: absolute;
 height: 88px;
 right: -4px;
 top: 116px;
+z-index: 1;
 `
 
 export const JoannaImage = styled.img`
@@ -512,6 +534,7 @@ position: absolute;
 height: 88px;
 right: -4px;
 top: 78px;
+z-index: 1;
 `
 
 export const IdaImage = styled.img`
@@ -520,10 +543,46 @@ position: absolute;
 height: 88px;
 right: -4px;
 top: 81px;
+z-index: 1;
 `
 
 export const LastContainerMarginBottom = styled.div`
 margin-bottom: 40px;
+`
+
+export const FirstContainer = styled.div`
+display: block;
+
+@media ${devices.tablet} {
+  display: flex;
+flex-direction: row;
+}
+@media ${devices.desktop} {
+  width: 1025px;
+}
+
+`
+
+export const SecondContainer = styled.div`
+display: block;
+
+@media ${devices.tablet} {
+  display: flex;
+flex-direction: row;
+}
+@media ${devices.desktop} {
+  width: 1025px;
+}
+
+`
+
+export const WholeAboutContainer = styled.div`
+
+@media ${devices.tablet} {
+  width: 50%;
+  display: flex;
+  column-gap: 30px;
+}
 `
 
 /////////////// Footer styling ///////////////

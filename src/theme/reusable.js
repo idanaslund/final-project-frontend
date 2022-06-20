@@ -24,6 +24,13 @@ margin: 0 auto;
 `
 export const MarginSection = styled.section`
 margin: 1rem;
+
+@media ${devices.tablet} {
+  margin: 2rem;
+}
+@media ${devices.desktop} {
+  margin: 3rem;
+}
 `
 
 export const DarkGreenHeader = styled.h1`
@@ -100,7 +107,9 @@ border: none;
 width: 120px;
 padding: 8px;
 display: block;
+color: #2e2e2e;
 margin-top: 10px;
+
 `
 
 export const CardWrapper = styled.article`
@@ -116,9 +125,10 @@ padding: 10px;
 /////////////// Checkboxes ///////////////
 
 export const Label = styled.label`
-padding: 8px;
-border: solid 1px #2a5744;
-border-radius: 2px;
+// padding: 8px;
+// border: solid 1px #2a5744;
+// border-radius: 2px;
+margin-left: -6px;
 width: 140px;
 height: 40px;
 margin-top: 10px;
