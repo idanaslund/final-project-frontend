@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import { API_URL, REVIEWS } from 'utils/urls'
 
 import ReviewForm from 'components/ReviewForm'
-import user from 'reducers/user'
 
 export const ReviewComponent = ({ restaurant }) => {                 
   const [newReview, setNewReview] = useState('')
@@ -20,7 +19,6 @@ export const ReviewComponent = ({ restaurant }) => {
     if (!accessToken) {
       navigate('/')
     }
-    console.log(user)
   }, [accessToken, navigate])
   
 
@@ -51,7 +49,6 @@ export const ReviewComponent = ({ restaurant }) => {
         .then(res => res.json())
         .then(() => {
           setNewReview('')
-          console.log('newReview', newReview)
           setCounter(0)
         })
         alert('Your review has been sent!')
