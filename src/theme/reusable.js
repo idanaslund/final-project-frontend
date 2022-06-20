@@ -24,6 +24,19 @@ margin: 0 auto;
 `
 export const MarginSection = styled.section`
 margin: 1rem;
+
+@media ${devices.tablet} {
+  margin: 2rem;
+}
+@media ${devices.desktop} {
+  margin: 3rem;
+}
+`
+
+export const DarkGreenHeader = styled.h1`
+    font-size: 24px;
+    color: #2a5744;
+    font-family: 'Cabin', sans-serif;
 `
 
 /////////////// Headings and paragraphs ///////////////
@@ -35,7 +48,6 @@ margin-top: 0;
 export const SecondHeader = styled.h2 `
 font-size: 20px;
 color: #2a5744;
-margin-block-end: 0.4px;
 font-family: 'Cabin', sans-serif;
 `
 
@@ -48,7 +60,7 @@ margin-top: 40px;
 `
 
 export const Paragraph = styled.p`
-font-family: 'Cabin', sans-serif;
+font-family: 'Raleway', sans-serif;
 font-size: 16px;
 `
 
@@ -96,6 +108,8 @@ width: 120px;
 padding: 8px;
 display: block;
 color: #2e2e2e;
+margin-top: 10px;
+
 `
 
 export const CardWrapper = styled.article`
@@ -111,9 +125,10 @@ padding: 10px;
 /////////////// Checkboxes ///////////////
 
 export const Label = styled.label`
-padding: 8px;
-border: solid 1px #2a5744;
-border-radius: 2px;
+// padding: 8px;
+// border: solid 1px #2a5744;
+// border-radius: 2px;
+margin-left: -6px;
 width: 140px;
 height: 40px;
 margin-top: 10px;

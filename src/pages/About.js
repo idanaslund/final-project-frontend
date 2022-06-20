@@ -14,7 +14,12 @@ const About = () => {
 
     return(
             <MarginSection>
+              <div>
+          
+                <div>
                 <SecondHeader>About us</SecondHeader>
+               
+             
                 <AboutContainer>
                 <JoannaImage src="https://i.postimg.cc/Hn9qF5c0/1642405918592.jpg" height="110px" />
                 <AboutProfileTexts>I’m a marketing specialist, former production manager, event planner and an aspiring frontend developer with a passion for getting things done.
@@ -41,8 +46,15 @@ const About = () => {
                     </a>
 
                 </AboutContainer>
-
+               
+                </div>
+               
+               
+              
+                   
+                    
                 <SecondHeaderWithMargin>foodiefinder was born in June 2022…</SecondHeaderWithMargin>
+              
                 <AboutContainer>
 
 <LongerTexts>and is our fullstack final project from Technigo Boot Camp 2022.<span role="img" aria-label="sparkle emoji">✨</span> </LongerTexts>
@@ -60,10 +72,14 @@ const About = () => {
 
 
                 </AboutContainer>
+       
+                
 
-                <BackButton
+               
+               <BackButton
                 type="button" onClick={onBackButtonClick}
                 >Go back</BackButton>
+                </div>
             </MarginSection>
     )
 }

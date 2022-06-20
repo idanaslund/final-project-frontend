@@ -1,5 +1,11 @@
 import styled from "styled-components"
 
+export const devices = {
+  mobile: "(min-width: 375px)",
+  tablet: "(min-width: 768px)",
+  desktop: "(min-width: 1025px)"
+}
+
 /////////////// Header styling ///////////////
 
 export const StyledHeader = styled.header`
@@ -25,6 +31,8 @@ export const RestaurantCard = styled.div`
     font-size: 18px;
   }
 `
+
+
 // /////////////// Filtering Page ///////////////
 
 export const FilterContainer = styled.article`
@@ -32,6 +40,15 @@ border: 1px solid darkgray;
 margin: 10px;
 padding: 1rem;
 border-radius: 2px;
+`
+
+export const EachFilterContainer = styled.div`
+display: flex;
+flex-wrap: wrap;
+// align-items: center;
+`
+export const EachCheckBox = styled.div`
+width: 150px;
 `
 
 /////////////// Login / Signup ///////////////
@@ -300,7 +317,7 @@ font-family: 'Cabin', sans-serif;
 `
 
 export const ReviewTextArea = styled.textarea`
-font-family: 'Cabin', sans-serif;
+font-family: 'Raleway', sans-serif;
 border-radius: 2px;
 padding: 0.4em;
 width: 95%;
@@ -348,8 +365,12 @@ color: #4e7565;
 line-height: 1.6;
 `
 
+export const RestaurantLink = styled.a`
+color: #4e7565;
+`
+
 export const RestaurantDescription = styled.p`
-font-family: 'Cabin', sans-serif;
+font-family: 'Raleway', sans-serif;
 font-size: 16px;
 background: #fbf4f3;
 padding: 0.6em;
@@ -358,7 +379,7 @@ color: #2e2e2e;
 `
 
 export const OpenHoursContainer = styled.div`
-font-family: 'Cabin', sans-serif;
+font-family: 'Raleway', sans-serif;
 line-height: 0.6;
 background: #fbf4f3;
 padding: 10px;
@@ -377,7 +398,7 @@ padding: 8px;
 `
 
 export const BookATableInput = styled.input`
-font-family: 'Cabin',sans-serif;
+font-family: 'Raleway',sans-serif;
 font-size: 16px;
 margin-bottom: 8px;
 border: none;
@@ -386,7 +407,7 @@ width: 74%;
 `
 
 export const BookATableTextArea = styled.textarea`
-font-family: 'Cabin',sans-serif;
+font-family: 'Raleway',sans-serif;
 font-size: 16px;
 margin-bottom: 8px;
 border: none;
@@ -448,13 +469,13 @@ margin-top: 10px;
 `
 
 export const ProfileInput = styled.input`
-margin: 10px 0 10px 0;
-border-radius: 2px;
-padding: 0.4em;
-width: 95%;
-background: #fdf8f8;
-font-size: 16px;
-color: #2e2e2e;
+    background-color: white;
+    padding: 7px;
+    margin: 5px 0;
+    border: 1px solid black;
+    width: 200px;
+    font-family: 'Cabin', sans-serif;
+    border-radius: 2px;
 `
 
 ///////////// About page ///////////////////
@@ -505,6 +526,7 @@ position: absolute;
 height: 88px;
 right: -4px;
 top: 116px;
+z-index: 1;
 `
 
 export const JoannaImage = styled.img`
@@ -513,6 +535,7 @@ position: absolute;
 height: 88px;
 right: -4px;
 top: 78px;
+z-index: 1;
 `
 
 export const IdaImage = styled.img`
@@ -521,10 +544,46 @@ position: absolute;
 height: 88px;
 right: -4px;
 top: 81px;
+z-index: 1;
 `
 
 export const LastContainerMarginBottom = styled.div`
 margin-bottom: 40px;
+`
+
+export const FirstContainer = styled.div`
+display: block;
+
+@media ${devices.tablet} {
+  display: flex;
+flex-direction: row;
+}
+@media ${devices.desktop} {
+  width: 1025px;
+}
+
+`
+
+export const SecondContainer = styled.div`
+display: block;
+
+@media ${devices.tablet} {
+  display: flex;
+flex-direction: row;
+}
+@media ${devices.desktop} {
+  width: 1025px;
+}
+
+`
+
+export const WholeAboutContainer = styled.div`
+
+@media ${devices.tablet} {
+  width: 50%;
+  display: flex;
+  column-gap: 30px;
+}
 `
 
 /////////////// Footer styling ///////////////
@@ -548,12 +607,6 @@ export const FooterStyling = styled.section`
 export const NotFoundContainer = styled.div`
 text-align: center;
 margin-top: 40px;
-`
-
-export const NotFoundHeader = styled.h1`
-    font-size: 24px;
-    color: #2a5744;
-    font-family: 'Cabin', sans-serif;
 `
 
 export const BackToHomePageButton = styled.button`
