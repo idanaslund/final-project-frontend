@@ -5,7 +5,7 @@ import { FilterContainer, RestaurantCard } from '../theme/styles'
 import { Paragraph, Label, StyledInput, SecondHeader, CardWrapper  } from '../theme/reusable'
 import user from 'reducers/user'
 
-import { Checkbox, FormControlLabel } from '@material-ui/core' //tillagd nu
+import { Checkbox, FormControlLabel, Radio } from '@material-ui/core' //tillagd nu
 
 import { API_URL } from 'utils/urls'
 
@@ -22,7 +22,6 @@ const FilteringPage = () => {
   const [dogFriendlyFilter, setDogFriendlyFilter] = useState('no_pref')
   const [outdoorAreaFilter, setOutdoorAreaFilter] = useState('no_pref')
   const [filterActive, setFilterActive] = useState(false)
-  const [val, setVal] = useState(false)
   
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -127,14 +126,8 @@ const FilteringPage = () => {
 
     if(checked) {
       setTypeOfFoodFilter(arr => [...arr, value])
-      if(checked) {
-        setVal(e.target.checked)
-      }
     } else {
       setTypeOfFoodFilter(arr => arr.filter((type) => type !== value))
-      if(!checked) {
-        setVal(false)
-      }
     }
   }
   // Meals
@@ -217,7 +210,7 @@ const FilteringPage = () => {
               <Checkbox id="Nordic" type="checkbox" style={{
                 color: '#da918b'
               }} 
-              checked={val} value="Nordic" onChange={updateTypeOfFoodFilter}/>
+               value="Nordic" onChange={updateTypeOfFoodFilter}/>           ///////// checked={val}
             }
             label={
               <Label>
@@ -231,7 +224,7 @@ const FilteringPage = () => {
               <Checkbox id="Swedish" type="checkbox" style={{
                 color: '#da918b'
               }} 
-              checked={val} value="Swedish" onChange={updateTypeOfFoodFilter}/>
+               value="Swedish" onChange={updateTypeOfFoodFilter}/>           ///// checked={val}
             }
             label={
               <Label>
@@ -283,10 +276,25 @@ const FilteringPage = () => {
 
         <form>
         <SecondHeader>Meals</SecondHeader>
-          <label>
+
+        <FormControlLabel
+            control={
+              <Checkbox id="Breakfast" type="checkbox" style={{
+                color: '#da918b'
+              }} 
+               value="Breakfast" onChange={updateMealsFilter}/>           ///// checked={val}
+            }
+            label={
+              <Label>
+                Breakfast
+              </Label>
+            }
+          />
+
+          {/* <label>
           <input type="checkbox" value="Breakfast" onChange={updateMealsFilter}/>
           Breakfast
-          </label>
+          </label> */}
           <label>
           <input type="checkbox" value="Brunch" onChange={updateMealsFilter}/>
           Brunch
@@ -366,6 +374,32 @@ const FilteringPage = () => {
         </form> 
       
       <form><SecondHeader> Dog friendly</SecondHeader>
+      <FormControlLabel
+            control={
+            <Radio
+            checked={dogFriendlyFilter === 'yes'}
+            onChange={updateDogFriendlyFilter}
+            value="yes"
+            style={{
+              color: '#da918b'
+            }} 
+          />}>
+          </FormControlLabel>
+
+
+            {/* // name="radio-buttons"
+            // inputProps={{ 'aria-label': 'A' }}
+
+
+         <Radio */}
+          {/* //   checked={selectedValue === 'b'}
+          //   onChange={handleChange}
+          //   value="b"
+          //   name="radio-buttons"
+          //   inputProps={{ 'aria-label': 'B' }}
+          // /> */}
+
+
           <label>
           <input type="radio" checked={dogFriendlyFilter==='yes'} value="yes" onChange={updateDogFriendlyFilter}/>
           Dogs
