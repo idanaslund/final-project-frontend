@@ -25,7 +25,7 @@ export const RestaurantCard = styled.div`
     font-size: 18px;
   }
 `
-/////////////// Login / Signup ///////////////
+// /////////////// Filtering Page ///////////////
 
 export const FilterContainer = styled.article`
 border: 1px solid darkgray;
@@ -39,19 +39,23 @@ border-radius: 2px;
 export const LoginSignupPage = styled.main`
   display: flex;
   justify-content: center;
+  align-items: center;
 
   .loginSignupContainer {
     background: white;
-    border: 2px solid black;
+    border: 1px solid #2a5744;
     width: 70vw;
-    border-radius: 60px;
     padding: 15px 0px;
+    margin-top: 25px;
   }
 `
 
 export const LoginSignupChoice = styled.div`
   h2 {
     text-align: center;
+    font-size: 24px;
+    color: #2a5744;
+    font-family: 'Cabin', sans-serif;
   }
 
   .modeChoice {
@@ -62,7 +66,7 @@ export const LoginSignupChoice = styled.div`
   }
 
   .modeQuestion {
-    margin: 5px;
+    margin: 9px;
   }
 
   input {
@@ -70,10 +74,20 @@ export const LoginSignupChoice = styled.div`
     font-size: 16px;
     background-color: #da918b;
     border: none;
+    width: 70px;
+    padding: 8px;
+    border-radius: 1px;
+  }
+`
+
+export const RegisterButton = styled.button`
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    background-color: #da918b;
+    border: none;
     width: 80px;
     padding: 8px;
-    border-radius: 30px;
-  }
+    border-radius: 1px;
 `
 
 export const LoginSignupForm = styled.form`
@@ -83,12 +97,12 @@ export const LoginSignupForm = styled.form`
 
   input {
     background-color: white;
-    padding: 5px;
+    padding: 7px;
     margin: 5px 0;
     border: 1px solid black;
     width: 200px;
     font-family: 'Cabin', sans-serif;
-    border-radius: 60px;
+    border-radius: 2px;
   }
 
   .input-username {
@@ -103,7 +117,7 @@ export const LoginSignupForm = styled.form`
     width: 125px;
     padding: 8px;
     margin-top: 14px;
-    border-radius: 30px;
+    border-radius: 1px;
   }
 
   p {
