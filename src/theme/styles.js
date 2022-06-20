@@ -300,7 +300,7 @@ font-family: 'Cabin', sans-serif;
 `
 
 export const ReviewTextArea = styled.textarea`
-font-family: 'Cabin', sans-serif;
+font-family: 'Raleway', sans-serif;
 border-radius: 2px;
 padding: 0.4em;
 width: 95%;
@@ -349,7 +349,7 @@ line-height: 1.6;
 `
 
 export const RestaurantDescription = styled.p`
-font-family: 'Cabin', sans-serif;
+font-family: 'Raleway', sans-serif;
 font-size: 16px;
 background: #fbf4f3;
 padding: 0.6em;
@@ -358,7 +358,7 @@ color: #2e2e2e;
 `
 
 export const OpenHoursContainer = styled.div`
-font-family: 'Cabin', sans-serif;
+font-family: 'Raleway', sans-serif;
 line-height: 0.6;
 background: #fbf4f3;
 padding: 10px;
@@ -377,7 +377,7 @@ padding: 8px;
 `
 
 export const BookATableInput = styled.input`
-font-family: 'Cabin',sans-serif;
+font-family: 'Raleway',sans-serif;
 font-size: 16px;
 margin-bottom: 8px;
 border: none;
@@ -386,7 +386,7 @@ width: 74%;
 `
 
 export const BookATableTextArea = styled.textarea`
-font-family: 'Cabin',sans-serif;
+font-family: 'Raleway',sans-serif;
 font-size: 16px;
 margin-bottom: 8px;
 border: none;
@@ -448,13 +448,13 @@ margin-top: 10px;
 `
 
 export const ProfileInput = styled.input`
-margin: 10px 0 10px 0;
-border-radius: 2px;
-padding: 0.4em;
-width: 95%;
-background: #fdf8f8;
-font-size: 16px;
-color: #2e2e2e;
+    background-color: white;
+    padding: 7px;
+    margin: 5px 0;
+    border: 1px solid black;
+    width: 200px;
+    font-family: 'Cabin', sans-serif;
+    border-radius: 2px;
 `
 
 ///////////// About page ///////////////////
@@ -548,12 +548,6 @@ export const FooterStyling = styled.section`
 export const NotFoundContainer = styled.div`
 text-align: center;
 margin-top: 40px;
-`
-
-export const NotFoundHeader = styled.h1`
-    font-size: 24px;
-    color: #2a5744;
-    font-family: 'Cabin', sans-serif;
 `
 
 export const BackToHomePageButton = styled.button`

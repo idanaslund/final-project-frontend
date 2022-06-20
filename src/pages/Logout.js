@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { LogOutPage } from 'theme/styles'
-import { BackButton } from '../theme/reusable'
+import { BackButton, DarkGreenHeader } from '../theme/reusable'
 import user from 'reducers/user'
 
 const LogOut = () => {
@@ -26,7 +26,7 @@ const LogOut = () => {
     return(
       <LogOutPage>
         <div className='LogOutContainer'>
-          <h3>Are you sure you want to log out?</h3>
+          <DarkGreenHeader>Are you sure you want to log out?</DarkGreenHeader>
           <div className='buttonContainer'>
             <BackButton
               type="button" onClick={() => dispatch(user.actions.logOut())} className="logoutButton"
