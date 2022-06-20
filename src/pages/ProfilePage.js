@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { BackButton, MarginSection, SubmitButton, Paragraph } from '../theme/reusable'
+import { BackButton, MarginSection, SubmitButton, Paragraph, SecondHeader } from '../theme/reusable'
 import { ProfileWrapper, ProfileInput, ProfileForm } from '../theme/styles'
 
 import user from 'reducers/user'
@@ -66,17 +66,18 @@ const ProfilePage = () => {
   return (
     <MarginSection>
       <ProfileWrapper>
-      <h2>{username}</h2>
+        <SecondHeader>Your profile</SecondHeader>
+      <Paragraph>Username: {username}</Paragraph>
       <p>Bio: {bio}</p>
 
-      <h3>Your information</h3>
+      <SecondHeader>Your information</SecondHeader>
       <p>Full name: {fullName}</p>
       <p>Phone number: {phone}</p>
       
       </ProfileWrapper>
 
       <ProfileWrapper>
-        <h3>Update your information</h3>
+        <SecondHeader>Update your information</SecondHeader>
         <SubmitButton
           type="button"
           onClick={() => setVisible(!visible)}
@@ -87,30 +88,37 @@ const ProfilePage = () => {
         {visible && (
           <>
             <ProfileForm onSubmit={onFormSubmit}>
-            <label htmlFor="fullName">Your full name</label>
+              <div>
+            <label htmlFor="fullName">Your full name:</label>
             <ProfileInput
               id="fullName"
               type="text"
               value={fullName}
               onChange={(event) => setFullName(event.target.value)}
             />
+            </div>
 
+            <div>
             <label
-              htmlFor="phone">Phone number</label>
+              htmlFor="phone">Phone number:</label>
             <ProfileInput
               id="phone"
               type="number"
               value={phone}
               onChange={(event) => setPhone(event.target.value)}
             />
+            </div>
+            <div>
             <label
-              htmlFor="bio">Bio</label>
+              htmlFor="bio">Bio:</label>
+                </div>
             <ProfileInput
               id="bio"
               type="text"
               value={bio}
               onChange={(event) => setBio(event.target.value)}
             />
+          
             <SubmitButton type="submit">Submit info</SubmitButton>
           </ProfileForm>
           <Paragraph>{error}</Paragraph>

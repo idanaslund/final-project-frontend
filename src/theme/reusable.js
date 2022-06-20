@@ -24,6 +24,19 @@ margin: 0 auto;
 `
 export const MarginSection = styled.section`
 margin: 1rem;
+
+@media ${devices.tablet} {
+  margin: 2rem;
+}
+@media ${devices.desktop} {
+  margin: 3rem;
+}
+`
+
+export const DarkGreenHeader = styled.h1`
+    font-size: 24px;
+    color: #2a5744;
+    font-family: 'Cabin', sans-serif;
 `
 
 /////////////// Headings and paragraphs ///////////////
@@ -35,7 +48,6 @@ margin-top: 0;
 export const SecondHeader = styled.h2 `
 font-size: 20px;
 color: #2a5744;
-margin-block-end: 0.4px;
 font-family: 'Cabin', sans-serif;
 `
 
@@ -48,7 +60,7 @@ margin-top: 40px;
 `
 
 export const Paragraph = styled.p`
-font-family: 'Cabin', sans-serif;
+font-family: 'Raleway', sans-serif;
 font-size: 16px;
 `
 
@@ -95,6 +107,7 @@ border: none;
 width: 120px;
 padding: 8px;
 display: block;
+margin-top: 10px;
 `
 
 export const CardWrapper = styled.article`
