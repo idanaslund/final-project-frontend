@@ -88,6 +88,7 @@ const ProfilePage = () => {
         {visible && (
           <>
             <ProfileForm onSubmit={onFormSubmit}>
+              <div>
             <label htmlFor="fullName">Your full name:</label>
             <ProfileInput
               id="fullName"
@@ -95,7 +96,9 @@ const ProfilePage = () => {
               value={fullName}
               onChange={(event) => setFullName(event.target.value)}
             />
+            </div>
 
+            <div>
             <label
               htmlFor="phone">Phone number:</label>
             <ProfileInput
@@ -104,14 +107,18 @@ const ProfilePage = () => {
               value={phone}
               onChange={(event) => setPhone(event.target.value)}
             />
+            </div>
+            <div>
             <label
               htmlFor="bio">Bio:</label>
+                </div>
             <ProfileInput
               id="bio"
               type="text"
               value={bio}
               onChange={(event) => setBio(event.target.value)}
             />
+          
             <SubmitButton type="submit">Submit info</SubmitButton>
           </ProfileForm>
           <Paragraph>{error}</Paragraph>
