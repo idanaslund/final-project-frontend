@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import { FilterContainer, RestaurantCard, EachFilterContainer, EachCheckBox } from '../theme/styles'
-import { Paragraph, Label, StyledInput, SecondHeader, CardWrapper  } from '../theme/reusable'
+import { Paragraph, Label, SecondHeader, CardWrapper  } from '../theme/reusable'
 import user from 'reducers/user'
 
 import { Checkbox, FormControlLabel, Radio } from '@material-ui/core' //tillagd nu
