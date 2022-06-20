@@ -86,7 +86,9 @@ export const RestaurantDetails = () => {
                   
                 </LinkContainer>
 
-                <TypeOfFood>{restaurant.type_of_food}</TypeOfFood>
+                {/* <TypeOfFood key="typeof">{restaurant.type_of_food}</TypeOfFood> */}
+
+                <TypeOfFood key="typeoffood">{restaurant.type_of_resturant.map((item) => (<p>{item}</p>))}</TypeOfFood>
                
                 <RestaurantDescription>{restaurant.description}</RestaurantDescription>
              
