@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { formatDistance } from 'date-fns'
-import { Reviews, StyledReviewBox, ReviewInfo, TimePosted, RestaurantName, LikeButtonArea, ReviewContainer } from '../theme/styles'
+import { Reviews, StyledReviewBox, ReviewInfo, TimePosted, RestaurantName, ReviewContainer } from '../theme/styles'
 import { MarginSection, BackButton } from '../theme/reusable'
-import heart from '../assets/heart.svg'
 
 import { API_URL } from 'utils/urls'
 
@@ -18,31 +17,15 @@ const ReviewList = () => {
 
   useEffect(() => {
     if (accessToken) {
-     fetchReviews()}
+      fetch(API_URL('reviews'), {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json',
+        Authorization: accessToken }
+      }) 
+      .then(res => res.json())
+      .then(setReviews)
+      .catch(error => console.error(error))}
   }, [accessToken])
-
-  console.log('reviews', reviews)
-
-  const fetchReviews = () => {
-    fetch(API_URL('reviews'), {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json',
-      Authorization: accessToken }
-    }) 
-    .then(res => res.json())
-    .then(setReviews)
-    .catch(error => console.error(error))
-  }
-
-// const onLike = (id) => {
-//   fetch(`https://restaurants-backend-database.herokuapp.com/reviews/${id}/like`, {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json',
-//     Authorization: accessToken},
-//     body: ''
-//   }).then(() => fetchReviews())
-// }
-
 
   return (
 
@@ -62,11 +45,7 @@ const ReviewList = () => {
           </TimePosted>
           <ReviewInfo>Reviewed by: {singleReview.author}</ReviewInfo>
           
-            <LikeButtonArea>
-              <img src={heart} alt="heart" height="30px" /> 
-               {/* onClick={onLike(singleReview._id)} */}
-              <span>x {singleReview.like}</span>
-            </LikeButtonArea>  
+        
 
         </ReviewContainer>
       ))}
