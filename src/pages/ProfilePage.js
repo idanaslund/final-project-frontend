@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { BackButton, MarginSection, SubmitButton } from '../theme/reusable'
-import { ProfileWrapper, ProfileInput } from '../theme/styles'
+import { BackButton, MarginSection, SubmitButton, Paragraph } from '../theme/reusable'
+import { ProfileWrapper, ProfileInput, ProfileForm } from '../theme/styles'
 
 import user from 'reducers/user'
 import { EDIT_USER } from '../utils/urls'
@@ -12,6 +12,7 @@ const ProfilePage = () => {
   const [phone, setPhone] = useState(useSelector((store) => store.user.phone))
   const [bio, setBio] = useState(useSelector((store) => store.user.bio))
   const [error, setError] = useState('')
+  const [visible, setVisible] = useState(false)
 
   const accessToken = JSON.parse(localStorage.getItem('user'))?.accessToken
   const userId = JSON.parse(localStorage.getItem('user'))?.userId
@@ -76,35 +77,45 @@ const ProfilePage = () => {
 
       <ProfileWrapper>
         <h3>Update your information</h3>
+        <SubmitButton
+          type="button"
+          onClick={() => setVisible(!visible)}
+        >
+          Settings
+        </SubmitButton>
 
-        <form onSubmit={onFormSubmit}>
-          <label htmlFor="fullName">Your full name</label>
-          <ProfileInput
-            id="fullName"
-            type="text"
-            value={fullName}
-            onChange={(event) => setFullName(event.target.value)}
-          />
+        {visible && (
+          <>
+            <ProfileForm onSubmit={onFormSubmit}>
+            <label htmlFor="fullName">Your full name</label>
+            <ProfileInput
+              id="fullName"
+              type="text"
+              value={fullName}
+              onChange={(event) => setFullName(event.target.value)}
+            />
 
-          <label
-            htmlFor="phone">Phone number</label>
-          <ProfileInput
-            id="phone"
-            type="number"
-            value={phone}
-            onChange={(event) => setPhone(event.target.value)}
-          />
-          <label
-            htmlFor="bio">Bio</label>
-          <ProfileInput
-            id="bio"
-            type="text"
-            value={bio}
-            onChange={(event) => setBio(event.target.value)}
-          />
-          <SubmitButton type="submit">Submit info</SubmitButton>
-        </form>
-        <p>{error}</p>
+            <label
+              htmlFor="phone">Phone number</label>
+            <ProfileInput
+              id="phone"
+              type="number"
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
+            />
+            <label
+              htmlFor="bio">Bio</label>
+            <ProfileInput
+              id="bio"
+              type="text"
+              value={bio}
+              onChange={(event) => setBio(event.target.value)}
+            />
+            <SubmitButton type="submit">Submit info</SubmitButton>
+          </ProfileForm>
+          <Paragraph>{error}</Paragraph>
+        </>
+        )}
       </ProfileWrapper>
       <BackButton type="button" onClick={onBackButtonClick}>Go back</BackButton>
     </MarginSection>
