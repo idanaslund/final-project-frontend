@@ -8,7 +8,7 @@ import user from 'reducers/user'
 
 import { ReviewComponent } from 'components/ReviewComponent'
 import { MarginSection, BackButton, GetInspiredButton, SecondHeader } from '../theme/reusable'
-import { ImageWrapper, ButtonBox, LinkContainer, RestaurantAddress, RestaurantDescription, OpenHoursContainer, ListedHours, TypeOfFood } from '../theme/styles'
+import { ImageWrapper, ButtonBox, LinkContainer, RestaurantAddress, RestaurantDescription, OpenHoursContainer, ListedHours, TypeOfFood, RestaurantLink } from '../theme/styles'
 import BookATable from 'components/BookATable'
 
 export const RestaurantDetails = () => { 
@@ -82,13 +82,12 @@ export const RestaurantDetails = () => {
                 <RestaurantAddress>{restaurant.address}</RestaurantAddress>
                 <LinkContainer>
 
-                <a href={restaurant.website}>Website</a>
+                <RestaurantLink href={restaurant.website}>Website</RestaurantLink>
                   
                 </LinkContainer>
 
-                {/* <TypeOfFood key="typeof">{restaurant.type_of_food}</TypeOfFood> */}
-
-                <TypeOfFood key="typeoffood">{restaurant.type_of_resturant.map((item) => (<p>{item}</p>))}</TypeOfFood>
+      
+                <TypeOfFood key="typeoffood">{restaurant.type_of_food}</TypeOfFood>
                
                 <RestaurantDescription>{restaurant.description}</RestaurantDescription>
              
