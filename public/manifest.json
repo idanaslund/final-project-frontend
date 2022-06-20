@@ -1,6 +1,6 @@
 {
-    "short_name": "My First PWA",
-    "name": "My First Progressive Web App",
+    "short_name": "foodiefinder",
+    "name": "foodiefinder.netlify.app",
     "icons": [
       {
         "src":"/assets/foodie-finder.png",
