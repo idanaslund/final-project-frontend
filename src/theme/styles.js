@@ -95,6 +95,7 @@ export const LoginSignupChoice = styled.div`
     padding: 8px;
     border-radius: 1px;
     -webkit-appearance: none;
+    -webkit-border-radius: none;
   }
 `
 
