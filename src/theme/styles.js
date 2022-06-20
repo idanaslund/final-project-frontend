@@ -230,7 +230,6 @@ export const Burger = styled.div`
 /////////////// Review page ///////////////
 
 export const ReviewContainer = styled.article`
-position: relative;
 padding: 0.6em;
 overflow-wrap: break-word;
 margin: 1.5rem 0 1.5rem 0;
@@ -261,8 +260,7 @@ width: 300px;
 `
 
 export const ReviewInfo = styled.p`
-display: inline;
-position: absolute;
+text-align: end;
 right: 10px;
 top: 140px;
 font-weight: 500;
@@ -340,6 +338,7 @@ display: inline-block;
 padding: 8px;
 font-family: 'Cabin', sans-serif;
 margin-block-end: 0;
+margin-right: 10px;
 `
 
 export const RestaurantAddress = styled.div`

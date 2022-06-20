@@ -16,6 +16,7 @@ export const RestaurantDetails = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
 
   const [restaurant, setRestaurant] = useState({})
+  const [types, setTypes] = useState([])
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { id } = useParams()
@@ -51,6 +52,7 @@ export const RestaurantDetails = () => {
         if (json.success) {
           batch(() => {
             setRestaurant(json.response)
+            setTypes(json.response.type_of_food)
             dispatch(user.actions.setErrors(null))
 
           })
@@ -59,6 +61,8 @@ export const RestaurantDetails = () => {
         }
       })
     }, [dispatch, id, accessToken])
+
+    
 
   if (restaurant === null) {
       return <p></p>
@@ -85,8 +89,14 @@ export const RestaurantDetails = () => {
                 <a href={restaurant.website}>Website</a>
                   
                 </LinkContainer>
-
-                <TypeOfFood>{restaurant.type_of_food}</TypeOfFood>
+               
+               {types.length > 1 ? (
+                types.map(type => (
+                  <TypeOfFood key={type}>{type}</TypeOfFood>
+                ))
+               ) :(
+                <TypeOfFood key="typeoffood">{types}</TypeOfFood >
+                )}
                
                 <RestaurantDescription>{restaurant.description}</RestaurantDescription>
              
