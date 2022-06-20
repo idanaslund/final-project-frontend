@@ -39,6 +39,14 @@ margin-block-end: 0.4px;
 font-family: 'Cabin', sans-serif;
 `
 
+export const SecondHeaderWithMargin = styled.h2 `
+font-size: 20px;
+color: #2a5744;
+margin-block-end: 0.4px;
+font-family: 'Cabin', sans-serif;
+margin-top: 40px;
+`
+
 export const Paragraph = styled.p`
 font-family: 'Cabin', sans-serif;
 font-size: 16px;
