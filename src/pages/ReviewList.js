@@ -6,7 +6,7 @@ import { Reviews, StyledReviewBox, ReviewInfo, TimePosted, RestaurantName, LikeB
 import { MarginSection, BackButton } from '../theme/reusable'
 import heart from '../assets/heart.svg'
 
-import { API_LIKES_URL, API_URL } from 'utils/urls'
+import { API_URL } from 'utils/urls'
 
 const ReviewList = () => {
   const [reviews, setReviews] = useState([])
@@ -18,45 +18,37 @@ const ReviewList = () => {
 
   useEffect(() => {
     if (accessToken) {
-      fetch(API_URL('reviews'), {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json',
-        Authorization: accessToken}
-      }) 
-      .then(res => res.json())
-      .then(reviews => setReviews(reviews))
-      .catch(error => console.error(error))
-    }
+     fetchReviews()}
   }, [accessToken])
 
   console.log('reviews', reviews)
 
-const onLike = (singleReviewId) => {
-  fetch(`https://restaurants-backend-database.herokuapp.com/reviews/${singleReviewId}/like`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json',
-    Authorization: accessToken},
-    body: ''
-  }).then(() => updateLikes(singleReviewId))
-};
+  const fetchReviews = () => {
+    fetch(API_URL('reviews'), {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json',
+      Authorization: accessToken }
+    }) 
+    .then(res => res.json())
+    .then(setReviews)
+    .catch(error => console.error(error))
+  }
 
-// Function for updating likes
-const updateLikes = (singleReviewId) => {
-  const updatedReview = reviews.map(review => {
-    if (review._id === singleReviewId) {
-      review.like += 1
-    }
-    return review
-  })
-  setReviews(updatedReview) 
-}
+// const onLike = (id) => {
+//   fetch(`https://restaurants-backend-database.herokuapp.com/reviews/${id}/like`, {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json',
+//     Authorization: accessToken},
+//     body: ''
+//   }).then(() => fetchReviews())
+// }
 
 
   return (
 
     <MarginSection>
       {reviews.map(singleReview => (
-        <ReviewContainer key={singleReview._id} review={singleReview} onClick={onLike}>
+        <ReviewContainer key={singleReview._id}>
           <RestaurantName>{singleReview.restaurant}</RestaurantName>
           <StyledReviewBox>
           <Reviews>
@@ -71,7 +63,8 @@ const updateLikes = (singleReviewId) => {
           <ReviewInfo>Reviewed by: {singleReview.author}</ReviewInfo>
           
             <LikeButtonArea>
-              <img src={heart} alt="heart" height="30px" onClick={() => onLike(singleReview._id)}/>
+              <img src={heart} alt="heart" height="30px" /> 
+               {/* onClick={onLike(singleReview._id)} */}
               <span>x {singleReview.like}</span>
             </LikeButtonArea>  
 
