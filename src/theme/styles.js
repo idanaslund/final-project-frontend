@@ -484,25 +484,29 @@ line-height: 1.4;
 export const EmmaImage = styled.img`
 border-radius: 50%;
 position: absolute;
-height: 42%;
-right: -2px;
-top: 123px;
+height: 88px;
+right: -4px;
+top: 116px;
 `
 
 export const JoannaImage = styled.img`
 border-radius: 50%;
 position: absolute;
-height: 81%;
-right: -2px;
-top: 34px;
+height: 88px;
+right: -4px;
+top: 78px;
 `
 
 export const IdaImage = styled.img`
 border-radius: 50%;
 position: absolute;
-height: 54%;
+height: 88px;
 right: -4px;
 top: 81px;
+`
+
+export const LastContainerMarginBottom = styled.div`
+margin-bottom: 40px;
 `
 
 /////////////// Footer styling ///////////////
