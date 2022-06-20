@@ -248,47 +248,71 @@ export const Burger = styled.div`
 
 /////////////// Review page ///////////////
 
+export const FlexContainer = styled.div`
+
+@media ${devices.tablet} {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+`
+
 export const ReviewContainer = styled.article`
 padding: 0.6em;
 overflow-wrap: break-word;
 margin: 1.5rem 0 1.5rem 0;
 background: #fbf4f352;
 color: #2E2E2E;
+
+@media ${devices.tablet} {
+  width: 325px;
+}
+@media ${devices.desktop} {
+  width: 430px;
+}
 `
 
 export const RestaurantName = styled.p`
-font-size: 18px;
+font-size: 20px;
 font-weight: 700;
 color: #2A5744;
+
 `
-export const StyledReviewBox = styled.article`
-margin-top: 15px;
-margin-bottom: 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
-`
+
 export const Reviews = styled.div`
 background: #fdf8f8;
-border: #2E2E2E solid 1px;
+border: #767676 solid 1px;
 font-size: 16px;
 font-weight: 300;
 border-radius: 2px;
-padding: 0.4em;
-width: 300px;
-`
+padding: 1px 20px 20px 5px;
 
-export const ReviewInfo = styled.p`
-text-align: end;
-right: 10px;
-top: 140px;
-font-weight: 500;
-`
+@media ${devices.tablet} {
+  width: 300px;
+}
+@media ${devices.desktop} {
+  width: 350px;
+}
 
+p {
+margin-block-start: 0;
+margin-block-end: 5.4px;
+}
+
+`
 export const TimePosted = styled.p`
-display: inline;
 font-size: 16px;
+margin-top: 5px;
 `
+export const ReviewInfo = styled.p`
+font-weight: 500;
+margin-bottom: 2px;
+margin-top: 20px;
+`
+
+
 
 /////////////// Post Review secion ///////////////
 
