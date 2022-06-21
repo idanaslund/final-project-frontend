@@ -30,6 +30,30 @@ export const RestaurantCard = styled.div`
     font-family: 'Cabin', sans-serif;
     font-size: 18px;
   }
+
+  @media ${devices.tablet} {
+    border-bottom: none;
+    background: #fbf4f352;
+    padding: 20px 20px 10px 20px;
+    width: 30vw;
+    margin: 10px;
+
+    img {
+      width: 100%;
+    }
+  }
+  @media ${devices.desktop} {
+    border-bottom: none;
+    background: #fbf4f352;
+    padding: 20px 20px 10px 20px;
+    width: 13vw;
+    margin: 10px;
+
+    img {
+      width: 100%;
+    }
+
+  }
 `
 
 
@@ -49,6 +73,48 @@ flex-wrap: wrap;
 `
 export const EachCheckBox = styled.div`
 width: 150px;
+`
+
+export const CategoryContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: -10px 0;
+
+  button {
+    margin-left: -6px;
+    margin-top: 4px;
+  }
+`
+
+export const CategoryGroup = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+
+  // @media ${devices.tablet} {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  // }
+  // @media ${devices.desktop} {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  // }
+`
+
+export const ToggleButton = styled.button`  
+border: none;
+background: transparent;
+
+  img {
+    width: 18px;
+    height: 10px;
+    margin: 7px;
+    opacity: 80%;
+  }
+
+  .arrowUp {
+    transform: rotate(180deg);
+    transition: 1s ease;
+  }
 `
 
 /////////////// Login / Signup ///////////////

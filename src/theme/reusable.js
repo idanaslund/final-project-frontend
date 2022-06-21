@@ -116,6 +116,7 @@ export const CardWrapper = styled.article`
 display: flex;
 flex-wrap: wrap;
 padding: 10px;
+justify-content: center;
 
 .link {
     text-decoration: none;

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'      
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
-import { FilterContainer, RestaurantCard, EachFilterContainer, EachCheckBox } from '../theme/styles'
+import { FilterContainer, RestaurantCard, EachFilterContainer, EachCheckBox, ToggleButton, CategoryContainer, CategoryGroup } from '../theme/styles'
 import { Paragraph, Label, SecondHeader, CardWrapper  } from '../theme/reusable'
 import user from 'reducers/user'
 
-import { Checkbox, FormControlLabel, Radio } from '@material-ui/core' //tillagd nu
+import { Checkbox, FormControlLabel, Radio } from '@material-ui/core'
+import Arrow from '../assets/down-arrow.png'
 
 import { API_URL } from 'utils/urls'
 
@@ -22,6 +23,14 @@ const FilteringPage = () => {
   const [dogFriendlyFilter, setDogFriendlyFilter] = useState('no_pref')
   const [outdoorAreaFilter, setOutdoorAreaFilter] = useState('no_pref')
   const [filterActive, setFilterActive] = useState(false)
+  const [typeOfFoodVisible, setTypeOfFoodVisible] = useState(false)
+  const [mealsVisible, setMealsVisible] = useState(false)
+  const [budgetVisible, setBudgetVisible] = useState(false)
+  const [portionSizeVisible, setPortionSizeVisible] = useState(false)
+  const [targetAudienceVisible, setTargetAudienceVisible] = useState(false)
+  const [restaurantFocusVisible, setRestaurantFocusVisible] = useState(false)
+  const [dogFriendlyVisible, setDogFriendlyVisible] = useState(false)
+  const [outdoorAreaVisible, setOutdoorAreaVisible] = useState(false)
   
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -194,631 +203,717 @@ const FilteringPage = () => {
     <section>
 
       <FilterContainer>
-        <form>
-          <Paragraph>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet?</Paragraph>
-          <Paragraph>foodiefinder helps you find your next favourite restaurant in Stockholm! </Paragraph>
-          
-          <SecondHeader>Type of food</SecondHeader>
+        <Paragraph>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet?</Paragraph>
+        <Paragraph>foodiefinder helps you find your next favourite restaurant in Stockholm! </Paragraph>
+        <CategoryGroup>
+          <form>
+            <CategoryContainer>
+              <SecondHeader>Type of food</SecondHeader>
+              <ToggleButton
+              type="button"
+              onClick={() => setTypeOfFoodVisible(!typeOfFoodVisible)}
+              >
+                {typeOfFoodVisible ? (<img src={Arrow} alt='arrow' className='arrowUp' />) : (<img src={Arrow} alt='arrow' className='arrowDown' />)}
+              </ToggleButton>
+            </CategoryContainer>
 
-          <EachFilterContainer>
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="Nordic" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="Nordic" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                Nordic
-              </Label>
-            }
-          />
-          </EachCheckBox>
-      
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="Swedish" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="Swedish" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                Swedish
-              </Label>
-            }
-          />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="Italian" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="Italian" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                Italian
-              </Label>
-            }
-          />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="Asian" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="Asian" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                Asian
-              </Label>
-            }
-          />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="Spanish" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="Spanish" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                Spanish
-              </Label>
-            }
-          />
-          </EachCheckBox>
-          
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="American" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="American" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                American
-              </Label>
-            }
-          />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="European" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="European" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                European
-              </Label>
-            }
-          />
-          </EachCheckBox>
+            {typeOfFoodVisible && (
+              <>
+                <EachFilterContainer>
+            <EachCheckBox>
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("Nordic")} id="Nordic" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="Nordic" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  Nordic
+                </Label>
+              }
+            />
+            </EachCheckBox>
         
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="Mediterranian" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="Mediterranian" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                Mediterranian
-              </Label>
-            }
-          />
-          </EachCheckBox>
+            <EachCheckBox>
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("Swedish")} id="Swedish" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="Swedish" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  Swedish
+                </Label>
+              }
+            />
+            </EachCheckBox>
 
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="Japanese" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="Japanese" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                Japanese
-              </Label>
-            }
-          />
-          </EachCheckBox>
+            <EachCheckBox>
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("Italian")} id="Italian" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="Italian" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  Italian
+                </Label>
+              }
+            />
+            </EachCheckBox>
 
-          <EachCheckBox>
-          <FormControlLabel
-            control={
-              <Checkbox id="Latin American" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="Latin American" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                Latin American
-              </Label>
-            }
-          />
-          </EachCheckBox>
+            <EachCheckBox>
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("Asian")} id="Asian" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="Asian" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  Asian
+                </Label>
+              }
+            />
+            </EachCheckBox>
+
+            <EachCheckBox>
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("Spanish")} id="Spanish" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="Spanish" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  Spanish
+                </Label>
+              }
+            />
+            </EachCheckBox>
             
-          <EachCheckBox> 
-          <FormControlLabel
-            control={
-              <Checkbox id="Middle Eastern" type="checkbox" style={{
-                color: '#da918b'
-              }} 
-               value="Middle Eastern" onChange={updateTypeOfFoodFilter}/>
-            }
-            label={
-              <Label>
-                Middle Eastern
-              </Label>
-            }
-          />
-          </EachCheckBox>
-
-      </EachFilterContainer>
-             
-        </form>
-
-
-        <form>
-        <SecondHeader>Meals</SecondHeader>
-
-        <EachFilterContainer>
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Breakfast" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Breakfast" onChange={updateMealsFilter}/>           
-              }
-              label={
-                <Label>
-                  Breakfast
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Brunch" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Brunch" onChange={updateMealsFilter}/>           
-              }
-              label={
-                <Label>
-                  Brunch
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Lunch" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Lunch" onChange={updateMealsFilter}/>           
-              }
-              label={
-                <Label>
-                  Lunch
-                </Label>
-              }
-            />
-          </EachCheckBox>
-          
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Dinner" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Dinner" onChange={updateMealsFilter}/>           
-              }
-              label={
-                <Label>
-                  Dinner
-                </Label>
-              }
-            />
-          </EachCheckBox>
-        </EachFilterContainer>
-        </form>
-
-        <form>  
-          <SecondHeader>Budget</SecondHeader>
-
-          <EachFilterContainer>
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Low" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Low" onChange={updateBudgetFilter}/>           
-              }
-              label={
-                <Label>
-                  Low
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Medium" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Medium" onChange={updateBudgetFilter}/>           
-              }
-              label={
-                <Label>
-                  Medium
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="High" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="High" onChange={updateBudgetFilter}/>           
-              }
-              label={
-                <Label>
-                  High
-                </Label>
-              }
-            />
-          </EachCheckBox>
-          </EachFilterContainer>
-        </form>
-
-        <form>  
-          <SecondHeader>Portion size</SecondHeader>
-
-          <EachFilterContainer>
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Small" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Small" onChange={updatePortionSizeFilter}/>           
-              }
-              label={
-                <Label>
-                  Small
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Medium" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Medium" onChange={updatePortionSizeFilter}/>           
-              }
-              label={
-                <Label>
-                  Medium
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Large" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Large" onChange={updatePortionSizeFilter}/>           
-              }
-              label={
-                <Label>
-                  Large
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          </EachFilterContainer>
-        </form>
-
-        <form> 
-          <SecondHeader>Target audience</SecondHeader>
-
-          <EachFilterContainer>
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Group" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Group" onChange={updateTargetAudienceFilter}/>           
-              }
-              label={
-                <Label>
-                  Group
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Date" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Date" onChange={updateTargetAudienceFilter}/>           
-              }
-              label={
-                <Label>
-                  Date
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Family" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Family" onChange={updateTargetAudienceFilter}/>           
-              }
-              label={
-                <Label>
-                  Family
-                </Label>
-              }
-            />
-          </EachCheckBox>
-          </EachFilterContainer>
-        </form>
-
-        <form> 
-          <SecondHeader>Restaurant focus</SecondHeader>
-
-          <EachFilterContainer>
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Vegan" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Vegan" onChange={updateRestaurantFocusFilter}/>           
-              }
-              label={
-                <Label>
-                  Vegan
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Vegetarian" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Vegetarian" onChange={updateRestaurantFocusFilter}/>           
-              }
-              label={
-                <Label>
-                  Vegetarian
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Fish" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Fish" onChange={updateRestaurantFocusFilter}/>           
-              }
-              label={
-                <Label>
-                  Fish
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-          <FormControlLabel
-              control={
-                <Checkbox id="Meat" type="checkbox" style={{
-                  color: '#da918b'
-                }} 
-                value="Meat" onChange={updateRestaurantFocusFilter}/>           
-              }
-              label={
-                <Label>
-                  Meat
-                </Label>
-              }
-            />
-          </EachCheckBox>
-
-        </EachFilterContainer>
-        </form> 
-      
-        <form>
-          <SecondHeader> Dog friendly</SecondHeader>
-
-          <EachFilterContainer>
-          <EachCheckBox>
+            <EachCheckBox>
             <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("American")} id="American" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="American" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  American
+                </Label>
+              }
+            />
+            </EachCheckBox>
+
+            <EachCheckBox>
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("European")} id="European" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="European" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  European
+                </Label>
+              }
+            />
+            </EachCheckBox>
+          
+            <EachCheckBox>
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("Mediterranian")} id="Mediterranian" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="Mediterranian" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  Mediterranian
+                </Label>
+              }
+            />
+            </EachCheckBox>
+
+            <EachCheckBox>
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("Japanese")} id="Japanese" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="Japanese" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  Japanese
+                </Label>
+              }
+            />
+            </EachCheckBox>
+
+            <EachCheckBox>
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("Latin American")} id="Latin American" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="Latin American" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  Latin American
+                </Label>
+              }
+            />
+            </EachCheckBox>
+              
+            <EachCheckBox> 
+            <FormControlLabel
+              control={
+                <Checkbox checked={typeOfFoodFilter.includes("Middle Eastern")} id="Middle Eastern" type="checkbox" style={{
+                  color: '#da918b'
+                }} 
+                value="Middle Eastern" onChange={updateTypeOfFoodFilter}/>
+              }
+              label={
+                <Label>
+                  Middle Eastern
+                </Label>
+              }
+            />
+            </EachCheckBox>
+
+        </EachFilterContainer>
+              </>
+            )}
+              
+          </form>
+
+          <form>
+          <CategoryContainer>
+            <SecondHeader>Meals</SecondHeader>
+            <ToggleButton
+            type="button"
+            onClick={() => setMealsVisible(!mealsVisible)}
+            >
+              {mealsVisible ? (<img src={Arrow} alt='arrow' className='arrowUp' />) : (<img src={Arrow} alt='arrow' className='arrowDown' />)}
+            </ToggleButton>
+          </CategoryContainer>
+
+          {mealsVisible && (
+            <>
+              <EachFilterContainer>
+                <EachCheckBox>
+                <FormControlLabel
+                    control={
+                      <Checkbox checked={mealsFilter.includes("Breakfast")} id="Breakfast" type="checkbox" style={{
+                        color: '#da918b'
+                      }} 
+                      value="Breakfast" onChange={updateMealsFilter}/>           
+                    }
+                    label={
+                      <Label>
+                        Breakfast
+                      </Label>
+                    }
+                  />
+                </EachCheckBox>
+
+                <EachCheckBox>
+                <FormControlLabel
+                    control={
+                      <Checkbox checked={mealsFilter.includes("Brunch")} id="Brunch" type="checkbox" style={{
+                        color: '#da918b'
+                      }} 
+                      value="Brunch" onChange={updateMealsFilter}/>           
+                    }
+                    label={
+                      <Label>
+                        Brunch
+                      </Label>
+                    }
+                  />
+                </EachCheckBox>
+
+                <EachCheckBox>
+                <FormControlLabel
+                    control={
+                      <Checkbox checked={mealsFilter.includes("Lunch")} id="Lunch" type="checkbox" style={{
+                        color: '#da918b'
+                      }} 
+                      value="Lunch" onChange={updateMealsFilter}/>           
+                    }
+                    label={
+                      <Label>
+                        Lunch
+                      </Label>
+                    }
+                  />
+                </EachCheckBox>
+                
+                <EachCheckBox>
+                <FormControlLabel
+                    control={
+                      <Checkbox checked={mealsFilter.includes("Dinner")} id="Dinner" type="checkbox" style={{
+                        color: '#da918b'
+                      }} 
+                      value="Dinner" onChange={updateMealsFilter}/>           
+                    }
+                    label={
+                      <Label>
+                        Dinner
+                      </Label>
+                    }
+                  />
+                </EachCheckBox>
+              </EachFilterContainer>
+            </>
+          )}
+          </form>
+
+          <form>  
+            <CategoryContainer>
+            <SecondHeader>Budget</SecondHeader>
+              <ToggleButton
+              type="button"
+              onClick={() => setBudgetVisible(!budgetVisible)}
+              >
+                {budgetVisible ? (<img src={Arrow} alt='arrow' className='arrowUp' />) : (<img src={Arrow} alt='arrow' className='arrowDown' />)}
+              </ToggleButton>
+            </CategoryContainer>
+            
+            {budgetVisible && (
+              <EachFilterContainer>
+              <EachCheckBox>
+              <FormControlLabel
                   control={
-                  <Radio
-                  checked={dogFriendlyFilter === 'yes'}
-                  onChange={updateDogFriendlyFilter}
-                  value="yes"
-                  style={{
+                    <Checkbox checked={budgetFilter.includes("Low")} id="Low" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="Low" onChange={updateBudgetFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      Low
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+    
+              <EachCheckBox>
+              <FormControlLabel
+                  control={
+                    <Checkbox checked={budgetFilter.includes("Medium")} id="Medium" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="Medium" onChange={updateBudgetFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      Medium
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+    
+              <EachCheckBox>
+              <FormControlLabel
+                  control={
+                    <Checkbox checked={budgetFilter.includes("High")} id="High" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="High" onChange={updateBudgetFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      High
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+              </EachFilterContainer>
+            )}
+
+            
+          </form>
+
+          <form> 
+            <CategoryContainer>
+              <SecondHeader>Portion size</SecondHeader>
+                <ToggleButton
+                type="button"
+                onClick={() => setPortionSizeVisible(!portionSizeVisible)}
+                >
+                  {portionSizeVisible ? (<img src={Arrow} alt='arrow' className='arrowUp' />) : (<img src={Arrow} alt='arrow' className='arrowDown' />)}
+                </ToggleButton>
+            </CategoryContainer> 
+
+              {portionSizeVisible && (
+                <EachFilterContainer>
+                <EachCheckBox>
+                <FormControlLabel
+                    control={
+                      <Checkbox checked={portionSizeFilter.includes("Small")} id="Small" type="checkbox" style={{
+                        color: '#da918b'
+                      }} 
+                      value="Small" onChange={updatePortionSizeFilter}/>           
+                    }
+                    label={
+                      <Label>
+                        Small
+                      </Label>
+                    }
+                  />
+                </EachCheckBox>
+      
+                <EachCheckBox>
+                <FormControlLabel
+                    control={
+                      <Checkbox checked={portionSizeFilter.includes("Medium")} id="Medium" type="checkbox" style={{
+                        color: '#da918b'
+                      }} 
+                      value="Medium" onChange={updatePortionSizeFilter}/>           
+                    }
+                    label={
+                      <Label>
+                        Medium
+                      </Label>
+                    }
+                  />
+                </EachCheckBox>
+      
+                <EachCheckBox>
+                <FormControlLabel
+                    control={
+                      <Checkbox checked={portionSizeFilter.includes("Large")} id="Large" type="checkbox" style={{
+                        color: '#da918b'
+                      }} 
+                      value="Large" onChange={updatePortionSizeFilter}/>           
+                    }
+                    label={
+                      <Label>
+                        Large
+                      </Label>
+                    }
+                  />
+                </EachCheckBox>
+      
+                </EachFilterContainer>
+              )}
+          </form>
+
+          <form> 
+            <CategoryContainer>
+              <SecondHeader>Target audience</SecondHeader>
+                  <ToggleButton
+                  type="button"
+                  onClick={() => setTargetAudienceVisible(!targetAudienceVisible)}
+                  >
+                    {targetAudienceVisible ? (<img src={Arrow} alt='arrow' className='arrowUp' />) : (<img src={Arrow} alt='arrow' className='arrowDown' />)}
+                  </ToggleButton>
+              </CategoryContainer>
+
+            {targetAudienceVisible && (
+              <EachFilterContainer>
+              <EachCheckBox>
+              <FormControlLabel
+                  control={
+                    <Checkbox checked={targetAudienceFilter.includes("Group")} id="Group" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="Group" onChange={updateTargetAudienceFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      Group
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+    
+              <EachCheckBox>
+              <FormControlLabel
+                  control={
+                    <Checkbox checked={targetAudienceFilter.includes("Date")} id="Date" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="Date" onChange={updateTargetAudienceFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      Date
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+    
+              <EachCheckBox>
+              <FormControlLabel
+                  control={
+                    <Checkbox checked={targetAudienceFilter.includes("Family")} id="Family" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="Family" onChange={updateTargetAudienceFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      Family
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+              </EachFilterContainer>
+            )}
+            
+          </form>
+
+          <form> 
+            <CategoryContainer>
+              <SecondHeader>Restaurant focus</SecondHeader>
+                    <ToggleButton
+                    type="button"
+                    onClick={() => setRestaurantFocusVisible(!restaurantFocusVisible)}
+                    >
+                      {restaurantFocusVisible ? (<img src={Arrow} alt='arrow' className='arrowUp' />) : (<img src={Arrow} alt='arrow' className='arrowDown' />)}
+                    </ToggleButton>
+              </CategoryContainer>
+            
+            {restaurantFocusVisible && (
+              <EachFilterContainer>
+              <EachCheckBox>
+              <FormControlLabel
+                  control={
+                    <Checkbox checked={restaurantFocusFilter.includes("Vegan")} id="Vegan" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="Vegan" onChange={updateRestaurantFocusFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      Vegan
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+    
+              <EachCheckBox>
+              <FormControlLabel
+                  control={
+                    <Checkbox checked={restaurantFocusFilter.includes("Vegetarian")} id="Vegetarian" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="Vegetarian" onChange={updateRestaurantFocusFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      Vegetarian
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+    
+              <EachCheckBox>
+              <FormControlLabel
+                  control={
+                    <Checkbox checked={restaurantFocusFilter.includes("Fish")} id="Fish" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="Fish" onChange={updateRestaurantFocusFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      Fish
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+    
+              <EachCheckBox>
+              <FormControlLabel
+                  control={
+                    <Checkbox checked={restaurantFocusFilter.includes("Meat")} id="Meat" type="checkbox" style={{
+                      color: '#da918b'
+                    }} 
+                    value="Meat" onChange={updateRestaurantFocusFilter}/>           
+                  }
+                  label={
+                    <Label>
+                      Meat
+                    </Label>
+                  }
+                />
+              </EachCheckBox>
+    
+            </EachFilterContainer>
+            )}
+          </form> 
+        
+          <form>
+            <CategoryContainer>
+              <SecondHeader> Dog friendly</SecondHeader>
+                    <ToggleButton
+                    type="button"
+                    onClick={() => setDogFriendlyVisible(!dogFriendlyVisible)}
+                    >
+                      {dogFriendlyVisible ? (<img src={Arrow} alt='arrow' className='arrowUp' />) : (<img src={Arrow} alt='arrow' className='arrowDown' />)}
+                    </ToggleButton>
+            </CategoryContainer>
+            
+            {dogFriendlyVisible && (
+              <EachFilterContainer>
+              <EachCheckBox>
+                <FormControlLabel
+                      control={
+                      <Radio
+                      checked={(dogFriendlyFilter === 'yes') && (dogFriendlyFilter.includes("yes"))}
+                      onChange={updateDogFriendlyFilter}
+                      value="yes"
+                      style={{
+                        color: '#da918b'
+                      }} 
+                    />
+                  }
+                    label={
+                      <Label>
+                        Dogs
+                      </Label>
+                    }
+                />
+              </EachCheckBox>
+    
+              <EachCheckBox>
+                <FormControlLabel
+                    control={
+                    <Radio
+                    checked={(dogFriendlyFilter === 'no') && (dogFriendlyFilter.includes("no"))}
+                    onChange={updateDogFriendlyFilter}
+                    value="no"
+                    style={{
                     color: '#da918b'
-                  }} 
+                    }} 
+                  />
+                    }
+                    label={
+                      <Label>
+                        No dogs
+                      </Label>
+                    }
                 />
-              }
-                label={
-                  <Label>
-                    Dogs
-                  </Label>
-                }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-            <FormControlLabel
-                control={
-                <Radio
-                checked={dogFriendlyFilter === 'no'}
-                onChange={updateDogFriendlyFilter}
-                value="no"
-                style={{
-                color: '#da918b'
-                }} 
-              />
-                }
-                label={
-                  <Label>
-                    No dogs
-                  </Label>
-                }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-            <FormControlLabel
-                control={
-                <Radio
-                checked={dogFriendlyFilter === 'no_pref'}
-                onChange={updateDogFriendlyFilter}
-                value="no_pref"
-                style={{
-                color: '#da918b'
-                }} 
+              </EachCheckBox>
+    
+              <EachCheckBox>
+                <FormControlLabel
+                    control={
+                    <Radio
+                    checked={(dogFriendlyFilter === 'no_pref') && (dogFriendlyFilter.includes("no_pref"))}
+                    onChange={updateDogFriendlyFilter}
+                    value="no_pref"
+                    style={{
+                    color: '#da918b'
+                    }} 
+                    />
+                  }
+                    label={
+                      <Label>
+                        No preference
+                      </Label>
+                    }
                 />
-              }
-                label={
-                  <Label>
-                    No preference
-                  </Label>
-                }
-            />
-          </EachCheckBox>
-          </EachFilterContainer>
-        </form>
+              </EachCheckBox>
+              </EachFilterContainer>
+            )}
+          </form>
 
-        <form>
-          <SecondHeader>Outdoor area</SecondHeader>
+          <form>
+            <CategoryContainer>
+              <SecondHeader>Outdoor area</SecondHeader>
+                    <ToggleButton
+                    type="button"
+                    onClick={() => setOutdoorAreaVisible(!outdoorAreaVisible)}
+                    >
+                      {outdoorAreaVisible ? (<img src={Arrow} alt='arrow' className='arrowUp' />) : (<img src={Arrow} alt='arrow' className='arrowDown' />)}
+                    </ToggleButton>
+            </CategoryContainer>
 
-          <EachFilterContainer>
-          <EachCheckBox>
-            <FormControlLabel
-                control={
-                <Radio
-                checked={outdoorAreaFilter === 'yes'}
-                onChange={updateOutdoorAreaFilter}
-                value="yes"
-                style={{
-                color: '#da918b'
-                }} 
+            {outdoorAreaVisible && (
+              <EachFilterContainer>
+              <EachCheckBox>
+                <FormControlLabel
+                    control={
+                    <Radio
+                    checked={(outdoorAreaFilter === 'yes') && (outdoorAreaFilter.includes("yes"))}
+                    onChange={updateOutdoorAreaFilter}
+                    value="yes"
+                    style={{
+                    color: '#da918b'
+                    }} 
+                    />
+                  }
+                    label={
+                      <Label>
+                        Yes
+                      </Label>
+                    }
                 />
-              }
-                label={
-                  <Label>
-                    Yes
-                  </Label>
-                }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-            <FormControlLabel
-                control={
-                <Radio
-                checked={outdoorAreaFilter === 'no'}
-                onChange={updateOutdoorAreaFilter}
-                value="no"
-                style={{
-                color: '#da918b'
-                }} 
+              </EachCheckBox>
+    
+              <EachCheckBox>
+                <FormControlLabel
+                    control={
+                    <Radio
+                    checked={(outdoorAreaFilter === 'no') && (outdoorAreaFilter.includes("no"))}
+                    onChange={updateOutdoorAreaFilter}
+                    value="no"
+                    style={{
+                    color: '#da918b'
+                    }} 
+                    />
+                  }
+                    label={
+                      <Label>
+                        No
+                      </Label>
+                    }
                 />
-              }
-                label={
-                  <Label>
-                    No
-                  </Label>
-                }
-            />
-          </EachCheckBox>
-
-          <EachCheckBox>
-            <FormControlLabel
-                control={
-                <Radio
-                checked={outdoorAreaFilter === 'no_pref'}
-                onChange={updateOutdoorAreaFilter}
-                value="no_pref"
-                style={{
-                color: '#da918b'
-                }} 
+              </EachCheckBox>
+    
+              <EachCheckBox>
+                <FormControlLabel
+                    control={
+                    <Radio
+                    checked={(outdoorAreaFilter === 'no_pref') && (outdoorAreaFilter.includes("no_pref"))}
+                    onChange={updateOutdoorAreaFilter}
+                    value="no_pref"
+                    style={{
+                    color: '#da918b'
+                    }} 
+                    />
+                  }
+                    label={
+                      <Label>
+                        No preference
+                      </Label>
+                    }
                 />
-              }
-                label={
-                  <Label>
-                    No preference
-                  </Label>
-                }
-            />
-          </EachCheckBox> 
-          </EachFilterContainer> 
-          
-        </form>
-
+              </EachCheckBox> 
+              </EachFilterContainer> 
+            )}
+            
+          </form>
+        </CategoryGroup>
       </FilterContainer>
 
       
