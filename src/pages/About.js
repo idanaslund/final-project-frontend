@@ -16,7 +16,7 @@ const About = () => {
             <MarginSection>
               <div>
           
-                <div>
+          
                 <SecondHeader>About us</SecondHeader>
                
              
@@ -47,7 +47,7 @@ const About = () => {
 
                 </AboutContainer>
                
-                </div>
+          
                
                
               

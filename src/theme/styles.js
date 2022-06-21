@@ -322,7 +322,6 @@ export const FlexContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 `
 
 export const ReviewContainer = styled.article`
@@ -594,8 +593,8 @@ h4 {
 p {
   margin-bottom: 2px;
 }
-`
 
+`
 
 export const AboutProfileTexts = styled.p`
 font-family: 'Raleway', sans-serif;
@@ -619,6 +618,15 @@ height: 88px;
 right: -4px;
 top: 116px;
 z-index: 1;
+
+@media ${devices.tablet} {
+  top: 51px;
+}
+
+@media ${devices.desktop} {
+  top: 40px;
+}
+
 `
 
 export const JoannaImage = styled.img`
@@ -628,6 +636,10 @@ height: 88px;
 right: -4px;
 top: 78px;
 z-index: 1;
+
+@media ${devices.tablet} {
+  top: 21px;
+}
 `
 
 export const IdaImage = styled.img`
@@ -637,6 +649,10 @@ height: 88px;
 right: -4px;
 top: 81px;
 z-index: 1;
+
+@media ${devices.tablet} {
+  top: 33px;
+}
 `
 
 export const LastContainerMarginBottom = styled.div`
