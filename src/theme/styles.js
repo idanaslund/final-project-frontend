@@ -536,6 +536,9 @@ export const LogOutPage = styled.section`
 
     .LogOutContainer {
       display: block;
+      margin-top: 15px;
+      max-width: 275px;
+      text-align: center;
     }
 `
 
