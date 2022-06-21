@@ -28,16 +28,16 @@ const LogOut = () => {
         <div className='LogOutContainer'>
           <DarkGreenHeader>Are you sure you want to log out?</DarkGreenHeader>
           <div className='buttonContainer'>
+            
+            <BackButton
+              type="button" onClick={onBackButtonClick}>
+              No, go back
+            </BackButton>
             <LogOutButton
               type="button" onClick={() => dispatch(user.actions.logOut())} className="logoutButton"
             >
               Log out
             </LogOutButton>
-            <BackButton
-              type="button" onClick={onBackButtonClick}
-            >
-              No, go back
-            </BackButton>
           </div>
         </div>
       </LogOutPage>

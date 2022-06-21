@@ -531,7 +531,7 @@ export const LogOutPage = styled.section`
     }
 
     .logoutButton {
-      margin-right: 20px;
+      margin-left: 10px;
     }
 
     .LogOutContainer {
