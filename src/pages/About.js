@@ -79,6 +79,7 @@ const About = () => {
                <BackButton
                 type="button" onClick={onBackButtonClick}
                 >Go back</BackButton>
+                
                 </div>
             </MarginSection>
     )
