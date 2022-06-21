@@ -87,6 +87,8 @@ border: none;
 width: 120px;
 padding: 8px;
 color: #2e2e2e;
+display: flex;
+place-content: center;
 `
 export const GetInspiredButton = styled.button`
 font-family: 'Cabin', sans-serif;
@@ -121,6 +123,12 @@ justify-content: center;
 .link {
     text-decoration: none;
 }
+`
+
+export const ButtonContainer = styled.div`
+display: flex;
+width: 100%;
+justify-content: center;
 `
 
 /////////////// Checkboxes ///////////////

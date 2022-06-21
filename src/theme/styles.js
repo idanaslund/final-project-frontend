@@ -100,7 +100,7 @@ export const CategoryGroup = styled.div`
   // }
 `
 
-export const ToggleButton = styled.button`  
+export const ToggleButton = styled.button`
 border: none;
 background: transparent;
 
@@ -240,18 +240,18 @@ export const Burger = styled.div`
 
   .bm-item {
       display: inline-block;
-    
+
       /* Our sidebar item styling */
       text-decoration: none;
       margin-bottom: 10px;
       color: #d1d1d1;
       transition: color 0.2s;
     }
-    
+
     .bm-item:hover {
       color: white;
     }
-    
+
     .bm-burger-button {
       position: absolute;
       width: 42px;
@@ -259,41 +259,41 @@ export const Burger = styled.div`
       left: 16px;
       top: 32px;
     }
-    
+
     /* Color/shape of burger icon bars */
     .bm-burger-bars {
       // background: #373a47;
       background: #da918b;
     }
-    
+
     /* Position and sizing of clickable cross button */
     .bm-cross-button {
       height: 24px;
       width: 24px;
     }
-    
+
     /* Color/shape of close button cross */
     .bm-cross {
       background: white;
     }
-    
+
     /* General sidebar styles */
     .bm-menu {
       background-color: #da918b;
       padding: 2.5em 1.5em 0;
       font-size: 1.15em;
     }
-    
+
     /* Morph shape necessary with bubble or elastic */
     .bm-morph-shape {
       fill: #373a47;
     }
-    
+
     /* Wrapper for item list */
     .bm-item-list {
       color: #b8b7ad;
     }
-    
+
     /* Styling of overlay */
     .bm-overlay {
       background: rgba(0, 0, 0, 0.3);
@@ -322,7 +322,6 @@ export const FlexContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 `
 
 export const ReviewContainer = styled.article`
@@ -594,8 +593,8 @@ h4 {
 p {
   margin-bottom: 2px;
 }
-`
 
+`
 
 export const AboutProfileTexts = styled.p`
 font-family: 'Raleway', sans-serif;
@@ -610,6 +609,13 @@ font-family: 'Raleway', sans-serif;
 font-size: 16px;
 margin-block-start: 0.2px;
 line-height: 1.4;
+
+@media ${devices.tablet} {
+ max-width: 90%;
+}
+@media ${devices.desktop} {
+    max-width: 90%;
+}
 `
 
 export const EmmaImage = styled.img`
@@ -619,6 +625,15 @@ height: 88px;
 right: -4px;
 top: 116px;
 z-index: 1;
+
+@media ${devices.tablet} {
+  top: 51px;
+}
+
+@media ${devices.desktop} {
+  top: 40px;
+}
+
 `
 
 export const JoannaImage = styled.img`
@@ -628,6 +643,10 @@ height: 88px;
 right: -4px;
 top: 78px;
 z-index: 1;
+
+@media ${devices.tablet} {
+  top: 21px;
+}
 `
 
 export const IdaImage = styled.img`
@@ -637,6 +656,10 @@ height: 88px;
 right: -4px;
 top: 81px;
 z-index: 1;
+
+@media ${devices.tablet} {
+  top: 33px;
+}
 `
 
 export const LastContainerMarginBottom = styled.div`
@@ -681,7 +704,7 @@ export const WholeAboutContainer = styled.div`
 /////////////// Footer styling ///////////////
 
 export const FooterStyling = styled.section`
-  display: flex; 
+  display: flex;
   justify-content: center;
 
   .footerContainer {
