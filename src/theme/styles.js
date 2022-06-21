@@ -278,7 +278,6 @@ export const RestaurantName = styled.p`
 font-size: 20px;
 font-weight: 700;
 color: #2A5744;
-
 `
 
 export const Reviews = styled.div`
@@ -310,6 +309,12 @@ margin-bottom: 30px;
 export const ReviewInfo = styled.p`
 font-weight: 500;
 margin-bottom: 2px;
+`
+
+export const ButtonContainer = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
 
 `
 

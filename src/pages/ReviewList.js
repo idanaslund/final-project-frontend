@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { formatDistance } from 'date-fns'
-import { Reviews, ReviewInfo, TimePosted, RestaurantName, ReviewContainer, FlexContainer } from '../theme/styles'
+import { Reviews, ReviewInfo, TimePosted, RestaurantName, ReviewContainer, FlexContainer, ButtonContainer } from '../theme/styles'
 import { MarginSection, BackButton, GetInspiredButton } from '../theme/reusable'
 
 import { API_URL } from 'utils/urls'
@@ -57,8 +57,10 @@ const ReviewList = () => {
         </ReviewContainer>
       ))}
       </FlexContainer>
+      <ButtonContainer>
        <BackButton type="button" onClick={onBackButtonClick}>Go back</BackButton>
-       <GetInspiredButton type="button" onClick={onHomeButtonClick}>Pick restaurant</GetInspiredButton>
+       <GetInspiredButton type="button" onClick={onHomeButtonClick}>Restaurants</GetInspiredButton>
+      </ButtonContainer>
     </MarginSection>
 
   )
