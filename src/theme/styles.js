@@ -14,6 +14,28 @@ text-align: center;
 img{max-height: 50px; margin-top: 20px;}
 `
 
+export const TopNav = styled.div`
+display: none;
+
+@media ${devices.tablet}{
+  display: none;
+}
+@media ${devices.desktop}{
+  display: block;
+  border-top: 2px solid #2a5744;
+  margin: 10px 0 40px 0;
+a {
+  text-decoration: none;
+  color: #2e2e2e;
+  margin-right: 10px;
+
+  &:active {
+    font-weight: 700;
+  }
+}
+}
+`
+
 /////////////// Restaurant card on Filtering page ///////////////
 
 export const RestaurantCard = styled.div`
@@ -309,6 +331,10 @@ export const Burger = styled.div`
       margin-top: 14px;
       border-radius: 30px;
     }
+
+@media ${devices.desktop} {
+  display: none;
+}
 `
 
 
