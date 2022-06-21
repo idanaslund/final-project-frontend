@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AboutContainer } from '../theme/styles'
-import { MarginSection, BackButton, SecondHeader, ParagraphLInks, BoldParagraphs, SecondHeaderWithMargin } from '../theme/reusable'
+import { MarginSection, BackButton, SecondHeader, ParagraphLInks, BoldParagraphs, SecondHeaderWithMargin, ButtonContainer } from '../theme/reusable'
 import { EmmaImage, JoannaImage, IdaImage, AboutProfileTexts, LongerTexts } from '../theme/styles'
 
 const About = () => {
@@ -74,12 +74,12 @@ const About = () => {
                 </AboutContainer>
        
                 
-
+<ButtonContainer>
                
                <BackButton
                 type="button" onClick={onBackButtonClick}
                 >Go back</BackButton>
-                
+                </ButtonContainer>
                 </div>
             </MarginSection>
     )
