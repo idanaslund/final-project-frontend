@@ -1,10 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Lottie from 'react-lottie'
+import animationData from 'lotties/loginpageLottie'
 import { batch, useDispatch, useSelector } from 'react-redux'
 import { API_URL } from 'utils/urls'
-import { LoginSignupForm, LoginSignupChoice, LoginSignupPage } from 'theme/styles'
+import { LoginSignupForm, LoginSignupChoice, LoginSignupContainer, LoginSignupPage, LoginSlogan } from 'theme/styles'
 
 import user from 'reducers/user'
+import { MarginSection } from 'theme/reusable'
+
+
+const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+}
+
 
 const LoginSignup = () => {
     const [username, setUsername] = useState('')
@@ -69,8 +83,22 @@ const LoginSignup = () => {
       }
 
     return (
-        <LoginSignupPage>
-            <div className='loginSignupContainer'>
+        <MarginSection>
+            <LoginSignupPage>
+            <LoginSlogan>Your private food matcher</LoginSlogan>
+
+
+              <Lottie 
+            options={defaultOptions}
+              height={130}
+              width={130}
+            />
+        <LoginSignupContainer>
+
+          
+
+
+            <div>
                 {mode === 'login' && (
                     <LoginSignupChoice>
                         <h2>LOG IN</h2>
@@ -140,7 +168,9 @@ const LoginSignup = () => {
                     <p>{error}</p>
                 </LoginSignupForm>
             </div>
+        </LoginSignupContainer>
         </LoginSignupPage>
+        </MarginSection>
     )
 }
 

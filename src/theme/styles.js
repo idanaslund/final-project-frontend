@@ -21,9 +21,13 @@ display: none;
   display: none;
 }
 @media ${devices.desktop}{
-  display: block;
+  display: flex;
   border-top: 2px solid #2a5744;
   margin: 10px 0 40px 0;
+  padding-top: 10px;
+  justify-content: center;
+  column-gap: 25px;
+  
 a {
   text-decoration: none;
   color: #2e2e2e;
@@ -31,6 +35,11 @@ a {
 
   &:active {
     font-weight: 700;
+  }
+
+  &:hover {
+   color: #da918b;
+   font-weight: 700;
   }
 }
 }
@@ -141,18 +150,39 @@ background: transparent;
 
 /////////////// Login / Signup ///////////////
 
-export const LoginSignupPage = styled.main`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  .loginSignupContainer {
+export const LoginSignupContainer = styled.div`
     background: white;
     border: 1px solid #2a5744;
     width: 70vw;
     padding: 15px 0px;
-    margin-top: 25px;
-  }
+    margin-top: -14.5px;
+    text-align: -webkit-center;
+`
+
+export const LoginSlogan = styled.p`
+font-family: 'Raleway', sans-serif;
+font-style: italic;
+color: #5a8673;
+position: absolute;
+top: 55px;
+font-weight: 700;
+font-size: 16px;
+
+@media ${devices.tablet}{
+  display: none;
+}
+@media ${devices.desktop}{
+  display: none;
+}
+`
+
+export const LoginSignupPage = styled.div`
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+
 `
 
 export const LoginSignupChoice = styled.div`
@@ -161,6 +191,8 @@ export const LoginSignupChoice = styled.div`
     font-size: 24px;
     color: #2a5744;
     font-family: 'Cabin', sans-serif;
+    display: flex;
+    justify-content: center;
   }
 
   .modeChoice {
