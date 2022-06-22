@@ -129,8 +129,9 @@ margin-top: 10px;
 export const CardWrapper = styled.article`
 display: flex;
 flex-wrap: wrap;
-padding: 10px;
+// padding: 10px;
 justify-content: center;
+width: 100%;
 
 .link {
     text-decoration: none;

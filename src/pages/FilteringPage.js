@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import { FilterContainer, RestaurantCard, EachFilterContainer, EachCheckBox, ToggleButton, CategoryContainer, CategoryGroup } from '../theme/styles'
-import { Paragraph, Label, SecondHeader, CardWrapper  } from '../theme/reusable'
+import { Paragraph, Label, SecondHeader, CardWrapper, MarginSection  } from '../theme/reusable'
 import user from 'reducers/user'
 
 import { Checkbox, FormControlLabel, Radio } from '@material-ui/core'
@@ -200,8 +200,7 @@ const FilteringPage = () => {
 
   return (
   
-    <section>
- {/* Vi borde sätta <MarginSection och krama runt hela denna sidan (alla sidor)> */}
+    <MarginSection>
       <FilterContainer> 
         <Paragraph>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet?</Paragraph>
         <Paragraph>foodiefinder helps you find your next favourite restaurant in Stockholm! </Paragraph>
@@ -951,7 +950,7 @@ const FilteringPage = () => {
           
         )}
 
-    </section>
+    </MarginSection>
   )
 }
 
