@@ -557,11 +557,14 @@ export const LogOutPage = styled.section`
     }
 
     .logoutButton {
-      margin-right: 20px;
+      margin-left: 10px;
     }
 
     .LogOutContainer {
       display: block;
+      margin-top: 15px;
+      max-width: 275px;
+      text-align: center;
     }
 `
 

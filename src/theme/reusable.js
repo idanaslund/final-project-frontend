@@ -90,6 +90,18 @@ color: #2e2e2e;
 display: flex;
 place-content: center;
 `
+
+export const LogOutButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background-color: #2a5744;
+border: none;
+width: 120px;
+padding: 8px;
+color: #ffffff;
+display: flex;
+place-content: center;
+`
 export const GetInspiredButton = styled.button`
 font-family: 'Cabin', sans-serif;
 font-size: 16px;

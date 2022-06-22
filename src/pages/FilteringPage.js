@@ -201,8 +201,8 @@ const FilteringPage = () => {
   return (
   
     <section>
-
-      <FilterContainer>
+ {/* Vi borde sätta <MarginSection och krama runt hela denna sidan (alla sidor)> */}
+      <FilterContainer> 
         <Paragraph>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet?</Paragraph>
         <Paragraph>foodiefinder helps you find your next favourite restaurant in Stockholm! </Paragraph>
         <CategoryGroup>
