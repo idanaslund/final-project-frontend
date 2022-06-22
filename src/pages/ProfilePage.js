@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { BackButton, MarginSection, SubmitButton, Paragraph, SecondHeader } from '../theme/reusable'
-import { ProfileWrapper, ProfileInput, ProfileForm } from '../theme/styles'
+import { BackButton, MarginSection, SubmitButton, Paragraph, SecondHeader, ButtonContainer } from '../theme/reusable'
+import { ProfileWrapper, ProfileForm, ProfileContainer, SettingsButton} from '../theme/styles'
+import Arrow from '../assets/down-arrow.png'
 
 import user from 'reducers/user'
 import { EDIT_USER } from '../utils/urls'
@@ -65,6 +66,7 @@ const ProfilePage = () => {
   
   return (
     <MarginSection>
+      <ProfileContainer>
       <ProfileWrapper>
         <SecondHeader>Your profile</SecondHeader>
       <Paragraph>Username: {username}</Paragraph>
@@ -78,19 +80,19 @@ const ProfilePage = () => {
 
       <ProfileWrapper>
         <SecondHeader>Update your information</SecondHeader>
-        <SubmitButton
+        <SettingsButton
           type="button"
           onClick={() => setVisible(!visible)}
-        >
-          Settings
-        </SubmitButton>
+        > Settings
+          {visible ? (<img src={Arrow} alt='arrow' className='arrowUp' />) : (<img src={Arrow} alt='arrow' className='arrowDown' />)}
+        </SettingsButton>
 
         {visible && (
           <>
             <ProfileForm onSubmit={onFormSubmit}>
               <div>
             <label htmlFor="fullName">Your full name:</label>
-            <ProfileInput
+            <input
               id="fullName"
               type="text"
               value={fullName}
@@ -101,7 +103,7 @@ const ProfilePage = () => {
             <div>
             <label
               htmlFor="phone">Phone number:</label>
-            <ProfileInput
+            <input
               id="phone"
               type="number"
               value={phone}
@@ -111,13 +113,14 @@ const ProfilePage = () => {
             <div>
             <label
               htmlFor="bio">Bio:</label>
-                </div>
-            <ProfileInput
+               
+            <input
               id="bio"
               type="text"
               value={bio}
               onChange={(event) => setBio(event.target.value)}
             />
+             </div>
           
             <SubmitButton type="submit">Submit info</SubmitButton>
           </ProfileForm>
@@ -125,7 +128,10 @@ const ProfilePage = () => {
         </>
         )}
       </ProfileWrapper>
+      </ProfileContainer>
+      <ButtonContainer>
       <BackButton type="button" onClick={onBackButtonClick}>Go back</BackButton>
+      </ButtonContainer>
     </MarginSection>
   )
 }
