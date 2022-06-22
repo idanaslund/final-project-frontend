@@ -419,15 +419,19 @@ export const FlexContainer = styled.div`
 export const ReviewContainer = styled.article`
 padding: 0.6em;
 overflow-wrap: break-word;
-margin: 1.5rem 0 1.5rem 0;
+margin: 12px;
 background: #fbf4f352;
 color: #2E2E2E;
 
 @media ${devices.tablet} {
   width: 325px;
+  padding: 7px;
+  margin: 6.5px;
 }
 @media ${devices.desktop} {
   width: 430px;
+  padding: 12px;
+  margin: 5px;
 }
 `
 
@@ -435,16 +439,18 @@ export const RestaurantName = styled.p`
 font-size: 20px;
 font-weight: 700;
 color: #2A5744;
-
+margin-block-start: 6px;
 `
 
 export const Reviews = styled.div`
 background: #fdf8f8;
-border: #767676 solid 1px;
+border: none;
 font-size: 16px;
 font-weight: 300;
 border-radius: 2px;
-padding: 1px 20px 20px 5px;
+padding: 5px 14px 20px 4px;
+line-height: 1.3;
+border-radius: 1px;
 
 @media ${devices.tablet} {
   width: 300px;
@@ -463,11 +469,13 @@ export const TimePosted = styled.p`
 font-size: 16px;
 margin-top: 5px;
 margin-bottom: 30px;
+font-weight: 400;
+color: #2a5744;
 `
 export const ReviewInfo = styled.p`
 font-weight: 500;
 margin-bottom: 2px;
-
+color: #2a5744;
 `
 
 

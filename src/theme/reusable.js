@@ -88,7 +88,7 @@ width: 120px;
 padding: 8px;
 color: #2e2e2e;
 display: flex;
-place-content: center;
+justify-content: center;
 &:hover {
     cursor: pointer;
   }
@@ -114,9 +114,22 @@ font-size: 16px;
 background-color: #2a5744;
 color: white;
 border: none;
-width: 150px;
+width: 120px;
 padding: 8px;
 margin-left: 1rem;
+&:hover {
+    cursor: pointer;
+  }
+`
+
+export const PickRestaurantButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background-color: #2a5744;
+color: white;
+border: none;
+width: 120px;
+padding: 8px;
 &:hover {
     cursor: pointer;
   }
@@ -151,8 +164,10 @@ width: 100%;
 
 export const ButtonContainer = styled.div`
 display: flex;
-width: 100%;
 justify-content: center;
+margin-top: 44px;
+width: 100%;
+column-gap: 10px;
 `
 
 /////////////// Checkboxes ///////////////
