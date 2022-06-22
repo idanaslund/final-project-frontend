@@ -89,6 +89,9 @@ padding: 8px;
 color: #2e2e2e;
 display: flex;
 place-content: center;
+&:hover {
+    cursor: pointer;
+  }
 `
 
 export const LogOutButton = styled.button`
@@ -101,6 +104,9 @@ padding: 8px;
 color: #ffffff;
 display: flex;
 place-content: center;
+&:hover {
+    cursor: pointer;
+  }
 `
 export const GetInspiredButton = styled.button`
 font-family: 'Cabin', sans-serif;
@@ -111,6 +117,9 @@ border: none;
 width: 150px;
 padding: 8px;
 margin-left: 1rem;
+&:hover {
+    cursor: pointer;
+  }
 `
 
 export const SubmitButton = styled.button`
@@ -123,7 +132,9 @@ padding: 8px;
 display: block;
 color: #2e2e2e;
 margin-top: 10px;
-
+&:hover {
+    cursor: pointer;
+  }
 `
 
 export const CardWrapper = styled.article`
