@@ -150,18 +150,22 @@ background: transparent;
 
 /////////////// Login / Signup ///////////////
 
-export const LoginSignupPage = styled.main`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  .loginSignupContainer {
+export const LoginSignupContainer = styled.div`
     background: white;
     border: 1px solid #2a5744;
     width: 70vw;
     padding: 15px 0px;
-    margin-top: 25px;
-  }
+    margin-top: -14.5px;
+    text-align: -webkit-center;
+`
+
+export const LoginSignupPage = styled.div`
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+
 `
 
 export const LoginSignupChoice = styled.div`
@@ -170,6 +174,8 @@ export const LoginSignupChoice = styled.div`
     font-size: 24px;
     color: #2a5744;
     font-family: 'Cabin', sans-serif;
+    display: flex;
+    justify-content: center;
   }
 
   .modeChoice {
