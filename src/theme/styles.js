@@ -656,6 +656,8 @@ export const ProfileContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  align-items: flex-start;
+  align-items: stretch;
 }
 `
 
@@ -681,7 +683,7 @@ input {
 background-color: white;
 padding: 7px;
 margin: 5px 0;
-border: 1px solid black;
+border: none;
 width: 200px;
 font-family: 'Cabin', sans-serif;
 border-radius: 2px;
