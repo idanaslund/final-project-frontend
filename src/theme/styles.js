@@ -481,6 +481,11 @@ export const PostReviewBox = styled.div`
   margin: 1.5rem 0 1.5rem 0;
   background: #fbf4f352;
   padding-top: 18px;
+
+  @media ${devices.tablet} {
+  width: 318px;
+  margin: 1.2rem 0 1.5rem 0;
+}
 `
 
 export const ReviewBoxTitle = styled.h2`
@@ -566,6 +571,7 @@ color: #2e2e2e;
 
 @media ${devices.tablet} {
 display: flex;
+margin-block-end: 0;
 }
 `
 
@@ -581,8 +587,8 @@ display: flex;
 flex-direction: column;
 width: 49%;
 line-height: 0;
-margin-left: 32px;
-margin-top: 21px;
+margin-left: 16px;
+margin-top: 20px;
 }
 `
 
