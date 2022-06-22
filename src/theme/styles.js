@@ -107,16 +107,24 @@ margin-bottom: 10px;
 p {
 font-family: 'Raleway', sans-serif;
 font-size: 16px;
-margin: 0 0 50px 0;
-line-height: 20px;
+margin: 0 0 30px 0;
+line-height: 1.4;
 }
 
 img{
   width: 100px;
-  margin-bottom:-5px;
+  margin-bottom:-7px;
+  margin-right: 3px;
 }
 @media ${devices.tablet}{
  margin: 10px;
+
+ p {
+font-family: 'Raleway', sans-serif;
+font-size: 16px;
+margin: 0 0 30px 0;
+line-height: 12px;
+}
 }
 
 @media ${devices.desktop}{
@@ -754,7 +762,7 @@ export const ProfileContainer = styled.div`
 `
 
 export const ProfileWrapper = styled.article`
-padding: 0.6em;
+padding: 0 0.6em 0.6em 0.6em;
 overflow-wrap: break-word;
 margin: 1.5rem 0 1.5rem 0;
 background: #fbf4f352;
