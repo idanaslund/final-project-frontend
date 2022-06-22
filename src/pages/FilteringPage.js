@@ -205,7 +205,8 @@ const FilteringPage = () => {
         <p>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet? 
           <br/>
           <br/>
-        <span>foodiefinder</span> helps you find your next favourite restaurant in Stockholm! </p>
+          <img src="https://i.postimg.cc/44V76f12/foodie-finder.png" alt="foodie-finder-logotype" />
+           helps you find your next favourite restaurant in Stockholm! </p>
         <CategoryGroup>
           <form>
             <CategoryContainer>
