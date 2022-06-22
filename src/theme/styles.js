@@ -185,7 +185,7 @@ background: transparent;
 export const LoginSignupContainer = styled.div`
     background: white;
     border: 1px solid #2a5744;
-    width: 70vw;
+    width: 77vw;
     padding: 15px 0px;
     margin-top: -14.5px;
     text-align: -webkit-center;
@@ -656,6 +656,10 @@ height: 40px;
 display: block;
 margin-bottom: 10px;
 width: 50%;
+}
+
+@media ${devices.desktop} {
+width: 40%;
 }
 `
 
