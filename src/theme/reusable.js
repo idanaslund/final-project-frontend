@@ -46,10 +46,9 @@ margin-top: 0;
 `
 
 export const SecondHeader = styled.h2 `
-font-size: 20px;
+font-size: 18px;
 color: #2a5744;
 font-family: 'Cabin', sans-serif;
-margin-block-start: 6px;
 `
 
 export const SecondHeaderWithMargin = styled.h2 `
