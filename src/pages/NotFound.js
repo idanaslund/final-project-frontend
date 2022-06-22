@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom"
 import Lottie from 'react-lottie'
 import animationData from 'lotties/404-lottie'
-import { MarginSection, GetInspiredButton, DarkGreenHeader} from 'theme/reusable'
+import { MarginSection, GetInspiredButton, DarkGreenHeader, ButtonContainer } from 'theme/reusable'
 import { NotFoundContainer, BackToHomePageButton  } from 'theme/styles'
 
 const NotFound = () => {
@@ -32,6 +32,7 @@ const NotFound = () => {
            <NotFoundContainer>       
             <DarkGreenHeader>404 – Page not found</DarkGreenHeader>
 
+<ButtonContainer>
             <BackToHomePageButton onClick={onHomeButtonClick}>
               Back to homepage
             </BackToHomePageButton>
@@ -39,6 +40,7 @@ const NotFound = () => {
             <GetInspiredButton onClick={onGetInspiredButtonClick}>
               Get inspired
             </GetInspiredButton>
+            </ButtonContainer>
 
               <Lottie 
             options={defaultOptions}
