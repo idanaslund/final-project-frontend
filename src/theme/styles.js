@@ -575,27 +575,76 @@ width: 340px;
 
 /////// Profile page ///////////////////////////
 
+export const ProfileContainer = styled.div`
+@media ${devices.tablet} {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+@media ${devices.desktop} {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+`
+
 export const ProfileWrapper = styled.article`
 padding: 0.6em;
-max-width: 375px;
 overflow-wrap: break-word;
 margin: 1.5rem 0 1.5rem 0;
 background: #fbf4f352;
 color: #2e2e2e;
+
+@media ${devices.tablet} {
+  width: 375px;
+}
+@media ${devices.desktop} {
+  width: 375px;
+}
 `
 
 export const ProfileForm = styled.form`
 margin-top: 10px;
+
+input {
+background-color: white;
+padding: 7px;
+margin: 5px 0;
+border: 1px solid black;
+width: 200px;
+font-family: 'Cabin', sans-serif;
+border-radius: 2px;
+}
+
+label {
+  display: block;
+}
 `
 
-export const ProfileInput = styled.input`
-    background-color: white;
-    padding: 7px;
-    margin: 5px 0;
-    border: 1px solid black;
-    width: 200px;
-    font-family: 'Cabin', sans-serif;
-    border-radius: 2px;
+export const SettingsButton = styled.button`
+font-family: 'Cabin', sans-serif;
+font-size: 16px;
+background: #fdf8f8;
+border: none;
+width: 120px;
+padding: 8px;
+display: block;
+color: #2e2e2e;
+margin-top: 10px;
+
+img {
+  width: 18px;
+  height: 10px;
+  margin: 0 0 0 7px;
+  opacity: 80%;
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+  transition: 1s ease;
+}
 `
 
 ///////////// About page ///////////////////
