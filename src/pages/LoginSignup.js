@@ -92,11 +92,10 @@ const LoginSignup = () => {
             options={defaultOptions}
               height={130}
               width={130}
+              className="lottiestartpage"
             />
+    
         <LoginSignupContainer>
-
-          
-
 
             <div>
                 {mode === 'login' && (

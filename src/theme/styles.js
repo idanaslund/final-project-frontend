@@ -164,6 +164,15 @@ export const LoginSignupContainer = styled.div`
     padding: 15px 0px;
     margin-top: -14.5px;
     text-align: -webkit-center;
+
+    @media ${devices.tablet}{
+      width: 44vw;
+}
+
+@media ${devices.desktop}{
+      width: 27vw;
+}
+
 `
 
 export const LoginSlogan = styled.p`
@@ -175,11 +184,13 @@ top: 55px;
 font-weight: 700;
 font-size: 16px;
 
-@media ${devices.tablet}{
-  display: none;
-}
+
 @media ${devices.desktop}{
-  display: none;
+  display: block;
+}
+
+@media ${devices.desktop}{
+display: visible;
 }
 `
 
