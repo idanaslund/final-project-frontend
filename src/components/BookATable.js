@@ -45,6 +45,7 @@ const BookATable = () => {
           type='text'
           name='from_name'
           placeholder='Your name'
+          required
           value={toSend.from_name}
           onChange={handleChange}
         />
@@ -52,6 +53,7 @@ const BookATable = () => {
           type='text'
           name='reply_to'
           placeholder='Email address'
+          required
           value={toSend.reply_to}
           onChange={handleChange}
         />
@@ -59,6 +61,7 @@ const BookATable = () => {
           type='text'
           name='message'
           placeholder='I would love to make a reservation for 2 people this Saturday, 7PM. Is that possible?'
+          required
           value={toSend.message}
           onChange={handleChange}
         />

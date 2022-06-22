@@ -511,6 +511,7 @@ export const SubmitReservationButton = styled.button`
 font-family: 'Cabin', sans-serif;
 font-size: 16px;
 background: #fff;
+color: #2e2e2e;
 border: none;
 width: 120px;
 padding: 8px;
