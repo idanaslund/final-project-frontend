@@ -5,9 +5,10 @@ import animationData from 'lotties/loginpageLottie'
 import { batch, useDispatch, useSelector } from 'react-redux'
 import { API_URL } from 'utils/urls'
 import { LoginSignupForm, LoginSignupChoice, LoginSignupContainer, LoginSignupPage, LoginSlogan } from 'theme/styles'
+import { MarginSection } from 'theme/reusable'
 
 import user from 'reducers/user'
-import { MarginSection } from 'theme/reusable'
+
 
 
 const defaultOptions = {
