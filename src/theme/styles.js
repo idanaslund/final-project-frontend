@@ -21,9 +21,13 @@ display: none;
   display: none;
 }
 @media ${devices.desktop}{
-  display: block;
+  display: flex;
   border-top: 2px solid #2a5744;
   margin: 10px 0 40px 0;
+  padding-top: 10px;
+  justify-content: center;
+  column-gap: 25px;
+  
 a {
   text-decoration: none;
   color: #2e2e2e;
@@ -31,6 +35,11 @@ a {
 
   &:active {
     font-weight: 700;
+  }
+
+  &:hover {
+   color: #da918b;
+   font-weight: 700;
   }
 }
 }
