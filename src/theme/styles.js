@@ -160,6 +160,23 @@ export const LoginSignupContainer = styled.div`
     text-align: -webkit-center;
 `
 
+export const LoginSlogan = styled.p`
+font-family: 'Raleway', sans-serif;
+font-style: italic;
+color: #5a8673;
+position: absolute;
+top: 55px;
+font-weight: 700;
+font-size: 16px;
+
+@media ${devices.tablet}{
+  display: none;
+}
+@media ${devices.desktop}{
+  display: none;
+}
+`
+
 export const LoginSignupPage = styled.div`
 display: flex;
 justify-content: center;

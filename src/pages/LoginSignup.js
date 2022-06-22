@@ -4,7 +4,7 @@ import Lottie from 'react-lottie'
 import animationData from 'lotties/loginpageLottie'
 import { batch, useDispatch, useSelector } from 'react-redux'
 import { API_URL } from 'utils/urls'
-import { LoginSignupForm, LoginSignupChoice, LoginSignupContainer, LoginSignupPage } from 'theme/styles'
+import { LoginSignupForm, LoginSignupChoice, LoginSignupContainer, LoginSignupPage, LoginSlogan } from 'theme/styles'
 
 import user from 'reducers/user'
 import { MarginSection } from 'theme/reusable'
@@ -85,6 +85,9 @@ const LoginSignup = () => {
     return (
         <MarginSection>
             <LoginSignupPage>
+            <LoginSlogan>Your private food matcher</LoginSlogan>
+
+
               <Lottie 
             options={defaultOptions}
               height={130}
