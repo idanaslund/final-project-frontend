@@ -543,6 +543,7 @@ padding: 8px;
 font-family: 'Cabin', sans-serif;
 margin-block-end: 0;
 margin-right: 10px;
+width: fit-content;
 `
 
 export const RestaurantAddress = styled.div`
@@ -580,6 +581,8 @@ display: flex;
 flex-direction: column;
 width: 49%;
 line-height: 0;
+margin-left: 32px;
+margin-top: 21px;
 }
 `
 
