@@ -199,7 +199,7 @@ font-size: 16px;
 }
 
 @media ${devices.desktop}{
-display: visible;
+display: none;
 }
 `
 
