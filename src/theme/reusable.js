@@ -49,6 +49,7 @@ export const SecondHeader = styled.h2 `
 font-size: 20px;
 color: #2a5744;
 font-family: 'Cabin', sans-serif;
+margin-block-start: 6px;
 `
 
 export const SecondHeaderWithMargin = styled.h2 `
@@ -114,9 +115,9 @@ font-size: 16px;
 background-color: #2a5744;
 color: white;
 border: none;
-width: 120px;
+width: 150px;
 padding: 8px;
-margin-left: 1rem;
+
 &:hover {
     cursor: pointer;
   }

@@ -7,8 +7,8 @@ import { API_URL } from 'utils/urls'
 import user from 'reducers/user'
 
 import { ReviewComponent } from 'components/ReviewComponent'
-import { MarginSection, BackButton, GetInspiredButton, SecondHeader } from '../theme/reusable'
-import { ImageWrapper, ButtonBox, LinkContainer, RestaurantAddress, RestaurantDescription, OpenHoursContainer, ListedHours, TypeOfFood, RestaurantLink } from '../theme/styles'
+import { MarginSection, BackButton, GetInspiredButton, SecondHeader, ButtonContainer } from '../theme/reusable'
+import { ImageWrapper, LinkContainer, RestaurantAddress, RestaurantDescription, OpenHoursContainer, ListedHours, TypeOfFood, RestaurantLink } from '../theme/styles'
 import BookATable from 'components/BookATable'
 
 export const RestaurantDetails = () => { 
@@ -149,10 +149,10 @@ export const RestaurantDetails = () => {
       </article>
 
 
-    <ButtonBox>
+    <ButtonContainer>
       <BackButton onClick={onBackButtonClick}>Go back</BackButton>
       <GetInspiredButton onClick={onGetInspiredButtonClick}>Read more reviews</GetInspiredButton>
-      </ButtonBox>
+      </ButtonContainer>
 
   
       
