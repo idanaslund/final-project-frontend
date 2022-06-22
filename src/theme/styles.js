@@ -111,12 +111,10 @@ margin: 0 0 50px 0;
 line-height: 20px;
 }
 
-span {
-  font-weight: 700;
-  font-style: italic;
-  color:#2a5744;
+img{
+  width: 100px;
+  margin-bottom:-5px;
 }
-
 @media ${devices.tablet}{
  margin: 10px;
 }
@@ -135,9 +133,7 @@ width: 150px;
 `
 
 export const CategoryContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin: -10px 0;
+display: flex;
 
   button {
     margin-left: -6px;
@@ -147,7 +143,15 @@ export const CategoryContainer = styled.div`
 
 export const CategoryGroup = styled.div`
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+
+    @media ${devices.tablet}{
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+     }
+
 `
 
 export const ToggleButton = styled.button`
