@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import { FilterContainer, RestaurantCard, EachFilterContainer, EachCheckBox, ToggleButton, CategoryContainer, CategoryGroup } from '../theme/styles'
-import { Paragraph, Label, SecondHeader, CardWrapper, MarginSection  } from '../theme/reusable'
+import { Label, SecondHeader, CardWrapper, MarginSection  } from '../theme/reusable'
 import user from 'reducers/user'
 
 import { Checkbox, FormControlLabel, Radio } from '@material-ui/core'
@@ -202,8 +202,10 @@ const FilteringPage = () => {
   
     <MarginSection>
       <FilterContainer> 
-        <Paragraph>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet?</Paragraph>
-        <Paragraph>foodiefinder helps you find your next favourite restaurant in Stockholm! </Paragraph>
+        <p>Hungry for something new and unexpected, maybe from an eatery you haven't tried yet? 
+          <br/>
+          <br/>
+        <span>foodiefinder</span> helps you find your next favourite restaurant in Stockholm! </p>
         <CategoryGroup>
           <form>
             <CategoryContainer>

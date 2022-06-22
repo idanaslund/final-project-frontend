@@ -104,6 +104,19 @@ border-radius: 2px;
 background-color: #fbf4f352;
 margin-bottom: 10px;
 
+p {
+font-family: 'Raleway', sans-serif;
+font-size: 16px;
+margin: 0 0 50px 0;
+line-height: 20px;
+}
+
+span {
+  font-weight: 700;
+  font-style: italic;
+  color:#2a5744;
+}
+
 @media ${devices.tablet}{
  margin: 10px;
 }
@@ -116,7 +129,6 @@ margin-bottom: 10px;
 export const EachFilterContainer = styled.div`
 display: flex;
 flex-wrap: wrap;
-// align-items: center;
 `
 export const EachCheckBox = styled.div`
 width: 150px;
@@ -136,15 +148,6 @@ export const CategoryContainer = styled.div`
 export const CategoryGroup = styled.div`
     display: flex;
     flex-wrap: wrap;
-
-  // @media ${devices.tablet} {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  // }
-  // @media ${devices.desktop} {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  // }
 `
 
 export const ToggleButton = styled.button`
