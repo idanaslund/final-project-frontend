@@ -13,6 +13,12 @@ const ReviewList = () => {
 
   const navigate = useNavigate()
 
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/')
+    }
+  }, [accessToken, navigate])
+
   const onBackButtonClick = () =>{
     navigate(-1)
   } 
