@@ -174,7 +174,6 @@ export const LoginSignupContainer = styled.div`
 }
 
 `
-
 export const LoginSlogan = styled.p`
 font-family: 'Raleway', sans-serif;
 font-style: italic;
@@ -233,6 +232,10 @@ export const LoginSignupChoice = styled.div`
     border-radius: 1px;
     -webkit-appearance: none;
     -webkit-border-radius: none;
+    &:hover {
+    cursor: pointer;
+  }
+
   }
 `
 
@@ -244,6 +247,7 @@ export const RegisterButton = styled.button`
     width: 80px;
     padding: 8px;
     border-radius: 1px;
+    cursor: pointer;
 `
 
 export const LoginSignupForm = styled.form`
@@ -274,6 +278,9 @@ export const LoginSignupForm = styled.form`
     padding: 8px;
     margin-top: 14px;
     border-radius: 1px;
+    &:hover {
+    cursor: pointer;
+  }
   }
 
   p {
@@ -498,6 +505,9 @@ border: none;
 width: 120px;
 padding: 8px;
 display: block;
+&:hover {
+    cursor: pointer;
+  }
 `
 
 export const Characters = styled.p`
@@ -682,6 +692,9 @@ padding: 8px;
 display: block;
 color: #2e2e2e;
 margin-top: 10px;
+&:hover {
+    cursor: pointer;
+  }
 
 img {
   width: 18px;
@@ -859,4 +872,7 @@ color: white;
 border: none;
 width: 150px;
 padding: 8px;
+&:hover {
+    cursor: pointer;
+  }
 `
