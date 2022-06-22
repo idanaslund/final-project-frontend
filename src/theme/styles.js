@@ -62,26 +62,33 @@ export const RestaurantCard = styled.div`
     font-size: 18px;
   }
 
+
+
   @media ${devices.tablet} {
     border-bottom: none;
     background: #fbf4f352;
     padding: 20px 20px 10px 20px;
-    width: 30vw;
+    width: 290px;
     margin: 10px;
 
     img {
-      width: 100%;
+      float: left;
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
     }
   }
   @media ${devices.desktop} {
     border-bottom: none;
     background: #fbf4f352;
     padding: 20px 20px 10px 20px;
-    width: 13vw;
-    margin: 10px;
+    width: 249px;
 
     img {
-      width: 100%;
+      float: left;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
     }
 
   }
@@ -91,10 +98,9 @@ export const RestaurantCard = styled.div`
 // /////////////// Filtering Page ///////////////
 
 export const FilterContainer = styled.article`
-border: 1px solid darkgray;
-margin: 10px;
 padding: 1rem;
 border-radius: 2px;
+background-color: #fbf4f352;
 `
 
 export const EachFilterContainer = styled.div`
