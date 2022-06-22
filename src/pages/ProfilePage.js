@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { BackButton, MarginSection, SubmitButton, Paragraph, SecondHeader, ButtonContainer } from '../theme/reusable'
@@ -15,12 +15,19 @@ const ProfilePage = () => {
   const [error, setError] = useState('')
   const [visible, setVisible] = useState(false)
 
-  const accessToken = JSON.parse(localStorage.getItem('user'))?.accessToken
+  const accessToken = useSelector((store) => store.user.accessToken)
+  const username = useSelector((store) => store.user.username)
+
   const userId = JSON.parse(localStorage.getItem('user'))?.userId
-  const username = JSON.parse(localStorage.getItem('user'))?.username
  
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/')
+    }
+  }, [accessToken, navigate])
 
   const onBackButtonClick = () => navigate(-1)
 
