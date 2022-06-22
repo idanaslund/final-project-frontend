@@ -98,14 +98,17 @@ export const RestaurantDetails = () => {
                   
           </LinkContainer>
           
-            
+          <div>
                {types.length > 1 ? (
                 types.map(type => (
+                  
                   <TypeOfFood key={type}>{type}</TypeOfFood>
+                  
                 ))
                ) :(
                 <TypeOfFood key="typeoffood">{types}</TypeOfFood >
                 )}
+          </div>
 
           </AdressWebSiteContainer>
 
@@ -118,14 +121,8 @@ export const RestaurantDetails = () => {
              
 
             <BookATableOpeningHoursContainer>
-                <BookATable />
-                
-                
-                </BookATableOpeningHoursContainer>
-            
-
-
-            <OpenHoursContainer>
+              <BookATable />
+              <OpenHoursContainer>
               <SecondHeader>Opening hours</SecondHeader>
               <ListedHours>
                 Monday: &nbsp;
@@ -149,6 +146,9 @@ export const RestaurantDetails = () => {
               {restaurant.opening_hours_sun}
               </ListedHours>
               </OpenHoursContainer>
+            </BookATableOpeningHoursContainer>
+          
+            
               
             
             </div>
