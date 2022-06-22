@@ -236,6 +236,7 @@ export const LoginSignupChoice = styled.div`
     font-family: 'Cabin', sans-serif;
     font-size: 16px;
     background-color: #da918b;
+    color: #2e2e2e;
     border: none;
     width: 70px;
     padding: 8px;
@@ -247,17 +248,6 @@ export const LoginSignupChoice = styled.div`
   }
 
   }
-`
-
-export const RegisterButton = styled.button`
-    font-family: 'Cabin', sans-serif;
-    font-size: 16px;
-    background-color: #da918b;
-    border: none;
-    width: 80px;
-    padding: 8px;
-    border-radius: 1px;
-    cursor: pointer;
 `
 
 export const LoginSignupForm = styled.form`
@@ -283,6 +273,7 @@ export const LoginSignupForm = styled.form`
     font-family: 'Cabin', sans-serif;
     font-size: 16px;
     background-color: #da918b;
+    color: #2e2e2e;
     border: none;
     width: 125px;
     padding: 8px;
