@@ -562,6 +562,10 @@ background: #fbf4f3;
 padding: 0.6em;
 line-height: 1.6;
 color: #2e2e2e;
+
+@media ${devices.tablet} {
+display: flex;
+}
 `
 
 export const OpenHoursContainer = styled.div`
@@ -570,6 +574,13 @@ line-height: 0.6;
 background: #fbf4f3;
 padding: 10px;
 margin-top: 1.4rem;
+
+@media ${devices.tablet} {
+display: flex;
+flex-direction: column;
+width: 49%;
+line-height: 0;
+}
 `
 
 export const ListedHours = styled.p`
@@ -581,6 +592,14 @@ export const BookATableContainer = styled.form`
 margin-top: 20px;
 background: #fbf4f3;
 padding: 8px;
+
+@media ${devices.tablet} {
+display: flex;
+flex-direction: column;
+width: 50%;
+}
+
+
 `
 
 export const BookATableInput = styled.input`
@@ -607,6 +626,13 @@ export const BookATableLogo = styled.img`
 height: 40px;
 display: block;
 margin-bottom: 10px;
+
+@media ${devices.tablet} {
+height: 40px;
+display: block;
+margin-bottom: 10px;
+width: 50%;
+}
 `
 
 /////////////// Log out page ///////////////
@@ -640,7 +666,58 @@ export const LogOutPage = styled.section`
 /////////////// Restaurant details page ///////////////
 export const ImageWrapper = styled.img`
 width: 340px;
+
+@media ${devices.tablet} {
+width: 360px;
+object-fit: cover;
+float: left;
+}
 `
+
+export const ImageAndInfoContainer = styled.div`
+
+@media ${devices.tablet} {
+display: flex;
+flex-direction: row;
+}
+`
+
+export const AdressWebSiteContainer = styled.div`
+@media ${devices.tablet} {
+display: flex;
+flex-direction: column;
+width: 50%;
+
+@media ${devices.tablet} {
+  margin-left: 2rem;
+}
+}
+`
+
+export const TotalTopContainer = styled.div`
+width: 100%;
+
+@media ${devices.tablet} {
+display: flex;
+flex-direction: row;
+}
+`
+
+
+export const HeaderDetailsPage = styled.h2`
+font-size: 20px;
+color: #2a5744;
+font-family: 'Cabin', sans-serif;
+margin-block-start: 6px;
+`
+
+export const BookATableOpeningHoursContainer = styled.div`
+@media ${devices.tablet} {
+display: flex;
+flex-direction: row;
+}
+`
+
 
 /////// Profile page ///////////////////////////
 

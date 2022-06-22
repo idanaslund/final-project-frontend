@@ -7,8 +7,8 @@ import { API_URL } from 'utils/urls'
 import user from 'reducers/user'
 
 import { ReviewComponent } from 'components/ReviewComponent'
-import { MarginSection, BackButton, GetInspiredButton, SecondHeader, ButtonContainer } from '../theme/reusable'
-import { ImageWrapper, LinkContainer, RestaurantAddress, RestaurantDescription, OpenHoursContainer, ListedHours, TypeOfFood, RestaurantLink } from '../theme/styles'
+import { MarginSection, BackButton, GetInspiredButton, ButtonContainer, SecondHeader } from '../theme/reusable'
+import { ImageWrapper, LinkContainer, RestaurantAddress, RestaurantDescription, OpenHoursContainer, ListedHours, TypeOfFood, RestaurantLink, ImageAndInfoContainer, AdressWebSiteContainer, HeaderDetailsPage, TotalTopContainer, BookATableOpeningHoursContainer } from '../theme/styles'
 import BookATable from 'components/BookATable'
 
 export const RestaurantDetails = () => { 
@@ -76,20 +76,29 @@ export const RestaurantDetails = () => {
           <div>
 
             <div key={restaurant.id}>
-          
+
+          <TotalTopContainer>
+
+          <ImageAndInfoContainer>
               
               <ImageWrapper src={restaurant.image_URL} alt={restaurant.name} />
-              
-         
-            
-                <SecondHeader>{restaurant.name}</SecondHeader>
-                <RestaurantAddress>{restaurant.address}</RestaurantAddress>
-                <LinkContainer>
+          
+          </ImageAndInfoContainer>
 
-                <RestaurantLink href={restaurant.website}>Website</RestaurantLink>
+                
+          <AdressWebSiteContainer>
+
+            <HeaderDetailsPage>{restaurant.name}</HeaderDetailsPage>
+        
+            <RestaurantAddress>{restaurant.address}</RestaurantAddress>
+                
+          <LinkContainer>
+
+            <RestaurantLink href={restaurant.website}>Website</RestaurantLink>
                   
-                </LinkContainer>
-               
+          </LinkContainer>
+          
+            
                {types.length > 1 ? (
                 types.map(type => (
                   <TypeOfFood key={type}>{type}</TypeOfFood>
@@ -98,11 +107,21 @@ export const RestaurantDetails = () => {
                 <TypeOfFood key="typeoffood">{types}</TypeOfFood >
                 )}
 
-               
+          </AdressWebSiteContainer>
+
+              </TotalTopContainer>
+
+
+
                 <RestaurantDescription>{restaurant.description}</RestaurantDescription>
              
-             <div>
-                <BookATable /></div>
+             
+
+            <BookATableOpeningHoursContainer>
+                <BookATable />
+                
+                
+                </BookATableOpeningHoursContainer>
             
 
 
@@ -131,10 +150,6 @@ export const RestaurantDetails = () => {
               </ListedHours>
               </OpenHoursContainer>
               
-           <div>
-              
-              
-              </div>
             
             </div>
             
