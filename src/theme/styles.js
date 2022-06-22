@@ -657,6 +657,10 @@ display: block;
 margin-bottom: 10px;
 width: 50%;
 }
+
+@media ${devices.desktop} {
+width: 40%;
+}
 `
 
 /////////////// Log out page ///////////////
