@@ -670,7 +670,6 @@ width: 340px;
 @media ${devices.tablet} {
 width: 360px;
 object-fit: cover;
-float: left;
 }
 `
 
