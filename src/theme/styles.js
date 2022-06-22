@@ -53,6 +53,7 @@ export const RestaurantCard = styled.div`
 
   .restaurantImage {
     width: 100%;
+    padding-bottom: 10px;
   }
 
   h2 {
@@ -101,6 +102,15 @@ export const FilterContainer = styled.article`
 padding: 1rem;
 border-radius: 2px;
 background-color: #fbf4f352;
+margin-bottom: 10px;
+
+@media ${devices.tablet}{
+ margin: 10px;
+}
+
+@media ${devices.desktop}{
+  margin: 10px;
+}
 `
 
 export const EachFilterContainer = styled.div`
