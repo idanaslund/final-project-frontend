@@ -7,5 +7,6 @@ TECH STACK - React, Redux, Styled components, Lottie animations, Material UI for
 
 View it live here: https://foodiefinder.netlify.app/
 
+Repo for backend: https://github.com/idanaslund/final-project-backend
 
 // Joanna Lodell, Emma Lindell, Ida Näslund
