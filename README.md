@@ -1,21 +1,11 @@
-# Technigo React Starter App
+# foodiefinder
+This the result of our final project for Technigo web Bootcamp, spring 2022. This was created as a group project and we have worked a lot with mob programming and git branches. 
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
+Our idea was to create a web app for the user to find fine dining restaurants in Stockholm. The goal and value for the user is to find something that matches pre-specified requirements, such as family friendly, price or portion size. The user can login, edit their profile information, filter restaurants using various checkboxes, read more about the restaurants and write reviews.
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
+TECH STACK - React, Redux, Styled components, Lottie animations, Material UI for our checkboxes, EmailJS for BootATable, Progressive web app, Figma and Canva.
 
-Testing!
+View it live here: https://foodiefinder.netlify.app/
 
-## Usage
 
-1. On GitHub, click the 'use this template' button to create a new repo on your account
-1. Clone the new repo to your computer
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
-
-Alternatively, if you don't want a new git repo on your account;
-
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+// Joanna Lodell, Emma Lindell, Ida Näslund
