@@ -127,7 +127,7 @@ const FilteringPage = () => {
         setFilterActive(true)
     }
     setFilteredRestaurants(filteredRestaurants)
-  }, [restaurants, typeOfFoodFilter, mealsFilter, budgetFilter, portionSizeFilter, targetAudienceFilter, restaurantFocusFilter, dogFriendlyFilter, outdoorAreaFilter])           ///Lägg in alla useStates (Här ligger alla våra filter som är beroende av filtreringen)
+  }, [restaurants, typeOfFoodFilter, mealsFilter, budgetFilter, portionSizeFilter, targetAudienceFilter, restaurantFocusFilter, dogFriendlyFilter, outdoorAreaFilter])    
 
   // Type of Food
   const updateTypeOfFoodFilter = (e) => {
