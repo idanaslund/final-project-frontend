@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://new-restaurants-backend.herokuapp.com/'
+export const BASE_URL = 'https://new-restaurants-backend.herokuapp.com'
 
 export const SIGNUP = 'signup'
 
